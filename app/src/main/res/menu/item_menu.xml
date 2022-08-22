@@ -16,6 +16,11 @@
         android:title="Books" />
 
 
+    <item
+        android:id="@+id/nav_chat"
+        android:icon="@drawable/ic_baseline_chat_bubble_24"
+        android:title="Chat"
+        android:iconTint="@color/white"/>
 
 
 </menu>
