@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "525683319221",
+    "firebase_url": "https://goread-7c292-default-rtdb.firebaseio.com",
+    "project_id": "goread-7c292",
+    "storage_bucket": "goread-7c292.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525683319221:android:a9f91d422db641f97239fc",
+        "android_client_info": {
+          "package_name": "com.goread.library"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525683319221-mlt54bheq6miqnal7ni6dbc4ji5uqn22.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCstM5dFtpMa8I7gw2ySoLpS8HlJ5G__gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525683319221-mlt54bheq6miqnal7ni6dbc4ji5uqn22.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_main"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_baseline_person_outline_maincolor24"
+            android:background="@drawable/bg_button"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="10dp"
+            android:text="Admin Name"
+            android:id="@+id/tv_library"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="My Dashboard"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+  <!--  <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Home"
+        android:textColor="@color/mainColor"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
+        android:id="@+id/recycler_books"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginTop="20dp" />
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fab_addButtonColorNormal="@color/mainColor"
+        app:fab_addButtonColorPressed="@color/light"
+        app:fab_addButtonSize="normal"
+        app:fab_labelStyle="@style/customFab"
+        android:layout_gravity="end|bottom"
+        >
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/light"
+            app:fab_colorPressed="@color/mainColor"
+            app:fab_size="mini"
+            app:fab_title="Add Quote"
+            app:fab_icon="@drawable/ic_baseline_format_quote_24"
+            android:id="@+id/fab_quote"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/light"
+            app:fab_colorPressed="@color/mainColor"
+            app:fab_size="mini"
+            app:fab_title="Add Book"
+            app:fab_icon="@drawable/ic_baseline_menu_book_24"
+            android:id="@+id/fab_book"/>
+
+
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</LinearLayout>

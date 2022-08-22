@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#CBDF9966"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/bg_login"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginStart="20dp"
+            android:padding="10dp"
+            android:text="Sign In"
+            android:textColor="@color/black"
+            android:textSize="45sp"        />
+        //android:textStyle="bold"
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:baselineAligned="true"
+            android:imeOptions="actionNext"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_email"
+            app:startIconTint="@color/mainColor"
+
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Email"
+                android:imeOptions="actionNext"
+
+                android:paddingBottom="-10dp"
+                android:singleLine="true"
+
+
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="1dp"
+            app:boxBackgroundColor="@color/white"
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/ic_lock"
+            app:startIconTint="@color/mainColor"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter password"
+                android:imeOptions="actionGo"
+                android:inputType="textPassword"
+                android:paddingBottom="-10dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tv_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="30dp"
+            android:text="Forget Password?"
+            android:textColor="@color/mainColor"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/btn_signIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_button"
+                android:padding="5dp"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="170dp"
+        android:layout_height="179dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/ic_img_library1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</FrameLayout>
