@@ -38,6 +38,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="My Dashboard"
+
             android:textColor="@color/white"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -54,44 +55,47 @@
         android:textSize="25dp"
         android:textStyle="bold" />
 -->
+    //fregment?
     <androidx.recyclerview.widget.RecyclerView
-        android:padding="10dp"
         android:id="@+id/recycler_books"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="20dp" />
+        android:layout_height="566dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        tools:listitem="@layout/activity_home_item" />
 
-    <com.getbase.floatingactionbutton.FloatingActionsMenu
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:fab_addButtonColorNormal="@color/mainColor"
-        app:fab_addButtonColorPressed="@color/light"
-        app:fab_addButtonSize="normal"
-        app:fab_labelStyle="@style/customFab"
-        android:layout_gravity="end|bottom"
-        >
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/light"
-            app:fab_colorPressed="@color/mainColor"
-            app:fab_size="mini"
-            app:fab_title="Add Quote"
-            app:fab_icon="@drawable/ic_baseline_format_quote_24"
-            android:id="@+id/fab_quote"/>
+    <!--
+     <com.getbase.floatingactionbutton.FloatingActionsMenu
+         android:layout_width="112dp"
+         android:layout_height="194dp"
+         android:layout_gravity="end|bottom"
+         app:fab_addButtonColorNormal="@color/mainColor"
+         app:fab_addButtonColorPressed="@color/light"
+         app:fab_addButtonSize="normal"
+         app:fab_labelStyle="@style/customFab">
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_colorNormal="@color/light"
-            app:fab_colorPressed="@color/mainColor"
-            app:fab_size="mini"
-            app:fab_title="Add Book"
-            app:fab_icon="@drawable/ic_baseline_menu_book_24"
-            android:id="@+id/fab_book"/>
+         <com.getbase.floatingactionbutton.FloatingActionButton
+             android:id="@+id/fab_quote"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:fab_colorNormal="@color/light"
+             app:fab_colorPressed="@color/mainColor"
+             app:fab_icon="@drawable/ic_baseline_format_quote_24"
+             app:fab_size="mini"
+             app:fab_title="Add Quote"
 
-
+         <com.getbase.floatingactionbutton.FloatingActionButton
+             android:id="@+id/fab_book"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:fab_colorNormal="@color/light"
+             app:fab_colorPressed="@color/mainColor"
+             app:fab_icon="@drawable/ic_baseline_menu_book_24"
+             app:fab_size="mini"
+             app:fab_title="Add Book" />
+  />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
+-->
 
 </LinearLayout>

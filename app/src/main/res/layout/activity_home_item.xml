@@ -48,7 +48,7 @@
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_img_library1" />
+                        android:src="@drawable/ic_libraryoutline" />
 
                     <TextView
                         android:layout_width="wrap_content"
