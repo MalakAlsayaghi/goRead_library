@@ -12,6 +12,9 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".ProfilActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddAdminActivity"
             android:exported="true" />
         <activity
