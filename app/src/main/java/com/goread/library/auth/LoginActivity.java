@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = findViewById(R.id.btn_signIn);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
-        register = findViewById(R.id.tv_signUp);
+        //register = findViewById(R.id.tv_signUp);
         forget = findViewById(R.id.tv_forget);
     }
 }
