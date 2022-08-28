@@ -12,6 +12,12 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".delivery_itemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeliveryListActivity"
+            android:exported="true" />
+        <activity
             android:name=".AddLibraryActivity"
             android:exported="true" />
         <activity
@@ -19,11 +25,13 @@
             android:exported="true" />
         <activity
             android:name=".Library_itemActivity"
-            android:exported="true" > <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ProfilActivity"
             android:exported="true" />
@@ -47,9 +55,7 @@
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".auth.SignUpActivity"
             android:exported="false" />
