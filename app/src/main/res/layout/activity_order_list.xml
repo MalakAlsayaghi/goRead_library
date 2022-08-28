@@ -27,10 +27,14 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Orders"
+            android:text="Order List"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_baseline_more_vert_24" />
 
     </LinearLayout>
 
@@ -39,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/activity_order_item_lib"
+        tools:listitem="@layout/activity_order_item"
         />
 
 </LinearLayout>

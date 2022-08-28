@@ -1,12 +1,10 @@
-package com.goread.library.activities;
+package com.goread.library;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.goread.library.R;
-
-public class OrderItemActivity extends AppCompatActivity {
+public class Order_itemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

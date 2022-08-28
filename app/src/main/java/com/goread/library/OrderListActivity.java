@@ -1,16 +1,14 @@
-package com.goread.library.activities;
+package com.goread.library;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.goread.library.R;
-
-public class OrderItemActivity extends AppCompatActivity {
+public class OrderListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_item_lib);
+        setContentView(R.layout.activity_order_list);
     }
 }

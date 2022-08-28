@@ -196,6 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="invisible"
                 >
 
 
@@ -226,10 +227,28 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
             </LinearLayout>
 
+            <ImageButton
+                android:id="@+id/Chat_customer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/ic_baseline_chat_bubble_24"
+                 />
 
 
 
-
+            <Button
+                android:id="@+id/btn_prepare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:background="@drawable/bg_button"
+                android:padding="5dp"
+                android:text="Prepare"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </LinearLayout>
 

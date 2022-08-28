@@ -12,6 +12,12 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".Order_itemActivity"
+            android:exported="true" />
+        <activity
+            android:name=".OrderListActivity"
+            android:exported="true" />
+        <activity
             android:name=".UsersListActivity"
             android:exported="true" />
         <activity
