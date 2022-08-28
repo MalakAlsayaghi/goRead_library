@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+
+    >
+
+    <LinearLayout
+        android:id="@+id/nav_order_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Add Library"
+            android:textColor="@color/mainColor"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/relat_lay"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/book_img"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:padding="20dp"
+            android:src="@drawable/ic_libraryoutline" />
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-50dp"
+            android:layout_marginTop="130dp"
+            android:layout_toRightOf="@+id/book_img"
+            android:background="@drawable/shape_stauts_completed"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_edit_24" />
+
+
+    </RelativeLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/mainColor"
+        app:boxStrokeColor="@color/mainColor">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/library_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Library Name"
+            android:inputType="text"
+            android:textColor="@color/mainColor"
+            android:textColorHint="@color/mainColor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/relat_lay2"
+        android:layout_width="367dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/mainColor"
+            app:boxStrokeColor="@color/mainColor">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/upload_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Library Address"
+                android:inputType="text"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/mainColor" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/book_img"
+                android:background="@drawable/circled_bg_white"
+                android:clickable="true"
+                android:layout_marginTop="-45dp"
+android:layout_marginStart="280dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_location_on_24" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/mainColor"
+        app:boxStrokeColor="@color/mainColor">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tv_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="number"
+            android:textColor="@color/mainColor"
+            android:textColorHint="@color/mainColor" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+    <Button
+        android:id="@+id/btn_add_library"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/circled_bg_maincolor"
+        android:text="Add"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+
+
+</LinearLayout>
