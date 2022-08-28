@@ -162,10 +162,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolde
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.product_name);
-            price = itemView.findViewById(R.id.product_price);
-            cvProduct = itemView.findViewById(R.id.cvProduct);
-            pro_img = itemView.findViewById(R.id.product_img);
+
             ratingBar = itemView.findViewById(R.id.rating_bar);
             delete_item = itemView.findViewById(R.id.delete_item);
             edit_item = itemView.findViewById(R.id.edit_item);

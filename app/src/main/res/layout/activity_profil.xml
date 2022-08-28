@@ -79,7 +79,7 @@
                     android:background="@drawable/bg_button"
                     android:clickable="true"
                     android:padding="5dp"
-                    android:src="@drawable/ic_baseline_edit_24_maincolor"/>
+                    android:src="@drawable/ic_baseline_edit_24_maincolor" />
 
 
             </RelativeLayout>

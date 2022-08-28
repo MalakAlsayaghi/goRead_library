@@ -87,16 +87,16 @@ public class AddBookActivity extends AppCompatActivity {
         });
     }
 
-    public void defineViews() {
-        add_img = findViewById(R.id.add_image);
-        et_name = findViewById(R.id.upload_name);
-        et_desc = findViewById(R.id.upload_desc);
-        et_price = findViewById(R.id.upload_price);
-        btnUpload = findViewById(R.id.upload_btn);
-        cb_classic = findViewById(R.id.cb_classic);
-        cb_drama = findViewById(R.id.cb_drama);
-        cb_action = findViewById(R.id.cb_action);
-        cb_romantic = findViewById(R.id.cb_romantic);
+   public void defineViews() {
+        //add_img = findViewById(R.id.add_image);
+        //et_name = findViewById(R.id.upload_name);
+        //et_desc = findViewById(R.id.upload_desc);
+        //et_price = findViewById(R.id.upload_price);
+       // btnUpload = findViewById(R.id.upload_btn);
+        //cb_classic = findViewById(R.id.cb_classic);
+        //cb_drama = findViewById(R.id.cb_drama);
+        //cb_action = findViewById(R.id.cb_action);
+        //cb_romantic = findViewById(R.id.cb_romantic);
 
 
         storage = FirebaseStorage.getInstance();
