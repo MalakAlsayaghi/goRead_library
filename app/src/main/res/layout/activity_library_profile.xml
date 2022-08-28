@@ -94,7 +94,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_first_name"
+                    android:id="@+id/library_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -107,7 +107,7 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_profile_first_name"
+                    android:id="@+id/tv_library_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -128,7 +128,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_last_name"
+                    android:id="@+id/library_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -141,7 +141,7 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_profile_list_name"
+                    android:id="@+id/tv_library_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -162,7 +162,7 @@
 
 
                 <TextView
-                    android:id="@+id/profile_last_name"
+                    android:id="@+id/library_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -175,7 +175,7 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_profile_list_name"
+                    android:id="@+id/tv_library_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
