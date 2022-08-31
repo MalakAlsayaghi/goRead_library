@@ -92,8 +92,8 @@ public class HomeFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_home, container, false);
 
         recycler_books = v.findViewById(R.id.recycler_books);
-        fab_book = v.findViewById(R.id.fab_book);
-        fab_quote = v.findViewById(R.id.fab_quote);
+        //fab_book = v.findViewById(R.id.fab_book);
+        //fab_quote = v.findViewById(R.id.fab_quote);
         tv_library = v.findViewById(R.id.tv_library);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
