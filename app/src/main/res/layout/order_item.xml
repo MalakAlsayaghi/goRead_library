@@ -226,7 +226,15 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
             </LinearLayout>
 
-
+            <ImageButton
+                android:id="@+id/edit_item"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="150dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_baseline_edit_24_maincolor"
+                />
 
 
 

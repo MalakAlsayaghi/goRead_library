@@ -61,6 +61,6 @@ public class QoutesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_qoutes, container, false);
+        return inflater.inflate(R.layout.fragment_quotes, container, false);
     }
 }
