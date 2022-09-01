@@ -31,10 +31,7 @@
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_baseline_more_vert_24" />
+
 
     </LinearLayout>
 

@@ -4,17 +4,14 @@
     <item android:id="@+id/item1"
         android:title="Edit"
         android:iconTint="@color/light"
-
         />
     <item android:id="@+id/item2"
         android:title="Block"
         android:iconTint="@color/light"
-
         />
 
     <item android:id="@+id/item3"
         android:title="Delete"
         android:iconTint="@color/light"
-
         />
 </menu>
