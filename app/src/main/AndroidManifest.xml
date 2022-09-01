@@ -25,42 +25,33 @@
             android:name=".LibraryProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".Order_itemActivity"
+            android:name=".AllOrdersActivity"
             android:exported="true" />
         <activity
-            android:name=".OrderListActivity"
+            android:name=".AllUsersActivity"
             android:exported="true" />
         <activity
-            android:name=".UsersListActivity"
-            android:exported="true" />
-        <activity
-            android:name=".delivery_itemActivity"
-            android:exported="true" />
-        <activity
-            android:name=".DeliveryListActivity"
+            android:name=".AllDriversActivity"
             android:exported="true" />
         <activity
             android:name=".AddLibraryActivity"
             android:exported="true" />
         <activity
-            android:name=".LibraryListActivity"
+            android:name=".AllLibrariesActivity"
             android:exported="true" />
         <activity
-            android:name=".Library_itemActivity"
+            android:name=".Library_item"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".ProfilActivity"
+            android:name=".ProfileActivity"
             android:exported="true" />
         <activity
             android:name=".AddAdminActivity"
             android:exported="true" />
         <activity
             android:name=".activities.QuotesActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activities.OrderItemActivity"
             android:exported="true" />
         <activity
             android:name=".LibraryOrdersActivity"

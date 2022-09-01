@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/activity_order_item"
+        tools:listitem="@layout/order_item"
         />
 
 </LinearLayout>

@@ -61,7 +61,7 @@
         android:layout_height="566dp"
         android:layout_marginTop="20dp"
         android:padding="10dp"
-        tools:listitem="@layout/activity_home_item" />
+        tools:listitem="@layout/fragment_home_admin" />
 
     <!--
      <com.getbase.floatingactionbutton.FloatingActionsMenu
