@@ -23,11 +23,27 @@
             android:layout_margin="5dp"
             android:gravity="center"
             android:padding="20dp"
+            android:hint="The Quote"
             android:textAlignment="center"
             android:textColor="@color/brown"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        <EditText
+            android:id="@+id/quote"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+android:layout_gravity="center"
+            android:hint="from book"
+            android:textColor="@color/brown"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
