@@ -18,7 +18,7 @@
             android:id="@+id/cvDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="10dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,6 @@
             android:id="@+id/donut_progress"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:layout_marginTop="10dp"
             app:donut_finished_color="@color/maincolor"
             app:donut_finished_stroke_width="30dp"
             app:donut_progress="70"
@@ -84,11 +83,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:padding="10dp"
+        android:orientation="vertical"
+        android:padding="5dp"
         android:weightSum="2">
-        <com.google.android.material.card.MaterialCardView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="2">
+            <com.google.android.material.card.MaterialCardView
+
+                app:cardCornerRadius="20dp"
+                app:strokeColor="@color/mainColor"
+                app:strokeWidth="2dp"
+                android:id="@+id/btn_order"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_order_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:text="New Orders"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
 
             app:cardCornerRadius="20dp"
             app:strokeColor="@color/mainColor"
@@ -128,47 +173,99 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-        <com.google.android.material.card.MaterialCardView
+        </LinearLayout>
 
-            app:cardCornerRadius="20dp"
-            app:strokeColor="@color/mainColor"
-            app:strokeWidth="2dp"
-            android:id="@+id/btn_order"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:backgroundTint="@color/white"
-            android:clickable="true"
-            app:cardElevation="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="2">
+            <com.google.android.material.card.MaterialCardView
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                app:cardCornerRadius="20dp"
+                app:strokeColor="@color/mainColor"
+                app:strokeWidth="2dp"
+                android:id="@+id/btn_quote"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                app:cardElevation="8dp">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_baseline_format_quote_24" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:text="Upload Quotes"
-                    android:textAlignment="center"
-                    android:textColor="@color/mainColor"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_format_quote_24" />
 
-        </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:text="Upload Quotes"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+
+                app:cardCornerRadius="20dp"
+                app:strokeColor="@color/mainColor"
+                app:strokeWidth="2dp"
+                android:id="@+id/btn_chat"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:clickable="true"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_baseline_chat_bubble_24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:text="Chat"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainColor"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
     </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
