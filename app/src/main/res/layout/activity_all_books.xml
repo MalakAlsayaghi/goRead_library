@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical"
-    >
-
+    tools:context=".fragments.BookFragment">
     <LinearLayout
-        android:id="@+id/nav_orders"
+        android:id="@+id/nav_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -27,7 +27,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Drivers List"
+            android:text="Books List"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
@@ -36,11 +36,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/history_recycler"
+        android:id="@+id/recycler_allBooks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        tools:listitem="@layout/driver_item"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        tools:listitem="@layout/book_item"
         />
 
 </LinearLayout>

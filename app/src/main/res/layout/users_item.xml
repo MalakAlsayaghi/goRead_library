@@ -36,7 +36,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="240dp"
+            android:layout_width="109dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical"
@@ -62,9 +62,7 @@
                 android:text="Email Address"
                 android:textColor="@color/mainColor"
                 android:textSize="13sp"
-                android:textStyle="bold"
-                 />
-
+                android:textStyle="bold" />
 
 
             <TextView
@@ -75,10 +73,17 @@
                 android:text="Phone Number"
                 android:textColor="@color/mainColor"
                 android:textSize="13sp"
-                android:textStyle="bold"
-                 />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
+        <ImageButton
+            android:id="@+id/edit_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="150dp"
+            android:background="@color/white"
+            android:src="@drawable/ic_baseline_edit_24_maincolor" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

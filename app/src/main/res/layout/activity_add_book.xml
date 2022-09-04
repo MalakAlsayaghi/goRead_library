@@ -83,7 +83,7 @@
             android:id="@+id/upload_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Name"
+            android:hint="Book Name"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -106,7 +106,7 @@
             android:id="@+id/upload_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Product Description"
+            android:hint="Book Description"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -155,7 +155,7 @@
             android:id="@+id/book_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="book_quote"
+            android:hint="Book_quote"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
