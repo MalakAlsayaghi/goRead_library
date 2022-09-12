@@ -68,4 +68,6 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation "com.github.zcweng:switch-button:0.0.3@aar"
+
 }

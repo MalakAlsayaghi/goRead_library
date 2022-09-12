@@ -55,6 +55,7 @@ android:layout_gravity="center"
                 app:layout_constraintTop_toBottomOf="parent" />
 
 
+
             <RatingBar
                 android:id="@+id/rating_bar"
                 style="@style/Widget.AppCompat.RatingBar.Small"
@@ -90,20 +91,20 @@ android:layout_gravity="center"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:layout_alignParentStart="true"
                     android:id="@+id/delete_item"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:background="@color/white"
                     android:src="@drawable/ic_baseline_delete_forever_24"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
+
+                    />
 
                 <ImageButton
                     android:id="@+id/edit_item"
@@ -111,19 +112,17 @@ android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:src="@drawable/ic_baseline_edit_24_maincolor"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintRight_toLeftOf="@id/delete_item"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
+                   android:layout_centerInParent="true" />
 
-                <Switch
+                <com.suke.widget.SwitchButton
+
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="visibility"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:textColor="@color/mainColor"
                     android:textColorHighlight="@color/mainColor" />
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
     </LinearLayout>
