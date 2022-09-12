@@ -13,7 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- all items cusomized. -->
         <item name="android:itemTextAppearance">@style/textColor</item>
-        <item name="android:itemBackground">@color/light_brown</item>
+        <item name="android:itemBackground">@color/mainColor</item>
     </style>
 
     <style name="textColor"
