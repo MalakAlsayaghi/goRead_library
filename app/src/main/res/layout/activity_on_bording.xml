@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guidelines"
+        android:layout_margin="20dp"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textColor="@color/mainColor"
@@ -16,8 +17,9 @@
     <ImageView
         android:id="@+id/img_intro"
         android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/ic_privacypolicy" />
 
 
@@ -26,19 +28,94 @@
         android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_gravity="center"
-        android:text=""
-        android:textAlignment="center"
+        android:text="To provide a safe and trusted experience for everyone here are some guidelines you must know:
+"
         android:textColor="@color/brown"
         android:textSize="16sp" />
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        >
+        <TableRow>
+
+            <TextView
+                android:layout_marginTop="10dp"
+
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:text="•Admin will have full control like:\n
+ Deleting or blocking the library.\n
+ Deleting quotes or books.\n
+ Chats with customers will be viewed."
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                ></TextView>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:text="•Pictures uploaded must be appropriate.
+"        android:layout_marginTop="10dp"
+
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                ></TextView>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:text="•Inappropriate words will be censored.
+"        android:layout_marginTop="10dp"
+
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                ></TextView>
+        </TableRow>
+
+
+
+        <TableRow>
+
+            <TextView
+                android:layout_marginTop="10dp"
+
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:text="•The library owner is not allowed to share or publish his own personal contact information.
+"
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                ></TextView>
+        </TableRow>
+
+
+
+    </TableLayout>
+
+    <CheckBox
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="I have read and agreed to all Terms and Conditions"/>
+
     <Button
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/mainColor"
-        android:text="Agree"
+        android:text="Done"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold" />
