@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in"></string>
+    <string name="enter_email">Enter Email</string>
+    <string name="choose_category">Choose Category...!</string>
+</resources>

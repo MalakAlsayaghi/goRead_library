@@ -119,7 +119,7 @@ public class AddBookActivity extends AppCompatActivity {
         } else if (cb_action.isChecked()) {
             category = "Action";
         } else {
-            Toast.makeText(this, "Choose Category...!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.choose_category, Toast.LENGTH_SHORT).show();
         }
         return category;
     }

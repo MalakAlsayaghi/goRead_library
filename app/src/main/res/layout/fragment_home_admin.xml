@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|center"
-                        android:text="Wallet"
+                        android:text="My Earnings"
                         android:textAlignment="center"
                         android:textColor="@color/mainColor"
                         android:textSize="18sp"
