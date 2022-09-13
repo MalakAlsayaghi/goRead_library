@@ -27,7 +27,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="All Notification"
+            android:text="@string/all_notifications"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />

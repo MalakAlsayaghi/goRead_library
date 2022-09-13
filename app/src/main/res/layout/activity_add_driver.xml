@@ -28,7 +28,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Add Driver"
+            android:text="@string/add_driver"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
@@ -82,7 +82,7 @@
             android:id="@+id/driver_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Driver Name"
+            android:hint="@string/driver_name"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -105,7 +105,7 @@
             android:id="@+id/driver_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="@string/phone_number"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -151,7 +151,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/circled_bg_maincolor"
-        android:text="Add"
+        android:text="@string/add"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="15sp"

@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
     <item android:id="@+id/edit"
-        android:title="Edit"
+        android:title="@string/edit"
         android:icon="@drawable/ic_baseline_edit_24"
         android:iconTint="@color/mainColor"
         />
     <item android:id="@+id/block"
-        android:title="Block"
+        android:title="@string/block"
         android:icon="@drawable/ic_baseline_block_24"
         android:iconTint="@color/mainColor"
         />
 
     <item android:id="@+id/delete"
-        android:title="Delete"
+        android:title="@string/delete"
         android:icon="@drawable/ic_baseline_delete_24"
         android:iconTint="@color/mainColor"
         />

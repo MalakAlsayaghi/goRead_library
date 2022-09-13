@@ -28,7 +28,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Add Book"
+            android:text="@string/add_book"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
@@ -83,7 +83,7 @@
             android:id="@+id/upload_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Book Name"
+            android:hint="@string/book_name"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -106,7 +106,7 @@
             android:id="@+id/upload_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Book Description"
+            android:hint="@string/book_description"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -130,7 +130,7 @@
             android:id="@+id/upload_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Price"
+            android:hint="@string/price"
             android:inputType="number"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -155,7 +155,7 @@
             android:id="@+id/book_quote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Book_quote"
+            android:hint="@string/book_quote"
             android:inputType="text"
             android:textColor="@color/mainColor"
             android:textColorHint="@color/mainColor" />
@@ -169,7 +169,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="10dp"
-        android:text="Category"
+        android:text="@string/category"
         android:textSize="17dp"
         android:textColor="@color/mainColor"
         android:layout_marginStart="20dp"
@@ -204,40 +204,40 @@
                     android:id="@+id/cb_GeneralKnowledge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="General Knowledge" />
+                    android:text="@string/general_knowledge" />
 
 
                 <CheckBox
                     android:id="@+id/cb_Philosophy_Psychology"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Philosophy &amp; Psychology" />
+                    android:text="@string/philosophy_amp_psychology" />
 
                 <CheckBox
                     android:id="@+id/cb_Religion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Religion" />
+                    android:text="@string/religion" />
 
                 <CheckBox
                     android:id="@+id/cb_SocialScience"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Social Science" />
+                    android:text="@string/social_science" />
 
                 <CheckBox
                     android:id="@+id/cb_classic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:text="Classic" />
+                    android:text="@string/classic" />
 
 
                 <CheckBox
                     android:id="@+id/cb_Languages"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Languages" />
+                    android:text="@string/languages" />
 
             </LinearLayout>
 
@@ -251,32 +251,32 @@
                     android:id="@+id/cb_Science"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Science" />
+                    android:text="@string/science" />
 
                 <CheckBox
                     android:id="@+id/cb_Technology"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Technology" />
+                    android:text="@string/technology" />
 
 
                 <CheckBox
                     android:id="@+id/cb_Art_Recreation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Art &amp; Recreation" />
+                    android:text="@string/art_amp_recreation" />
 
                 <CheckBox
                     android:id="@+id/cb_Literature"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Literature" />
+                    android:text="@string/literature" />
 
                 <CheckBox
                     android:id="@+id/cb_History_Geography"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="History &amp; Geography" />
+                    android:text="@string/history_amp_geography" />
 
 
             </LinearLayout>
@@ -292,7 +292,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/circled_bg_maincolor"
-        android:text="Upload"
+        android:text="@string/upload"
         android:textAllCaps="false"
         android:textSize="15sp"
         android:textStyle="bold" />

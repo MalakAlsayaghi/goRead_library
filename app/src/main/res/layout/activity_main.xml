@@ -63,7 +63,7 @@
                 android:layout_marginTop="0dp"
                 android:gravity="center"
                 android:padding="5dp"
-                android:text="Home"
+                android:text="@string/home"
                 android:textColor="@color/mainColor"
                 android:textSize="25sp"
                 android:textStyle="bold" />

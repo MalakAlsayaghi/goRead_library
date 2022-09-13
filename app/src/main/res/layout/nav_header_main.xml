@@ -30,7 +30,7 @@
             android:layout_marginTop="110dp"
             android:layout_weight="1"
             android:paddingTop="15dp"
-            android:text="Name"
+            android:text="@string/name"
             android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold"

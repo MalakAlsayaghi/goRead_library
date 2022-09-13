@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
             android:layout_marginStart="10dp"
-            android:text="Admin Name"
+            android:text="@string/admin_name"
             android:id="@+id/tv_library"
             android:textColor="@color/white"
             android:textStyle="bold" />
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:text="My Dashboard"
+            android:text="@string/my_dashboard"
 
             android:textColor="@color/white"
             android:textSize="25sp"

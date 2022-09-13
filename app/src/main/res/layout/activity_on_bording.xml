@@ -8,7 +8,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guidelines"
+        android:text="@string/guidelines"
         android:layout_margin="20dp"
         android:layout_gravity="center"
         android:textAlignment="center"
@@ -31,8 +31,7 @@
 android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_gravity="center"
-        android:text="To provide a safe and trusted experience for everyone here are some guidelines you must know:
-"
+        android:text="@string/to_provide_a_safe_and_trusted_experience_for_everyone_here_are_some_guidelines_you_must_know"
         android:textColor="@color/brown"
         android:textSize="16sp" />
 
@@ -49,10 +48,7 @@ android:layout_marginStart="10dp"
 
                 android:layout_column="1"
                 android:layout_width="wrap_content"
-                android:text="•Admin will have full control like:\n
- Deleting or blocking the library.\n
- Deleting quotes or books.\n
- Chats with customers will be viewed."
+                android:text="@string/admin_will_have_full_control_like_n_deleting_or_blocking_the_library_n_deleting_quotes_or_books_n_chats_with_customers_will_be_viewed"
                 android:textColor="@color/brown"
                 android:textSize="16sp"
                 ></TextView>
@@ -63,8 +59,7 @@ android:layout_marginStart="10dp"
             <TextView
                 android:layout_column="1"
                 android:layout_width="wrap_content"
-                android:text="•Pictures uploaded must be appropriate.
-"        android:layout_marginTop="10dp"
+                android:text="@string/pictures_uploaded_must_be_appropriate"        android:layout_marginTop="10dp"
 
                 android:textColor="@color/brown"
                 android:textSize="16sp"
@@ -76,8 +71,7 @@ android:layout_marginStart="10dp"
             <TextView
                 android:layout_column="1"
                 android:layout_width="wrap_content"
-                android:text="•Inappropriate words will be censored.
-"        android:layout_marginTop="10dp"
+                android:text="@string/inappropriate_words_will_be_censored"        android:layout_marginTop="10dp"
 
                 android:textColor="@color/brown"
                 android:textSize="16sp"
@@ -93,8 +87,7 @@ android:layout_marginStart="10dp"
 
                 android:layout_column="1"
                 android:layout_width="wrap_content"
-                android:text="•The library owner is not allowed to share or publish his own personal contact information.
-"
+                android:text="@string/the_library_owner_is_not_allowed_to_share_or_publish_his_own_personal_contact_information"
                 android:textColor="@color/brown"
                 android:textSize="16sp"
                 ></TextView>
@@ -108,14 +101,14 @@ android:layout_marginStart="10dp"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="I have read and agreed to all Terms and Conditions"/>
+        android:text="@string/i_have_read_and_agreed_to_all_terms_and_conditions"/>
 
     <Button
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/mainColor"
-        android:text="Done"
+        android:text="@string/done"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textStyle="bold" />
