@@ -17,8 +17,8 @@
     <ImageView
         android:id="@+id/img_intro"
         android:layout_gravity="center"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_privacypolicy" />
 
@@ -77,7 +77,17 @@ android:layout_marginStart="10dp"
                 android:textSize="16sp"
                 ></TextView>
         </TableRow>
+        <TableRow>
 
+            <TextView
+                android:layout_column="1"
+                android:layout_width="wrap_content"
+                android:text="@string/always_keep_your_data_up_to_date"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/brown"
+                android:textSize="16sp"
+                ></TextView>
+        </TableRow>
 
 
         <TableRow>
