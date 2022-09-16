@@ -12,6 +12,9 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".ResetPasswordDialog"
+            android:exported="false" />
+        <activity
             android:name=".MyEarningActivity"
             android:exported="false" />
         <activity
@@ -19,7 +22,7 @@
             android:exported="true" />
         <activity
             android:name=".OrderItem"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".DriverItem"
             android:exported="true" />

@@ -124,4 +124,7 @@
     <string name="sign_out">تسجيل خروج</string>
     <string name="edit">تعديل</string>
     <string name="always_keep_your_data_up_to_date">Always keep your data up to date.</string>
+    <string name="reset">Reset</string>
+    <string name="please_enter_your_email_address_or_phone_number">Please enter your email address or phone number</string>
+    <string name="reset_your_password">Reset your password</string>
 </resources>
