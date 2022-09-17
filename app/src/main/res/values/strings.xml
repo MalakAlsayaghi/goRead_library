@@ -126,4 +126,6 @@
     <string name="reset">Reset</string>
     <string name="please_enter_your_email_address_or_phone_number">Please enter your email address or phone number</string>
     <string name="reset_your_password">Reset your password</string>
+    <string name="do_you_want_to_sign_out">Do you want to sign out</string>
+    <string name="yes">yes</string>
 </resources>

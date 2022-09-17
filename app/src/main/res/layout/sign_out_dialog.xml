@@ -16,7 +16,7 @@
         android:layout_width="341dp"
         android:layout_height="187dp"
         android:layout_gravity="center"
-        android:background="@drawable/bg_dialog_maincolor"
+        android:background="@drawable/bg_dialog"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -25,7 +25,7 @@
             android:layout_height="70dp"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_baseline_login_white" />
+            android:src="@drawable/ic_baseline_login_24_white" />
 
         <TextView
             android:layout_width="wrap_content"
