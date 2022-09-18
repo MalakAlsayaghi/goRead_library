@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.goread.library.R;
 
-public class AllAdminActivity extends AppCompatActivity {
+public class AllAdminsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

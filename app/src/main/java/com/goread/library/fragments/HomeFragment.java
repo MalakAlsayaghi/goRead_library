@@ -89,9 +89,9 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        v = inflater.inflate(R.layout.fragment_home, container, false);
+        v = inflater.inflate(R.layout.activity_admin_main, container, false);
 
-        recycler_books = v.findViewById(R.id.recycler_books);
+        recycler_books = v.findViewById(R.id.recycler_allBooks);
         //fab_book = v.findViewById(R.id.fab_book);
         //fab_quote = v.findViewById(R.id.fab_quote);
         tv_library = v.findViewById(R.id.tv_library);

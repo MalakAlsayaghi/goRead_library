@@ -12,8 +12,12 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
-            android:name=".AdminMainActivity"
-            android:exported="false" />
+            android:name=".activities.AdminMainActivity"
+            android:exported="true" ><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity
             android:name=".ResetPasswordDialog"
             android:exported="false" />
@@ -21,7 +25,7 @@
             android:name=".activities.MyEarningActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AllAdminActivity"
+            android:name=".activities.AllAdminsActivity"
             android:exported="true" />
         <activity
             android:name=".OrderItem"
@@ -74,11 +78,7 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.SplashActivity"
