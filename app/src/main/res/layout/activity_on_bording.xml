@@ -28,7 +28,7 @@
         android:id="@+id/tv_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-android:layout_marginStart="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_gravity="center"
         android:text="@string/to_provide_a_safe_and_trusted_experience_for_everyone_here_are_some_guidelines_you_must_know"
@@ -114,6 +114,7 @@ android:layout_marginStart="10dp"
         android:text="@string/i_have_read_and_agreed_to_all_terms_and_conditions"/>
 
     <Button
+        android:id="@+id/btn_done"
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

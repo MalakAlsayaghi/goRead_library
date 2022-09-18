@@ -51,7 +51,7 @@ public class AddBookActivity extends AppCompatActivity {
     String library_id, book_id, type;
     private Uri filePath;
     ImageView back_btn;
-
+    Button addd_btn;
     CheckBox cb_classic, cb_drama, cb_romantic, cb_action;
 
     @Override
@@ -115,8 +115,17 @@ public class AddBookActivity extends AppCompatActivity {
                finish();
            }
        });
+       addd_btn=findViewById(R.id.btn_addd);
+       addd_btn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               //startActivity(new Intent(getApplicationContext(),.class));
+               finish();
+           }
+       });
 
-    }
+
+   }
 
     public String getCategory() {
         String category = null;

@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import com.goread.library.R;
 import com.goread.library.fragments.LibraryHomeFragment;
 
-public class AddLibraryActivity extends AppCompatActivity {
+public class AddQuoteActivity extends AppCompatActivity {
     ImageView back_btn;
     Button addd_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_library);
+        setContentView(R.layout.activity_add_quote);
         defineViews();
 
     }
@@ -26,10 +26,11 @@ public class AddLibraryActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllLibrariesActivity.class));
+                startActivity(new Intent(getApplicationContext(), LibraryHomeFragment.class));
                 finish();
             }
         });
+
         addd_btn=findViewById(R.id.btn_addd);
         addd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,5 +39,4 @@ public class AddLibraryActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-    }}
+}}

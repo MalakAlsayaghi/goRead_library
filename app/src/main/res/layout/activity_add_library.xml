@@ -188,7 +188,7 @@ android:layout_marginStart="280dp"
 
 
     <Button
-        android:id="@+id/btn_add_library"
+        android:id="@+id/btn_addd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

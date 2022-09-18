@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signin);
+        setContentView(R.layout.activity_login);
         defineViews();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +133,7 @@ public class LoginActivity extends AppCompatActivity {
         et_password = findViewById(R.id.et_password);
         //register = findViewById(R.id.tv_signUp);
         forget = findViewById(R.id.tv_forget);
+
+
     }
 }

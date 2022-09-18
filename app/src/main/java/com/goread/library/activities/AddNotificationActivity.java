@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import com.goread.library.R;
 import com.goread.library.fragments.LibraryHomeFragment;
 
-public class AddLibraryActivity extends AppCompatActivity {
+public class AddNotificationActivity extends AppCompatActivity {
     ImageView back_btn;
-    Button addd_btn;
+    Button publish_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_library);
+        setContentView(R.layout.activity_add_notification);
         defineViews();
 
     }
@@ -26,17 +26,17 @@ public class AddLibraryActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllLibrariesActivity.class));
+                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                 finish();
             }
         });
-        addd_btn=findViewById(R.id.btn_addd);
-        addd_btn.setOnClickListener(new View.OnClickListener() {
+
+        publish_btn=findViewById(R.id.btn_publish);
+        publish_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(getApplicationContext(),.class));
                 finish();
             }
         });
-
-    }}
+}}
