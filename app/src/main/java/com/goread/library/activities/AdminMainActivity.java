@@ -20,7 +20,6 @@ public class AdminMainActivity extends AppCompatActivity implements View.OnClick
     MaterialCardView cvAdmins;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,27 +57,27 @@ public class AdminMainActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.card_libraries:
-                startActivity(new Intent(getApplicationContext(),AllLibrariesActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllLibrariesActivity.class));
                 break;
 
             case R.id.card_drivers:
-                startActivity(new Intent(getApplicationContext(),AllDriversActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllDriversActivity.class));
                 break;
 
             case R.id.card_earnings:
-                startActivity(new Intent(getApplicationContext(),MyEarningActivity.class));
+                startActivity(new Intent(getApplicationContext(), MyEarningActivity.class));
                 break;
 
             case R.id.card_orders:
-                startActivity(new Intent(getApplicationContext(),AllOrdersActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllOrdersActivity.class));
                 break;
 
             case R.id.card_users:
-                startActivity(new Intent(getApplicationContext(),AllUsersActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllUsersActivity.class));
                 break;
 
             case R.id.card_notifications:
-                startActivity(new Intent(getApplicationContext(),AllNotificationActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllNotificationActivity.class));
                 break;
 
 
@@ -89,12 +88,11 @@ public class AdminMainActivity extends AppCompatActivity implements View.OnClick
                 startActivity(new Intent(getApplicationContext(),.class));
                 break;
 */
-            case R.id.card_admin:_:
+            case R.id.card_admin:
                 startActivity(new Intent(getApplicationContext(), AllAdminsActivity.class));
                 break;
 
             default:
-                setContentView(R.layout.activity_admin_main);
                 break;
         }
 

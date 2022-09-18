@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.activities.AddBookActivity;
+import com.goread.library.activities.AllBooksActivity;
+import com.goread.library.activities.AllLibrariesActivity;
+import com.goread.library.activities.AllQuotesActivity;
 import com.goread.library.adapters.BookAdapter;
 import com.goread.library.models.Book;
 
@@ -34,7 +38,7 @@ import java.util.List;
  * Use the {@link LibraryHomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LibraryHomeFragment extends Fragment {
+public class LibraryHomeFragment extends Fragment implements View.OnClickListener {
     RecyclerView recycler_books;
     List<Book> bookList;
     BookAdapter bookAdapter;
@@ -42,6 +46,11 @@ public class LibraryHomeFragment extends Fragment {
     FirebaseUser firebaseUser;
     FloatingActionButton fab_book, fab_quote;
     TextView tv_library;
+    MaterialCardView cvNewOrder;
+    MaterialCardView cvUploadBook;
+    MaterialCardView cvUploadQuotes;
+    MaterialCardView cvChat;
+
 
     View v;
 
@@ -90,6 +99,7 @@ public class LibraryHomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         v = inflater.inflate(R.layout.fragment_home_library, container, false);
+        defineViews();
 
 
 
@@ -97,5 +107,45 @@ public class LibraryHomeFragment extends Fragment {
         return v;
     }
 
+    private void defineViews() {
+    cvNewOrder = v.findViewById(R.id.card_new_order);
+    cvNewOrder.setOnClickListener(this);
 
+        cvUploadBook = v.findViewById(R.id.card_upload_book);
+        cvUploadBook.setOnClickListener(this);
+
+        cvUploadQuotes = v.findViewById(R.id.card_upload_quote);
+        cvUploadQuotes.setOnClickListener(this);
+
+        cvChat = v.findViewById(R.id.card_chat);
+        cvChat.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.card_new_order:
+                startActivity(new Intent(getContext(), AllLibrariesActivity.class));
+                break;
+
+            case R.id.card_upload_book:
+                startActivity(new Intent(getContext(), AllBooksActivity.class));
+                break;
+
+            case R.id.card_upload_quote:
+                startActivity(new Intent(getContext(), AllQuotesActivity.class));
+                break;
+
+            /*it should open the chat
+
+            case R.id.card_chat:
+                startActivity(new Intent(getContext(),.class));
+                break;*/
+
+            default:
+                break;
+
+        }
+    }
 }

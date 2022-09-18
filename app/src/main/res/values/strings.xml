@@ -5,7 +5,7 @@
     <string name="enter_email">Enter Email</string>
     <string name="choose_category">Choose Category...!</string>
     <string name="add_admins">Add Admins</string>
-    <string name="username">User name</string>
+    <string name="username">User name </string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="password">Password</string>
@@ -131,4 +131,5 @@
     <string name="invalid_data">Invalid Data</string>
     <string name="you_inserted_wrong_or_invalidinformation_please_try_again">You inserted wrong or invalidinformation please try again</string>
     <string name="try_again">Try again</string>
+    <string name="quotes_list">Quotes list</string>
 </resources>
