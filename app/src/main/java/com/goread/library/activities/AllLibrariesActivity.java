@@ -1,14 +1,16 @@
-package com.goread.library;
+package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class AddAdminActivity extends AppCompatActivity {
+import com.goread.library.R;
+
+public class AllLibrariesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_admin);
+        setContentView(R.layout.activity_all_libraries);
     }
 }

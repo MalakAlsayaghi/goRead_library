@@ -18,16 +18,16 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="start"
-            android:src="@drawable/ic_baseline_person_outline_maincolor24"
-            android:background="@drawable/bg_button"/>
+            android:background="@drawable/bg_button"
+            android:src="@drawable/ic_baseline_person_outline_maincolor24" />
 
         <TextView
+            android:id="@+id/tv_library"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
             android:layout_marginStart="10dp"
             android:text="@string/admin_name"
-            android:id="@+id/tv_library"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
@@ -45,23 +45,18 @@
 
     </LinearLayout>
 
-  <!--  <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Home"
-        android:textColor="@color/mainColor"
-        android:textSize="25dp"
-        android:textStyle="bold" />
--->
+    <!--  <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:text="Home"
+          android:textColor="@color/mainColor"
+          android:textSize="25dp"
+          android:textStyle="bold" />
+  -->
     //fregment?
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_books"
-        android:layout_width="match_parent"
-        android:layout_height="566dp"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        tools:listitem="@layout/fragment_home_admin" />
+
+    <include layout="@layout/fragment_home_admin" />
 
     <!--
      <com.getbase.floatingactionbutton.FloatingActionsMenu

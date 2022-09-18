@@ -1,14 +1,16 @@
-package com.goread.library;
+package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LibraryOrdersActivity extends AppCompatActivity {
+import com.goread.library.R;
+
+public class AllNotificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_orders);
+        setContentView(R.layout.activity_all_notification);
     }
 }

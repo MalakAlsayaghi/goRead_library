@@ -1,4 +1,4 @@
-package com.goread.library;
+package com.goread.library.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.goread.library.R;
 import com.goread.library.fragments.BookFragment;
 import com.goread.library.fragments.HomeFragment;
 

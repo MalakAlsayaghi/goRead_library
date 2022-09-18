@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.goread.library.MainActivity;
+import com.goread.library.activities.MainActivity;
 import com.goread.library.R;
 
 public class LoginActivity extends AppCompatActivity {

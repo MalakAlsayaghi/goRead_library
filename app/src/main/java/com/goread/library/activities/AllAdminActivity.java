@@ -1,14 +1,16 @@
-package com.goread.library;
+package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MyEarningActivity extends AppCompatActivity {
+import com.goread.library.R;
+
+public class AllAdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_earning);
+        setContentView(R.layout.activity_all_admins);
     }
 }

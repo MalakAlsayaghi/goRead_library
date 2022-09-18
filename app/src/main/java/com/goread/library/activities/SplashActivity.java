@@ -8,7 +8,6 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.goread.library.MainActivity;
 import com.goread.library.R;
 import com.goread.library.auth.LoginActivity;
 

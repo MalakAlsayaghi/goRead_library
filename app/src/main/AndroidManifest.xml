@@ -12,13 +12,16 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".AdminMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".ResetPasswordDialog"
             android:exported="false" />
         <activity
-            android:name=".MyEarningActivity"
+            android:name=".activities.MyEarningActivity"
             android:exported="false" />
         <activity
-            android:name=".AllAdminActivity"
+            android:name=".activities.AllAdminActivity"
             android:exported="true" />
         <activity
             android:name=".OrderItem"
@@ -27,28 +30,28 @@
             android:name=".DriverItem"
             android:exported="true" />
         <activity
-            android:name=".AllNotificationActivity"
+            android:name=".activities.AllNotificationActivity"
             android:exported="true" />
         <activity
             android:name=".activities.LibraryMainActivity"
             android:exported="true" />
         <activity
-            android:name=".LibraryProfileActivity"
+            android:name=".activities.LibraryProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".AllOrdersActivity"
+            android:name=".activities.AllOrdersActivity"
             android:exported="true" />
         <activity
-            android:name=".AllUsersActivity"
+            android:name=".activities.AllUsersActivity"
             android:exported="true" />
         <activity
-            android:name=".AllDriversActivity"
+            android:name=".activities.AllDriversActivity"
             android:exported="true" />
         <activity
-            android:name=".AddLibraryActivity"
+            android:name=".activities.AddLibraryActivity"
             android:exported="true" />
         <activity
-            android:name=".AllLibrariesActivity"
+            android:name=".activities.AllLibrariesActivity"
             android:exported="true" />
         <activity
             android:name=".LibraryItem"
@@ -57,25 +60,31 @@
             android:name=".ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".AddAdminActivity"
+            android:name=".activities.AddAdminActivity"
             android:exported="true" />
         <activity
             android:name=".activities.QuotesActivity"
             android:exported="true" />
         <activity
-            android:name=".LibraryOrdersActivity"
+            android:name=".activities.LibraryOrdersActivity"
             android:exported="true" />
         <activity
             android:name=".activities.AddBookActivity"
             android:exported="true" />
         <activity
             android:name=".auth.LoginActivity"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true" />
     </application>
 

@@ -1,8 +1,10 @@
-package com.goread.library;
+package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.goread.library.R;
 
 public class AddLibraryActivity extends AppCompatActivity {
 
