@@ -75,9 +75,6 @@
             android:name=".activities.AddAdminActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.QuotesActivity"
-            android:exported="true" />
-        <activity
             android:name=".activities.LibraryOrdersActivity"
             android:exported="true" />
         <activity

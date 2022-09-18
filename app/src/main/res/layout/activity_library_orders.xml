@@ -28,7 +28,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/orders"
+            android:text="@string/new_orders"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />

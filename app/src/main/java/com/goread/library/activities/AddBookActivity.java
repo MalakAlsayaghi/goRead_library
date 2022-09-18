@@ -29,6 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
+import com.goread.library.fragments.LibraryHomeFragment;
 import com.goread.library.models.Book;
 
 import java.io.IOException;
@@ -49,6 +50,7 @@ public class AddBookActivity extends AppCompatActivity {
     String name, desc, brand, price, fileLink;
     String library_id, book_id, type;
     private Uri filePath;
+    ImageView back_btn;
 
     CheckBox cb_classic, cb_drama, cb_romantic, cb_action;
 
@@ -104,6 +106,15 @@ public class AddBookActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         library_id = firebaseUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Books").child(library_id);
+
+       back_btn=findViewById(R.id.btn_back);
+       back_btn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
+               finish();
+           }
+       });
 
     }
 
