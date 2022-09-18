@@ -11,6 +11,8 @@ import com.goread.library.R;
 
 public class AllAdminsActivity extends AppCompatActivity {
 ImageView back_btn;
+    ImageView add_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,15 @@ ImageView back_btn;
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
+                finish();
+            }
+        });
+
+        add_btn=findViewById(R.id.btn_add);
+        add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
                 finish();
             }
         });

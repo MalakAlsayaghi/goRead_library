@@ -11,6 +11,7 @@ import com.goread.library.R;
 
 public class AllDriversActivity extends AppCompatActivity {
     ImageView back_btn;
+    ImageView add_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,13 @@ public class AllDriversActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        add_btn=findViewById(R.id.btn_add);
+        add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
+                finish();
+            }
+        });
     }
 }
