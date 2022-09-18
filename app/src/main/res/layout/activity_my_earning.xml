@@ -135,7 +135,7 @@ android:gravity="center"                android:background="@color/mainColor"
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/history_recycler"
+        android:id="@+id/recycler_MyEarnings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

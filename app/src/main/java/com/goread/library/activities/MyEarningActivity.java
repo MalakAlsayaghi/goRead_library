@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.goread.library.R;
 
 public class MyEarningActivity extends AppCompatActivity {
     ImageView back_btn;
+    RecyclerView allMyEarnings_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,6 @@ public class MyEarningActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        allMyEarnings_recyclerView= allMyEarnings_recyclerView.findViewById(R.id.recycler_MyEarnings);
     }
 }

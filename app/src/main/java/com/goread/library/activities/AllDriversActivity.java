@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.goread.library.R;
 public class AllDriversActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
+    RecyclerView allDrivers_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +39,6 @@ public class AllDriversActivity extends AppCompatActivity {
                 finish();
             }
         });
+        allDrivers_recyclerView= allDrivers_recyclerView.findViewById(R.id.recycler_allDrivers);
     }
 }

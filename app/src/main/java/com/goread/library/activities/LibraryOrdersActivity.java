@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import com.goread.library.fragments.LibraryHomeFragment;
 
 public class LibraryOrdersActivity extends AppCompatActivity {
     ImageView back_btn;
+    RecyclerView allLibrariesOrders_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,6 @@ public class LibraryOrdersActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        allLibrariesOrders_recyclerView= allLibrariesOrders_recyclerView.findViewById(R.id.recycler_allLibraryOrders);
     }
 }

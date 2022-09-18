@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import com.goread.library.R;
 public class AllQuotesActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
-
+    RecyclerView allQuotes_recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +38,6 @@ public class AllQuotesActivity extends AppCompatActivity {
                 finish();
             }
         });
+        allQuotes_recyclerView= allQuotes_recyclerView.findViewById(R.id.recycler_allQuotes);
     }
 }

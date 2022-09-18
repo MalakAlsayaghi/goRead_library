@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import com.goread.library.R;
 public class AllNotificationActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
-
+    RecyclerView allNotifications_recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class AllNotificationActivity extends AppCompatActivity {
                 finish();
             }
         });
+        allNotifications_recyclerView= allNotifications_recyclerView.findViewById(R.id.recycler_allNotifications);
 
     }
 }

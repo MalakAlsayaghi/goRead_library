@@ -1,6 +1,7 @@
 package com.goread.library.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import com.goread.library.fragments.LibraryHomeFragment;
 public class AllBooksActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
+    RecyclerView allBooks_recyclerView;
 
 
     @Override
@@ -41,5 +43,7 @@ public class AllBooksActivity extends AppCompatActivity {
                 finish();
             }
         });
-}
+        allBooks_recyclerView= allBooks_recyclerView.findViewById(R.id.recycler_allBooks);
+
+    }
 }
