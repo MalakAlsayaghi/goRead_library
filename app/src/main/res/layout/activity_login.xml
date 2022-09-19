@@ -90,7 +90,6 @@
                 android:paddingBottom="-10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
         <TextView
             android:id="@+id/tv_forget"
             android:layout_width="wrap_content"

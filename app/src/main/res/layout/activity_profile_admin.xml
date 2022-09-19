@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cvLocation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -20,7 +19,6 @@
 
         <ImageView
             android:id="@+id/btn_back"
-
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_baseline_arrow_back_24" />
@@ -73,6 +71,7 @@
 
 
                 <ImageButton
+                    android:id="@+id/edit_pic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-33dp"

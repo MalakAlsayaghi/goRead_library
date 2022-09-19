@@ -23,6 +23,7 @@
             android:src="@drawable/ic_baseline_person_outline_maincolor24" />
 
         <TextView
+            android:id="@+id/library_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

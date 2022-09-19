@@ -54,6 +54,7 @@
 
 
         <ImageButton
+            android:id="@+id/edit_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="-50dp"
@@ -80,7 +81,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/driver_name"
+            android:id="@+id/et_driver_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/driver_name"
@@ -103,7 +104,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/driver_phone"
+            android:id="@+id/et_driver_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone_number"

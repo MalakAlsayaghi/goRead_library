@@ -81,7 +81,7 @@
             android:name=".LibraryItem"
             android:exported="true" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".ProfileAdminActivity"
             android:exported="true" />
         <activity
             android:name=".activities.AddAdminActivity"

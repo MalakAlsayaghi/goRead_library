@@ -113,7 +113,7 @@ android:gravity="center"                android:background="@color/mainColor"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_order_id"
+                    android:id="@+id/tv_total_revenues"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"

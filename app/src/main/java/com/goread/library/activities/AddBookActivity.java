@@ -52,7 +52,10 @@ public class AddBookActivity extends AppCompatActivity {
     private Uri filePath;
     ImageView back_btn;
     Button addd_btn;
-    CheckBox cb_classic, cb_drama, cb_romantic, cb_action;
+    CheckBox cb_GeneralKnowledge ,cb_Philosophy_Psychology,cb_Religion,cb_SocialScience,
+            cb_classic,cb_Languages,cb_Science,cb_Technology,cb_Art_Recreation,
+            cb_Literature,cb_History_Geography;
+    EditText book_name_et ,book_description_et, book_price_et, book_quote_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,20 +127,64 @@ public class AddBookActivity extends AppCompatActivity {
            }
        });
 
+       book_name_et=findViewById(R.id.et_book_name);
+       book_name_et.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
 
+           }
+       });
+
+       book_description_et=findViewById(R.id.et_book_description);
+       book_description_et.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+           }
+       });
+
+       book_price_et=findViewById(R.id.et_book_price);
+       book_price_et.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+           }
+       });
+
+       book_quote_et=findViewById(R.id.et_book_quote);
+       book_quote_et.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+           }
+       });
    }
 
     public String getCategory() {
         String category = null;
 
-        if (cb_romantic.isChecked()) {
-            category = "Romantic";
+        if (cb_GeneralKnowledge.isChecked()) {
+            category = "General Knowledge";
+        } else if (cb_Philosophy_Psychology.isChecked()) {
+            category = "Philosophy & Psychology";
+        } else if (cb_Religion.isChecked()) {
+            category = "Religion";
+        } else if (cb_SocialScience.isChecked()) {
+            category = "SocialScience";
         } else if (cb_classic.isChecked()) {
-            category = "Classic";
-        } else if (cb_drama.isChecked()) {
-            category = "Drama";
-        } else if (cb_action.isChecked()) {
-            category = "Action";
+            category = "classic";
+        } else if (cb_Languages.isChecked()) {
+            category = "Languages";
+        } else if (cb_Science.isChecked()) {
+            category = "Science";
+        } else if (cb_Technology.isChecked()) {
+            category = "Technology";
+        } else if (cb_Art_Recreation.isChecked()) {
+            category = "Art & Recreation";
+        } else if (cb_Literature.isChecked()) {
+            category = "Literature";
+        } else if (cb_History_Geography.isChecked()) {
+            category = "History & Geography";
         } else {
             Toast.makeText(this, R.string.choose_category, Toast.LENGTH_SHORT).show();
         }

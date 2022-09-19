@@ -33,7 +33,7 @@
         android:orientation="vertical"
         >
     <EditText
-            android:id="@+id/quotes"
+            android:id="@+id/et_quote"
             android:layout_width="387dp"
             android:layout_height="150dp"
             android:layout_margin="5dp"
@@ -48,7 +48,7 @@
 
 
         <EditText
-            android:id="@+id/quote"
+            android:id="@+id/et_quote_bookName"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"

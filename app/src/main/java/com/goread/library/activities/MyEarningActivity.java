@@ -7,12 +7,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.goread.library.R;
 
 public class MyEarningActivity extends AppCompatActivity {
     ImageView back_btn;
     RecyclerView allMyEarnings_recyclerView;
+    TextView tv_total_order,tv_total_revenues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +33,8 @@ public class MyEarningActivity extends AppCompatActivity {
             }
         });
         allMyEarnings_recyclerView= allMyEarnings_recyclerView.findViewById(R.id.recycler_MyEarnings);
+        tv_total_order=findViewById(R.id.tv_total_order);
+        tv_total_revenues=findViewById(R.id.tv_total_revenues);
+
     }
 }

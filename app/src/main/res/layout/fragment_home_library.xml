@@ -25,6 +25,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPay">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linear_id"
@@ -33,20 +42,45 @@
                 android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/prisoner_desc"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="@string/number_of_sold_book"
-                    android:textAlignment="center"
-                    android:textColor="@color/mainColor"
-                    android:textSize="14sp"
+                    android:orientation="horizontal"
 
-                    />
+                    android:layout_gravity="center"
+                    >
+
+
+                    <TextView
+                        android:id="@+id/number_oFsoldBook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:text="@string/number_of_sold_book"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_number_oFsoldBook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
+                        android:text="@string/_1685"
+                        android:textAlignment="center"
+                        android:textColor="@color/mainColor"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </LinearLayout>
+
 
                 <TextView
-                    android:id="@+id/tv_cardId"
+                    android:id="@+id/tv_library_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/mainColor"

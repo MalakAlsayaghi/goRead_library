@@ -56,6 +56,7 @@
 
 
         <ImageButton
+            android:id="@+id/edit_pic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="-50dp"
@@ -84,7 +85,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/library_name"
+            android:id="@+id/et_library_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/library_name"
@@ -112,7 +113,7 @@
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/upload_desc"
+                android:id="@+id/et_library_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/library_address"
@@ -147,7 +148,7 @@ android:layout_marginStart="280dp"
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_phone"
+            android:id="@+id/et_library_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
@@ -172,7 +173,7 @@ android:layout_marginStart="280dp"
 
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tv_email"
+            android:id="@+id/et_library_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"

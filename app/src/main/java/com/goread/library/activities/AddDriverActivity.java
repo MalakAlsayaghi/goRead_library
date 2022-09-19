@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goread.library.R;
@@ -13,6 +15,8 @@ import com.goread.library.R;
 public class AddDriverActivity extends AppCompatActivity {
     ImageView back_btn;
     Button addd_btn;
+    EditText et_driver_name ,et_driver_phone;
+    ImageButton edit_pic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,4 +42,25 @@ public class AddDriverActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        et_driver_name=findViewById(R.id.et_driver_name);
+        et_driver_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+        et_driver_phone=findViewById(R.id.et_driver_phone);
+        et_driver_phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
+        edit_pic=findViewById(R.id.edit_pic);
+        edit_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+
 }}

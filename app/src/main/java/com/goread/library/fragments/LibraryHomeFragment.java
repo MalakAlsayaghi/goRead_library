@@ -50,6 +50,7 @@ public class LibraryHomeFragment extends Fragment implements View.OnClickListene
     MaterialCardView cvUploadBook;
     MaterialCardView cvUploadQuotes;
     MaterialCardView cvChat;
+    TextView tv_number_oFsoldBook,tv_library_name;
 
 
     View v;
@@ -119,6 +120,11 @@ public class LibraryHomeFragment extends Fragment implements View.OnClickListene
 
         cvChat = v.findViewById(R.id.card_chat);
         cvChat.setOnClickListener(this);
+
+        tv_number_oFsoldBook= v.findViewById(R.id.tv_number_oFsoldBook);
+        tv_library_name = v.findViewById(R.id.tv_library_name);
+
+
     }
 
 
