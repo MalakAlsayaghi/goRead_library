@@ -1,305 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    >
+    android:scrollbars="none">
 
     <LinearLayout
-        android:id="@+id/nav_order_summary"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="10dp"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/btn_back"
-
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/nav_order_summary"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/add_book"
-            android:textColor="@color/mainColor"
-            android:textSize="23sp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/btn_back"
+
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/add_book"
+                android:textColor="@color/mainColor"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relat_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/book_img"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_book" />
+
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-50dp"
+                android:layout_marginTop="140dp"
+                android:layout_toRightOf="@+id/book_img"
+                android:background="@drawable/shape_stauts_completed"
+                android:clickable="true"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/mainColor"
+            app:boxStrokeColor="@color/mainColor">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/book_name"
+                android:inputType="text"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/mainColor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/mainColor"
+            app:boxStrokeColor="@color/mainColor">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_book_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/book_description"
+                android:inputType="text"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/mainColor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/mainColor"
+            app:boxStrokeColor="@color/mainColor">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_book_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/price"
+                android:inputType="number"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/mainColor" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/governorate_menu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/category"
+            app:boxBackgroundColor="@color/white"
+            app:boxCornerRadiusBottomEnd="7dp"
+            app:boxCornerRadiusBottomStart="7dp"
+            app:boxCornerRadiusTopEnd="7dp"
+            app:boxCornerRadiusTopStart="7dp"
+            app:errorEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/bg_button"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:id="@+id/relat_lay"
-        android:layout_height="wrap_content">
-
-
-        <ImageView
-            android:id="@+id/book_img"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_book" />
-
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="-50dp"
-            android:layout_marginTop="140dp"
-            android:layout_toRightOf="@+id/book_img"
-            android:background="@drawable/shape_stauts_completed"
-            android:clickable="true"
-            android:padding="5dp"
-            android:src="@drawable/ic_baseline_edit_24" />
-
-
-    </RelativeLayout>
-
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/mainColor"
-        app:boxStrokeColor="@color/mainColor">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_book_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/book_name"
-            android:inputType="text"
-            android:textColor="@color/mainColor"
-            android:textColorHint="@color/mainColor" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/mainColor"
-        app:boxStrokeColor="@color/mainColor">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_book_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/book_description"
-            android:inputType="text"
-            android:textColor="@color/mainColor"
-            android:textColorHint="@color/mainColor" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/mainColor"
-        app:boxStrokeColor="@color/mainColor">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_book_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/price"
-            android:inputType="number"
-            android:textColor="@color/mainColor"
-            android:textColorHint="@color/mainColor" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/mainColor"
-        app:boxStrokeColor="@color/mainColor">
-
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_book_quote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/book_quote"
-            android:inputType="text"
-            android:textColor="@color/mainColor"
-            android:textColorHint="@color/mainColor" />
-
-
-    </com.google.android.material.textfield.TextInputLayout>
-    //categories
-    <com.google.android.material.textfield.MaterialAutoCompleteTextView
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/category"
-        android:textSize="17dp"
-        android:textColor="@color/mainColor"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        />
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="2"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/cb_GeneralKnowledge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/general_knowledge" />
-
-
-                <CheckBox
-                    android:id="@+id/cb_Philosophy_Psychology"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/philosophy_amp_psychology" />
-
-                <CheckBox
-                    android:id="@+id/cb_Religion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/religion" />
-
-                <CheckBox
-                    android:id="@+id/cb_SocialScience"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/social_science" />
-
-                <CheckBox
-                    android:id="@+id/cb_classic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:text="@string/classic" />
-
-
-                <CheckBox
-                    android:id="@+id/cb_Languages"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/languages" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <CheckBox
-                    android:id="@+id/cb_Science"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/science" />
-
-                <CheckBox
-                    android:id="@+id/cb_Technology"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/technology" />
-
-
-                <CheckBox
-                    android:id="@+id/cb_Art_Recreation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/art_amp_recreation" />
-
-                <CheckBox
-                    android:id="@+id/cb_Literature"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/literature" />
-
-                <CheckBox
-                    android:id="@+id/cb_History_Geography"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/history_amp_geography" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-    <Button
-        android:id="@+id/btn_addd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/circled_bg_maincolor"
-        android:text="@string/add"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-
-
-
-</LinearLayout>
+</ScrollView>

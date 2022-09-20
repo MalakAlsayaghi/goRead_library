@@ -7,8 +7,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -30,10 +32,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
 import com.goread.library.activities.AllBooksActivity;
-import com.goread.library.fragments.LibraryHomeFragment;
 import com.goread.library.models.Book;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 
@@ -48,22 +50,22 @@ public class AddBookActivity extends AppCompatActivity {
     EditText et_name, et_desc, et_brand, et_price;
     Button btnUpload;
     FirebaseUser firebaseUser;
-    String name, desc, brand, price, fileLink;
+    String name, desc, category, price, fileLink;
     String library_id, book_id, type;
     private Uri filePath;
     ImageView back_btn;
     Button addd_btn;
-    CheckBox cb_GeneralKnowledge ,cb_Philosophy_Psychology,cb_Religion,cb_SocialScience,
-            cb_classic,cb_Languages,cb_Science,cb_Technology,cb_Art_Recreation,
-            cb_Literature,cb_History_Geography;
-    EditText book_name_et ,book_description_et, book_price_et, book_quote_et;
+    EditText book_name_et, book_description_et, book_price_et, book_quote_et;
+    ArrayList<String> drop_categoriesList = new ArrayList<>();
+    ArrayAdapter<String> adapter_categories;
+    AutoCompleteTextView drop_menu_categories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
         defineViews();
-        getCategory();
         type = getIntent().getStringExtra("type");
 
         if (type.equals("edit")) {
@@ -93,74 +95,52 @@ public class AddBookActivity extends AppCompatActivity {
         });
     }
 
-   public void defineViews() {
-        //add_img = findViewById(R.id.add_image);
-        //et_name = findViewById(R.id.upload_name);
-        //et_desc = findViewById(R.id.upload_desc);
-        //et_price = findViewById(R.id.upload_price);
-       // btnUpload = findViewById(R.id.upload_btn);
-        //cb_classic = findViewById(R.id.cb_classic);
-        //cb_drama = findViewById(R.id.cb_drama);
-        //cb_action = findViewById(R.id.cb_action);
-        //cb_romantic = findViewById(R.id.cb_romantic);
+    public void defineViews() {
 
+        book_name_et = findViewById(R.id.et_book_name);
+        book_description_et = findViewById(R.id.et_book_description);
+        book_price_et = findViewById(R.id.et_book_price);
+        back_btn = findViewById(R.id.btn_back);
+        add_img = findViewById(R.id.book_img);
+        btnUpload = findViewById(R.id.btn_upload);
+        drop_menu_categories = findViewById(R.id.dropdown_categories);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         library_id = firebaseUser.getUid();
         databaseReference = FirebaseDatabase.getInstance().getReference("Books").child(library_id);
+        drop_categoriesList = new ArrayList<>();
 
-       back_btn=findViewById(R.id.btn_back);
-       back_btn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
-               finish();
-           }
-       });
-       addd_btn=findViewById(R.id.btn_addd);
-       addd_btn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               //startActivity(new Intent(getApplicationContext(),.class));
-               finish();
-           }
-       });
 
-       book_name_et=findViewById(R.id.et_book_name);
-       book_name_et.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
+                finish();
+            }
+        });
 
-           }
-       });
 
-       book_description_et=findViewById(R.id.et_book_description);
-       book_description_et.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        drop_categoriesList.add("Drama");
+        drop_categoriesList.add("Romantic");
+        adapter_categories = new ArrayAdapter<String>(getApplicationContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, drop_categoriesList);
+        drop_menu_categories.setAdapter(adapter_categories);
 
-           }
-       });
+        drop_menu_categories.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
+                String selectedItem = (String) parent.getItemAtPosition(position);
+                category = selectedItem;
 
-       book_price_et=findViewById(R.id.et_book_price);
-       book_price_et.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+                Toast.makeText(AddBookActivity.this, selectedItem, Toast.LENGTH_SHORT).show();
+            }
+        });
 
-           }
-       });
 
-       book_quote_et=findViewById(R.id.et_book_quote);
-       book_quote_et.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+    }
 
-           }
-       });
-   }
-
+/*
     public String getCategory() {
         String category = null;
 
@@ -191,18 +171,28 @@ public class AddBookActivity extends AppCompatActivity {
         }
         return category;
     }
+*/
 
     public boolean isValidate() {
+        name = book_name_et.getText().toString();
+        desc = book_description_et.getText().toString();
+        price = book_price_et.getText().toString();
+
         if (name.isEmpty()) {
-            et_name.requestFocus();
+            book_name_et.requestFocus();
             return false;
         }
         if (desc.isEmpty()) {
-            et_desc.requestFocus();
+            book_description_et.requestFocus();
             return false;
         }
         if (price.isEmpty()) {
-            et_price.requestFocus();
+            book_price_et.requestFocus();
+            return false;
+        }
+
+        if (category.isEmpty()) {
+            drop_menu_categories.requestFocus();
             return false;
         }
 
@@ -212,93 +202,81 @@ public class AddBookActivity extends AppCompatActivity {
         }
 
 
-        String myCat = getCategory();
-        if (myCat == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return true;
     }
 
     public void upload() {
-
-        name = et_name.getText().toString();
-        desc = et_desc.getText().toString();
-        price = et_price.getText().toString();
-
-        if (!isValidate()) {
-            return;
-        }
+        if (isValidate()) {
 
 
-        ProgressDialog progressDialog
-                = new ProgressDialog(this);
-        progressDialog.setTitle("Uploading...");
-        progressDialog.show();
-        progressDialog.setCancelable(false);
-        StorageReference ref
-                = storageReference
-                .child(
-                        "images/"
-                                + UUID.randomUUID().toString());
-        UploadTask uploadTask = ref.putFile(filePath);
-        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            ProgressDialog progressDialog
+                    = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+            progressDialog.setCancelable(false);
+            StorageReference ref
+                    = storageReference
+                    .child(
+                            "images/"
+                                    + UUID.randomUUID().toString());
+            UploadTask uploadTask = ref.putFile(filePath);
+            uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
 
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
-                        new OnCompleteListener<Uri>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
+                            new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    if (task.isSuccessful()) {
+                                        fileLink = task.getResult().toString();
 
-                            @Override
-                            public void onComplete(@NonNull Task<Uri> task) {
-                                if (task.isSuccessful()) {
-                                    fileLink = task.getResult().toString();
+                                        if (book_id != null) {
+                                            Book book = new Book(book_id, name, Integer.parseInt(price), desc,
+                                                    0.0, fileLink, "Drama", library_id, false);
 
-                                    if (book_id != null) {
-                                        Book book = new Book(book_id, name, Integer.parseInt(price), desc,
-                                                0.0, fileLink, "Drama", library_id, false);
-
-                                        databaseReference.child(book_id).setValue(book);
-                                    } else {
-
-
-                                        //next work with URL
-                                        Toast.makeText(getApplicationContext(), fileLink, Toast.LENGTH_LONG).show();
+                                            databaseReference.child(book_id).setValue(book);
+                                        } else {
 
 
-                                        String key = databaseReference.push().getKey();
-                                        Book book = new Book(key, name, Integer.parseInt(price), desc,
-                                                0.0, fileLink, "Drama", library_id, false);
+                                            //next work with URL
+                                            Toast.makeText(getApplicationContext(), fileLink, Toast.LENGTH_LONG).show();
 
-                                        databaseReference.child(key).setValue(book);
 
+                                            String key = databaseReference.push().getKey();
+                                            Book book = new Book(key, name, Integer.parseInt(price), desc,
+                                                    0.0, fileLink, "Drama", library_id, false);
+
+                                            databaseReference.child(key).setValue(book);
+
+                                        }
                                     }
+                                    progressDialog.dismiss();
+
                                 }
-                                progressDialog.dismiss();
+                            });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
 
-                            }
-                        });
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                progressDialog.dismiss();
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-
-                double progress
-                        = (100.0
-                        * taskSnapshot.getBytesTransferred()
-                        / taskSnapshot.getTotalByteCount());
-                progressDialog.setMessage(
-                        "Uploaded "
-                                + (int) progress + "%");
-                System.out.println("Your progress is: " + progress);
-            }
-        });
+                    double progress
+                            = (100.0
+                            * taskSnapshot.getBytesTransferred()
+                            / taskSnapshot.getTotalByteCount());
+                    progressDialog.setMessage(
+                            "Uploaded "
+                                    + (int) progress + "%");
+                    System.out.println("Your progress is: " + progress);
+                }
+            });
+        }
     }
 
 

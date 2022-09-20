@@ -1,6 +1,9 @@
 package com.goread.library.libraries.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -33,6 +36,7 @@ public class ActivityMyBooks extends AppCompatActivity implements MyBookAdapter.
     DatabaseReference databaseReference;
     FirebaseUser firebaseUser;
     String libraryId;
+    ImageView btnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +44,21 @@ public class ActivityMyBooks extends AppCompatActivity implements MyBookAdapter.
         setContentView(R.layout.activity_show_my_books);
         defineViews();
         getBooks();
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddBookActivity.class);
+                intent.putExtra("type", "add");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
     }
 
     private void defineViews() {
         recycler_allBooks = findViewById(R.id.recycler_allBooks);
+        btnAdd = findViewById(R.id.btn_add);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         libraryId = firebaseUser.getUid();
     }
