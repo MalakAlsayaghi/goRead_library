@@ -12,10 +12,11 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".ChattingActivity"
+            android:exported="false" />
+        <activity
             android:name=".libraries.activities.MyBooksActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activities.OnBordingActivity"
             android:exported="false" />
@@ -42,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.AllAdminsActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".OrderItem"
             android:exported="true" />
@@ -54,10 +55,7 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
-            android:exported="true" >
-
-
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -102,9 +100,7 @@
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
