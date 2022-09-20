@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/nav_orders"
@@ -12,8 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp"
-        >
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/btn_back"
@@ -32,12 +30,12 @@
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/btn_add"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_baseline_add_24_maincolor" />
-
 
 
     </LinearLayout>
@@ -47,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/quote_item"
-        />
+        tools:listitem="@layout/quote_item" />
 
 </LinearLayout>

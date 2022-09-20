@@ -31,8 +31,6 @@
                 android:orientation="vertical">
 
 
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -45,10 +43,9 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-
                     android:layout_gravity="center"
-                    >
+
+                    android:orientation="horizontal">
 
 
                     <TextView
@@ -98,7 +95,6 @@
         </androidx.cardview.widget.CardView>
 
 
-
         <!--<com.github.lzyzsd.circleprogress.DonutProgress
             android:id="@+id/donut_progress"
             android:layout_width="250dp"
@@ -120,6 +116,7 @@
             android:orientation="vertical"
             android:padding="5dp"
             android:weightSum="2">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,11 +124,9 @@
                 android:orientation="horizontal"
                 android:padding="5dp"
                 android:weightSum="2">
+
                 <com.google.android.material.card.MaterialCardView
 
-                    app:cardCornerRadius="20dp"
-                    app:strokeColor="@color/mainColor"
-                    app:strokeWidth="2dp"
                     android:id="@+id/card_new_order"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
@@ -139,7 +134,10 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:clickable="true"
-                    app:cardElevation="8dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:strokeColor="@color/mainColor"
+                    app:strokeWidth="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -167,11 +165,9 @@
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
 
-                    app:cardCornerRadius="20dp"
-                    app:strokeColor="@color/mainColor"
-                    app:strokeWidth="2dp"
                     android:id="@+id/card_upload_book"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
@@ -179,7 +175,10 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:clickable="true"
-                    app:cardElevation="8dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:strokeColor="@color/mainColor"
+                    app:strokeWidth="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,11 +215,9 @@
                 android:orientation="horizontal"
                 android:padding="5dp"
                 android:weightSum="2">
+
                 <com.google.android.material.card.MaterialCardView
 
-                    app:cardCornerRadius="20dp"
-                    app:strokeColor="@color/mainColor"
-                    app:strokeWidth="2dp"
                     android:id="@+id/card_upload_quote"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
@@ -228,7 +225,10 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:clickable="true"
-                    app:cardElevation="8dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:strokeColor="@color/mainColor"
+                    app:strokeWidth="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -256,11 +256,9 @@
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
+
                 <com.google.android.material.card.MaterialCardView
 
-                    app:cardCornerRadius="20dp"
-                    app:strokeColor="@color/mainColor"
-                    app:strokeWidth="2dp"
                     android:id="@+id/card_chat"
                     android:layout_width="160dp"
                     android:layout_height="160dp"
@@ -268,7 +266,10 @@
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
                     android:clickable="true"
-                    app:cardElevation="8dp">
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="8dp"
+                    app:strokeColor="@color/mainColor"
+                    app:strokeWidth="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"

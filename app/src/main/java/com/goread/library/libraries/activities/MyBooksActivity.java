@@ -29,7 +29,7 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class ActivityMyBooks extends AppCompatActivity implements MyBookAdapter.AdapterCallback {
+public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.AdapterCallback {
     RecyclerView recycler_allBooks;
     List<Book> bookList;
     MyBookAdapter bookAdapter;

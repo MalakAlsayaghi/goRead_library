@@ -12,15 +12,9 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
-            android:name=".libraries.activities.ActivityMyBooks"
-            android:exported="true" >
+            android:name=".libraries.activities.MyBooksActivity"
+            android:exported="true">
 
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.OnBordingActivity"
@@ -29,13 +23,10 @@
             android:name=".activities.AddNotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".libraries.activities.AddQuoteActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.AddDriverActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AllQuotesActivity"
+            android:name=".libraries.activities.MyQuotesActivity"
             android:exported="false" />
         <activity
             android:name=".activities.AllBooksActivity"
@@ -63,7 +54,16 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
             android:exported="true" />

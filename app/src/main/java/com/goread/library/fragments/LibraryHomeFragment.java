@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.goread.library.R;
 import com.goread.library.activities.AllBooksActivity;
 import com.goread.library.activities.AllLibrariesActivity;
-import com.goread.library.activities.AllQuotesActivity;
+import com.goread.library.libraries.activities.MyQuotesActivity;
 import com.goread.library.adapters.BookAdapter;
 import com.goread.library.models.Book;
 
@@ -130,7 +130,7 @@ public class LibraryHomeFragment extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.card_upload_quote:
-                startActivity(new Intent(getContext(), AllQuotesActivity.class));
+                startActivity(new Intent(getContext(), MyQuotesActivity.class));
                 break;
 
             /*it should open the chat

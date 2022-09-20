@@ -1,32 +1,55 @@
 package com.goread.library.libraries.activities;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.card.MaterialCardView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.goread.library.R;
-import com.goread.library.fragments.BookFragment;
-import com.goread.library.fragments.HomeFragment;
 
-import nl.joery.animatedbottombar.AnimatedBottomBar;
+public class LibraryMainActivity extends AppCompatActivity implements View.OnClickListener {
 
-public class LibraryMainActivity extends AppCompatActivity {
-
-
+    MaterialCardView cvNewOrders, cvBooks, cvQuotes, cvChat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_main);
+        defineViews();
 
+    }
+
+    private void defineViews() {
+        cvBooks = findViewById(R.id.card_upload_book);
+        cvNewOrders = findViewById(R.id.card_new_order);
+        cvQuotes = findViewById(R.id.card_upload_quote);
+        cvChat = findViewById(R.id.card_chat);
+
+        cvBooks.setOnClickListener(this);
+        cvNewOrders.setOnClickListener(this);
+        cvQuotes.setOnClickListener(this);
+        cvChat.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.card_upload_book:
+                startActivity(new Intent(LibraryMainActivity.this, MyBooksActivity.class));
+                break;
+
+            case R.id.card_new_order:
+                break;
+
+            case R.id.card_chat:
+                break;
+
+            case R.id.card_upload_quote:
+                startActivity(new Intent(LibraryMainActivity.this, MyQuotesActivity.class));
+
+                break;
+        }
     }
 }
