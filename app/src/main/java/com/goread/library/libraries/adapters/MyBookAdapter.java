@@ -1,4 +1,4 @@
-package com.goread.library.adapters;
+package com.goread.library.libraries.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,25 +19,33 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.goread.library.libraries.activities.AddBookActivity;
 import com.goread.library.R;
+import com.goread.library.libraries.activities.AddBookActivity;
 import com.goread.library.models.Book;
+import com.suke.widget.SwitchButton;
 
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolder> {
+public class MyBookAdapter extends RecyclerView.Adapter<MyBookAdapter.ImageViewHolder> {
     String book_id, library_id;
 
     Context mContext;
     List<Book> bookList;
     DatabaseReference databaseReference;
 
+    Boolean isDisabled;
+    int limit = 0;
+    private AdapterCallback adapterCallback;
 
-    public BookAdapter(Context context, List<Book> bookList) {
+
+    public MyBookAdapter(Context context) {
         this.mContext = context;
-        this.bookList = bookList;
+    }
+
+    public void setAdapterCallback(AdapterCallback adapterCallback) {
+        this.adapterCallback = adapterCallback;
     }
 
 
@@ -51,51 +59,60 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolde
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Book bookCur = bookList.get(position);
+        if (limit == 0) {
+            library_id = bookCur.getLibrary_id();
+            limit = 1;
+        }
 
 
         Glide.with(mContext)
                 .load(bookCur.getImg_url())
                 .centerCrop()
-                .into(holder.pro_img);
+                .into(holder.book_img);
 
         holder.name.setText(bookCur.getName());
         holder.price.setText(String.valueOf(bookCur.getPrice()) + "RY");
         holder.ratingBar.setRating((float) bookCur.getRating());
-//        holder.brand.setText(bookCur.getBrand());
+
+        isDisabled = bookCur.getDisabled();
+
+        if (isDisabled) {
+            holder.switchButton.setChecked(false);
+        } else {
+            holder.switchButton.setChecked(true);
+
+        }
+
+        holder.switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                Book book = bookList.get(position);
+                String libId = book.getLibrary_id();
+                String bookId = book.getId();
+
+                if (isChecked) {
+                    adapterCallback.changeStatus(libId, bookId, false);
+
+
+                } else {
+
+                    adapterCallback.changeStatus(libId, bookId, true);
+
+                }
+
+
+            }
+        });
+
 
         holder.delete_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 library_id = bookCur.getLibrary_id();
                 book_id = bookCur.getId();
-                new SweetAlertDialog(mContext, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Are you sure?")
-                        .setContentText("Can't  recover this item!")
-                        .setConfirmText("Yes,delete it!")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sDialog) {
+                adapterCallback.deleteBook(book_id);
 
-
-                                databaseReference.child(library_id).child(book_id).removeValue()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    sDialog.setTitleText("Deleted!")
-                                                            .setContentText("Your Product has been deleted!")
-                                                            .setConfirmText("OK")
-                                                            .setConfirmClickListener(null)
-                                                            .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-
-                                                }
-                                            }
-                                        });
-
-
-                            }
-                        }).show();
-            }
+             }
         });
         holder.edit_item.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,35 +133,18 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolde
         });
 
 
-     /*   holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    }
 
-                id = bookCur.getId();
-                name = bookCur.getName();
-                description = bookCur.getDescription();
-                rating = bookCur.getRating();
-                img_url = bookCur.getImg_url();
-                type = bookCur.getType();
-                brand = bookCur.getBrand();
-                price = bookCur.getPrice();
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+        notifyDataSetChanged();
+    }
 
-                Intent intent = new Intent(mContext, ProductDetailsActivity.class);
-                intent.putExtra("id", id);
-                intent.putExtra("name", name);
-                intent.putExtra("desc", description);
-                intent.putExtra("rating", rating);
-                intent.putExtra("img_url", img_url);
-                intent.putExtra("type", type);
-                intent.putExtra("brand", brand);
-                intent.putExtra("price", price);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    public static interface AdapterCallback {
+        void changeStatus(String libraryId, String bookId, Boolean status);
 
-                mContext.startActivity(intent);
-            }
-        });
+        void deleteBook(String bookId);
 
-*/
     }
 
     @Override
@@ -155,17 +155,22 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolde
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView name, brand, price;
         CardView cvProduct;
-        ImageView pro_img;
+        ImageView book_img;
         RatingBar ratingBar;
         ImageButton delete_item, edit_item;
+        com.suke.widget.SwitchButton switchButton;
 
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
             ratingBar = itemView.findViewById(R.id.rating_bar);
+            name = itemView.findViewById(R.id.tv_book_name);
+            price = itemView.findViewById(R.id.tv_book_price);
             delete_item = itemView.findViewById(R.id.delete_item);
             edit_item = itemView.findViewById(R.id.edit_item);
+            book_img = itemView.findViewById(R.id.book_img);
+            switchButton = (com.suke.widget.SwitchButton) itemView.findViewById(R.id.switchButton);
 
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Books");
 

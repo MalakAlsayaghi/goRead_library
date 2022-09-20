@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.libraries.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goread.library.R;
+import com.goread.library.activities.AdminMainActivity;
 
 public class MyEarningActivity extends AppCompatActivity {
     ImageView back_btn;
@@ -28,7 +29,7 @@ public class MyEarningActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
+                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                 finish();
             }
         });

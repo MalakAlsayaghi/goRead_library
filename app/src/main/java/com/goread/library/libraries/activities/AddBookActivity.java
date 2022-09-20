@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.libraries.activities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,6 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
+import com.goread.library.activities.AllBooksActivity;
 import com.goread.library.fragments.LibraryHomeFragment;
 import com.goread.library.models.Book;
 

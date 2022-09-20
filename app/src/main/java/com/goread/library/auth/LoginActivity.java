@@ -22,8 +22,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.goread.library.activities.MainActivity;
 import com.goread.library.R;
+import com.goread.library.libraries.activities.LibraryMainActivity;
 
 public class LoginActivity extends AppCompatActivity {
     String email, password;
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 if (type.equals("Library")) {
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(LoginActivity.this, LibraryMainActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }

@@ -40,7 +40,7 @@
     <string name="from_book">from book</string>
     <string name="add_quote">Add Quote</string>
     <string name="admins_list">Admins List</string>
-    <string name="books_list">Books List</string>
+    <string name="books_list">Books</string>
     <string name="drivers_list">Drivers List</string>
     <string name="libraries_list">Libraries List</string>
     <string name="all_notifications">All Notifications</string>

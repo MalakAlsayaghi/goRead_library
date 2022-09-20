@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_books.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_library_main.xml" value="0.2" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_show_my_books.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/book_item.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_home_library.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/menu/item_menu.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library/app/src/main/res/layout/activity_splash.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/bg_dialog.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/circled_bg_maincolor.xml" value="0.20052083333333334" />

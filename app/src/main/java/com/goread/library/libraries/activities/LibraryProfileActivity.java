@@ -1,24 +1,24 @@
-package com.goread.library.activities;
+package com.goread.library.libraries.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goread.library.R;
 import com.goread.library.fragments.LibraryHomeFragment;
 
-public class LibraryOrdersActivity extends AppCompatActivity {
+public class LibraryProfileActivity extends AppCompatActivity {
     ImageView back_btn;
-    RecyclerView allLibrariesOrders_recyclerView;
+    ImageButton edit_pic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_orders);
+        setContentView(R.layout.activity_library_profile);
         defineViews();
 
     }
@@ -31,6 +31,11 @@ public class LibraryOrdersActivity extends AppCompatActivity {
                 finish();
             }
         });
-        allLibrariesOrders_recyclerView= allLibrariesOrders_recyclerView.findViewById(R.id.recycler_allLibraryOrders);
+        edit_pic=findViewById(R.id.edit_pic);
+        edit_pic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
     }
 }

@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.libraries.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
