@@ -12,10 +12,10 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
-            android:name=".ChatsActivity"
+            android:name=".activities.ChatsActivity"
             android:exported="false" />
         <activity
-            android:name=".ChattingActivity"
+            android:name=".activities.ChattingActivity"
             android:exported="false" />
         <activity
             android:name=".libraries.activities.MyBooksActivity"
@@ -48,12 +48,6 @@
             android:name=".activities.AllAdminsActivity"
             android:exported="true" />
         <activity
-            android:name=".OrderItem"
-            android:exported="true" />
-        <activity
-            android:name=".DriverItem"
-            android:exported="true" />
-        <activity
             android:name=".activities.AllNotificationActivity"
             android:exported="true" />
         <activity
@@ -82,9 +76,6 @@
             android:exported="true" />
         <activity
             android:name=".activities.AllLibrariesActivity"
-            android:exported="true" />
-        <activity
-            android:name=".LibraryItem"
             android:exported="true" />
         <activity
             android:name=".ProfileAdminActivity"
