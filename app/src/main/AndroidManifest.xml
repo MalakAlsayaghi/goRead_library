@@ -12,11 +12,14 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".ChatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ChattingActivity"
             android:exported="false" />
         <activity
             android:name=".libraries.activities.MyBooksActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.OnBordingActivity"
             android:exported="false" />
@@ -100,7 +103,7 @@
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -99,6 +99,7 @@ public class ChattingActivity extends AppCompatActivity {
 
                 String messageId = databaseReference.push().getKey();
                 databaseReference.child(messageId).setValue(chatMessage);
+                etMessage.setText("");
             }
         });
 
