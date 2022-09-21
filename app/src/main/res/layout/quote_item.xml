@@ -39,7 +39,6 @@
             android:textColor="@color/brown"
             android:textSize="16dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/imageView2"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +51,7 @@
             android:textColor="@color/brown"
             android:textSize="10dp"
             android:textStyle="bold"
-
+android:layout_margin="10dp"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@id/quotes_content" />
 
