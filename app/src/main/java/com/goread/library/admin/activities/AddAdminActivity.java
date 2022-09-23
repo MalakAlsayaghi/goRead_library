@@ -1,7 +1,5 @@
 package com.goread.library.admin.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,21 +7,40 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.goread.library.R;
 
 public class AddAdminActivity extends AppCompatActivity {
     ImageView back_btn;
-Button addd_btn;
-EditText Fname_et ,Lname_et, userName_et, password_et , email_et;
+    Button add_btn;
+    EditText Fname_et, Lname_et, userName_et, password_et, email_et;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_admin);
         defineViews();
 
+        add_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
     }
+
     private void defineViews() {
-        back_btn=findViewById(R.id.btn_back);
+        back_btn = findViewById(R.id.btn_back);
+
+        add_btn = findViewById(R.id.btn_addd);
+        Fname_et = findViewById(R.id.et_Fname);
+        Lname_et = findViewById(R.id.et_Lname);
+        userName_et = findViewById(R.id.et_userName);
+        password_et = findViewById(R.id.et_password);
+        email_et = findViewById(R.id.et_email);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,52 +49,5 @@ EditText Fname_et ,Lname_et, userName_et, password_et , email_et;
             }
         });
 
-        addd_btn=findViewById(R.id.btn_addd);
-        addd_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //startActivity(new Intent(getApplicationContext(),.class));
-                finish();
-            }
-        });
-
-       Fname_et =findViewById(R.id.et_Fname);
-       Fname_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-       Lname_et=findViewById(R.id.et_Lname);
-       Lname_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-       userName_et=findViewById(R.id.et_userName);
-       userName_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-       password_et=findViewById(R.id.et_password);
-       password_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-       email_et=findViewById(R.id.et_email);
-       email_et.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-}}
+    }
+}
