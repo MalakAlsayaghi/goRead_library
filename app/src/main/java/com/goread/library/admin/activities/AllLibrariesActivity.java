@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,32 +9,28 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.goread.library.R;
-import com.goread.library.fragments.LibraryHomeFragment;
 
-public class AllBooksActivity extends AppCompatActivity {
+public class AllLibrariesActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
-    RecyclerView allBooks_recyclerView;
-
+    RecyclerView allLibraries_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_books);
+        setContentView(R.layout.activity_all_libraries);
         defineViews();
 
     }
-
     private void defineViews() {
         back_btn=findViewById(R.id.btn_back);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), LibraryHomeFragment.class));
+                startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
                 finish();
             }
         });
-
         add_btn=findViewById(R.id.btn_add);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +39,7 @@ public class AllBooksActivity extends AppCompatActivity {
                 finish();
             }
         });
-        allBooks_recyclerView= allBooks_recyclerView.findViewById(R.id.recycler_allBooks);
+        allLibraries_recyclerView= allLibraries_recyclerView.findViewById(R.id.recycler_allLibraries);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,15 +10,15 @@ import android.widget.ImageView;
 
 import com.goread.library.R;
 
-public class AllLibrariesActivity extends AppCompatActivity {
+public class AllDriversActivity extends AppCompatActivity {
     ImageView back_btn;
     ImageView add_btn;
-    RecyclerView allLibraries_recyclerView;
+    RecyclerView allDrivers_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_libraries);
+        setContentView(R.layout.activity_all_drivers);
         defineViews();
 
     }
@@ -39,7 +39,6 @@ public class AllLibrariesActivity extends AppCompatActivity {
                 finish();
             }
         });
-        allLibraries_recyclerView= allLibraries_recyclerView.findViewById(R.id.recycler_allLibraries);
-
+        allDrivers_recyclerView= allDrivers_recyclerView.findViewById(R.id.recycler_allDrivers);
     }
 }

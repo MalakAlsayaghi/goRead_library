@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;

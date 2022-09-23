@@ -41,8 +41,7 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case R.id.card_new_order:
-                break;
-
+                startActivity(new Intent(LibraryMainActivity.this, LibraryOrdersActivity.class));
             case R.id.card_chat:
                 break;
 

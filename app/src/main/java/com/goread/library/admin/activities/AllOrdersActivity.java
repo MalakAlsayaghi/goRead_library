@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,15 +10,14 @@ import android.widget.ImageView;
 
 import com.goread.library.R;
 
-public class AllDriversActivity extends AppCompatActivity {
+public class AllOrdersActivity extends AppCompatActivity {
     ImageView back_btn;
-    ImageView add_btn;
-    RecyclerView allDrivers_recyclerView;
+    RecyclerView allOrders_recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_drivers);
+        setContentView(R.layout.activity_all_orders);
         defineViews();
 
     }
@@ -31,14 +30,6 @@ public class AllDriversActivity extends AppCompatActivity {
                 finish();
             }
         });
-        add_btn=findViewById(R.id.btn_add);
-        add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
-                finish();
-            }
-        });
-        allDrivers_recyclerView= allDrivers_recyclerView.findViewById(R.id.recycler_allDrivers);
+        allOrders_recyclerView= allOrders_recyclerView.findViewById(R.id.recycler_allOrders);
     }
 }

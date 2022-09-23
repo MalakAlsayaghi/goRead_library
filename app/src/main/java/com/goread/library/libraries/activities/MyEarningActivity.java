@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.goread.library.R;
-import com.goread.library.activities.AdminMainActivity;
+import com.goread.library.admin.activities.AdminMainActivity;
 
 public class MyEarningActivity extends AppCompatActivity {
     ImageView back_btn;

@@ -24,19 +24,19 @@
             android:name=".activities.OnBordingActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AddNotificationActivity"
+            android:name=".admin.activities.AddNotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AddDriverActivity"
+            android:name=".admin.activities.AddDriverActivity"
             android:exported="false" />
         <activity
             android:name=".libraries.activities.MyQuotesActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AllBooksActivity"
+            android:name=".admin.activities.AllBooksActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AdminMainActivity"
+            android:name=".admin.activities.AdminMainActivity"
             android:exported="true" />
         <activity
             android:name=".ResetPasswordDialog"
@@ -45,47 +45,50 @@
             android:name=".libraries.activities.MyEarningActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.AllAdminsActivity"
+            android:name=".admin.activities.AllAdminsActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AllNotificationActivity"
+            android:name=".admin.activities.AllNotificationActivity"
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AllOrdersActivity"
+            android:name=".admin.activities.AllOrdersActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AllUsersActivity"
+            android:name=".admin.activities.AllUsersActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AllDriversActivity"
+            android:name=".admin.activities.AllDriversActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AddLibraryActivity"
+            android:name=".admin.activities.AddLibraryActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AllLibrariesActivity"
+            android:name=".admin.activities.AllLibrariesActivity"
             android:exported="true" />
         <activity
             android:name=".ProfileAdminActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.AddAdminActivity"
+            android:name=".admin.activities.AddAdminActivity"
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryOrdersActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".libraries.activities.AddBookActivity"
             android:exported="true" />
@@ -94,7 +97,10 @@
             android:exported="true" />
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
     </application>
 
 </manifest>

@@ -25,7 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
-import com.goread.library.activities.AdminMainActivity;
+import com.goread.library.admin.activities.AdminMainActivity;
 import com.goread.library.libraries.adapters.QuotesAdapter;
 import com.goread.library.models.Quote;
 

@@ -32,7 +32,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
-import com.goread.library.activities.AllBooksActivity;
+import com.goread.library.admin.activities.AllBooksActivity;
 import com.goread.library.models.Book;
 
 import java.io.IOException;

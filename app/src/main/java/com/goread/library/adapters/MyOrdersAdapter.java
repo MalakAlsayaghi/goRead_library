@@ -38,7 +38,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
     private BottomSheetDialog bottomSheetDialog;
 
     String libraryId;
-    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("d MM yyyy");
+    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("d/MM/yyyy");
 
     long agoDate;
 
@@ -47,10 +47,6 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
 
     public MyOrdersAdapter(Context context) {
         this.mContext = context;
-    }
-
-    public void setLibrariesList(List<Library> libraries) {
-        this.libraries = libraries;
     }
 
     public void setOrderList(List<Order> cart) {
@@ -72,13 +68,6 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         Order cartCur = myOrderList.get(position);
-        if (libraries != null) {
-            for (int i = 0; i < libraries.size(); i++) {
-                if (libraries.get(i).getId().equals(cartCur.getLibraryId())) {
-                    libraryName = libraries.get(i).getName();
-                }
-            }
-        }
 
 
         holder.tvOrderPrice.setText(locationName);
@@ -86,8 +75,9 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
         holder.tvOrderPrice.setText(cartCur.getTotalPrice() + " RY");
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        Date past = null;
         try {
-            Date past = format.parse(cartCur.getOrderDate());
+            past = format.parse(cartCur.getOrderDate());
             System.out.println("Your old date:" + past);
             System.out.println("today is: " + now.getTime());
             System.out.println("today is mins: " + MILLISECONDS.toMinutes(now.getTime() - past.getTime()));
@@ -98,10 +88,13 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
         }
 
 
-        if (agoDate != 0) {
+        if (agoDate > 0 && agoDate < 59) {
             holder.tvDate.setText(String.valueOf(agoDate) + "Mins Ago");
-        } else {
+        } else if (agoDate == 0) {
             holder.tvDate.setText("Just Now");
+
+        } else {
+            holder.tvDate.setText(String.valueOf(dateFormatterNew.format(past)));
 
         }
         if (cartCur.isLibraryAccepted() || cartCur.isRejected()) {
@@ -113,6 +106,7 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
             public void onClick(View view) {
                 Order cartCur = myOrderList.get(position);
                 databaseReference.child("Orders").child(cartCur.getUserId()).child(cartCur.getOrderId()).child("libraryAccepted").setValue(true);
+                notifyDataSetChanged();
             }
         });
 
@@ -121,6 +115,8 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
             public void onClick(View view) {
                 Order cartCur = myOrderList.get(position);
                 databaseReference.child("Order Status").child(cartCur.getUserId()).child("rejected").setValue(true);
+                databaseReference.child("Orders").child(cartCur.getUserId()).child(cartCur.getOrderId()).child("rejected").setValue(true);
+                notifyDataSetChanged();
             }
         });
 

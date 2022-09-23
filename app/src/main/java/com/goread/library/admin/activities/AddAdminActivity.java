@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,21 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goread.library.R;
-import com.goread.library.fragments.LibraryHomeFragment;
 
-public class AddLibraryActivity extends AppCompatActivity {
+public class AddAdminActivity extends AppCompatActivity {
     ImageView back_btn;
-    Button addd_btn;
-    EditText et_library_name ,et_library_address,et_library_phone,et_library_email;
-    ImageButton edit_pic;
+Button addd_btn;
+EditText Fname_et ,Lname_et, userName_et, password_et , email_et;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_library);
+        setContentView(R.layout.activity_add_admin);
         defineViews();
 
     }
@@ -30,10 +27,11 @@ public class AddLibraryActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllLibrariesActivity.class));
+                startActivity(new Intent(getApplicationContext(), AllAdminsActivity.class));
                 finish();
             }
         });
+
         addd_btn=findViewById(R.id.btn_addd);
         addd_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,35 +40,44 @@ public class AddLibraryActivity extends AppCompatActivity {
                 finish();
             }
         });
-        et_library_name=findViewById(R.id.et_library_name);
-        et_library_name.setOnClickListener(new View.OnClickListener() {
+
+       Fname_et =findViewById(R.id.et_Fname);
+       Fname_et.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            }
-        });
-        et_library_address=findViewById(R.id.et_library_address);
-        et_library_address.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        et_library_phone=findViewById(R.id.et_library_phone);
-        et_library_phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        et_library_email=findViewById(R.id.et_library_email);
-        et_library_email.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        edit_pic=findViewById(R.id.edit_pic);
-        edit_pic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+
             }
         });
 
-    }}
+       Lname_et=findViewById(R.id.et_Lname);
+       Lname_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+       userName_et=findViewById(R.id.et_userName);
+       userName_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+       password_et=findViewById(R.id.et_password);
+       password_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+       email_et=findViewById(R.id.et_email);
+       email_et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+}}

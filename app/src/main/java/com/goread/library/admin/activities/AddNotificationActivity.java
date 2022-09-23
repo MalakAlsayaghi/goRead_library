@@ -1,4 +1,4 @@
-package com.goread.library.activities;
+package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.goread.library.R;
-import com.goread.library.fragments.LibraryHomeFragment;
 
 public class AddNotificationActivity extends AppCompatActivity {
     ImageView back_btn;
