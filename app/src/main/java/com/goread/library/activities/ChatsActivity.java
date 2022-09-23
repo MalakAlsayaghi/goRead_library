@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +36,7 @@ public class ChatsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chats);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (getIntent().getStringExtra("senderId") == null) {
             senderId = firebaseUser.getUid();
         } else {
@@ -53,8 +55,8 @@ public class ChatsActivity extends AppCompatActivity {
 
         chatsList = new ArrayList<>();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("ChatList").child(senderId);
-        databaseReference.keepSynced(true);
+        //TODO change Id
+        databaseReference = FirebaseDatabase.getInstance().getReference("ChatList").child("dwHPEklO03gbT50rAMWf3tBXPIy1");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -62,6 +64,7 @@ public class ChatsActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Chat chatlist = snapshot.getValue(Chat.class);
                     chatsList.add(chatlist);
+                    System.out.println("Found: " + chatlist.getLastMessage());
                 }
 
                 chatList();
@@ -86,8 +89,9 @@ public class ChatsActivity extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     User user = snapshot.getValue(User.class);
                     for (Chat chatlist : chatsList) {
-                        if (user.getId().equals(chatlist.getId())) {
+                        if (user.getId().equals(chatlist.getUserId())) {
                             mUsers.add(user);
+                            System.out.println("Moha Found");
                         }
                     }
                 }
