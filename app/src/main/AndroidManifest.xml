@@ -54,6 +54,7 @@
             android:name=".libraries.activities.LibraryMainActivity"
             android:exported="true">
 
+
         </activity>
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
@@ -82,11 +83,7 @@
         <activity
             android:name=".libraries.activities.LibraryOrdersActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -98,7 +95,11 @@
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
     </application>

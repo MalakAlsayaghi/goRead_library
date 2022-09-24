@@ -94,7 +94,7 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder> 
     //check for last message
     private void lastMessage(final String userid, final TextView last_msg) {
         theLastMessage = "default";
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chatting");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Chatting").child("Messages");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,8 +102,15 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder> 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ChatMessage chat = snapshot.getValue(ChatMessage.class);
                     if (chat != null) {
-                        if (chat.getReceiverId().equals(senderId) && chat.getSenderId().equals(userid) ||
+                        System.out.println(senderId);
+                        System.out.println(userid);
+                        System.out.println("ReciverId: " + chat.getReceiverId());
+
+                        if (chat.getReceiverId().equals(senderId) &&
+                                chat.getSenderId().equals(userid) ||
                                 chat.getReceiverId().equals(userid) && chat.getSenderId().equals(senderId)) {
+
+                            System.out.println("condition worked" + chat.getMessage());
                             theLastMessage = chat.getMessage();
                         }
                     }

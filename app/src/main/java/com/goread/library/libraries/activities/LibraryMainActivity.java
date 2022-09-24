@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.card.MaterialCardView;
 import com.goread.library.R;
+import com.goread.library.activities.ChatsActivity;
 
 public class LibraryMainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -42,12 +43,14 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
 
             case R.id.card_new_order:
                 startActivity(new Intent(LibraryMainActivity.this, LibraryOrdersActivity.class));
-            case R.id.card_chat:
-                break;
+break;
 
             case R.id.card_upload_quote:
                 startActivity(new Intent(LibraryMainActivity.this, MyQuotesActivity.class));
+                break;
 
+            case R.id.card_chat:
+                startActivity(new Intent(LibraryMainActivity.this, ChatsActivity.class));
                 break;
         }
     }
