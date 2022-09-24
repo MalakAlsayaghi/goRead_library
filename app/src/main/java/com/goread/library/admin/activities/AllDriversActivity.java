@@ -43,7 +43,7 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
     List<User> userList;
     DatabaseReference databaseReference;
     AlertDialog dialog;
-    String name,phone;
+    String name, phone;
     User driver;
 
 
@@ -119,7 +119,7 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
 
     @Override
     public void editData(User user) {
-        driver= user;
+        driver = user;
         initDialog();
     }
 
@@ -166,8 +166,8 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
         btn_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name =et_name.getText().toString();
-                phone =et_phone.getText().toString();
+                name = et_name.getText().toString();
+                phone = et_phone.getText().toString();
                 driver.setName(name);
                 driver.setPhone(phone);
 
@@ -189,4 +189,4 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
 
     }
 
-    }
+}

@@ -35,7 +35,7 @@ public class AllLibrariesActivity extends AppCompatActivity {
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
+                startActivity(new Intent(getApplicationContext(),AddLibraryActivity.class));
                 finish();
             }
         });

@@ -12,10 +12,12 @@
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_send_24.xml" value="0.1855" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_book.xml" value="0.264" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_driver.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_library.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_notification.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_quote.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_admin_main.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_books.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_libraries.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_orders.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_quotes.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_users.xml" value="0.1037037037037037" />
@@ -36,6 +38,7 @@
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_old_orders.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/item_container_reciver_message.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/item_container_sent_message.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/library_item.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/nav_header_main.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/order_item.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/order_item_library.xml" value="0.25" />
