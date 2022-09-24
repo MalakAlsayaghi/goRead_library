@@ -62,7 +62,7 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_quote"
+                    android:id="@+id/titleNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/the_title"
@@ -88,7 +88,7 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_quote_bookName"
+                    android:id="@+id/bodyNotification"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/the_body"
@@ -101,9 +101,8 @@
 
 
             <Button
-                android:id="@+id/btn_add_quote"
+                android:id="@+id/btn_add_Notification"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:background="@drawable/bg_button"
@@ -114,7 +113,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"  android:layout_height="wrap_content"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
