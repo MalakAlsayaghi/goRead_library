@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.goread.library">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -64,10 +66,18 @@
             android:exported="true" />
         <activity
             android:name=".admin.activities.AllUsersActivity"
-            android:exported="true" />
+            android:exported="true" >
+        </activity>
         <activity
             android:name=".admin.activities.AllDriversActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".admin.activities.AddLibraryActivity"
             android:exported="true" />
@@ -85,6 +95,7 @@
             android:exported="true" >
 
 
+
         </activity>
         <activity
             android:name=".libraries.activities.AddBookActivity"
@@ -95,11 +106,7 @@
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
     </application>
