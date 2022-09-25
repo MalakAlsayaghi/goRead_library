@@ -24,7 +24,7 @@
             android:weightSum="1">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/book_img"
+                android:id="@+id/library_img"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="3dp"
@@ -43,7 +43,7 @@
             android:weightSum="2">
 
             <TextView
-                android:id="@+id/tv_book_name"
+                android:id="@+id/tv_library_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/library_name"
@@ -99,7 +99,7 @@
 
 
                 <ImageButton
-                    android:id="@+id/edit_item"
+                    android:id="@+id/btnEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="34dp"
                     android:layout_gravity="center"

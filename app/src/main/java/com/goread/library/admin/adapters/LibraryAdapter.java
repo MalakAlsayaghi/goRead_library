@@ -10,8 +10,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
 import com.goread.library.R;
+import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
 import java.util.List;
@@ -21,8 +23,10 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
 
     Context mContext;
     List<User> userList;
+    List<LibraryProfile> profileList;
     DatabaseReference databaseReference;
     int limit = 0;
+    String address;
     private AdapterCallback adapterCallback;
 
 
@@ -38,7 +42,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.driver_item, parent, false);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.library_item, parent, false);
         return new ImageViewHolder(v);
     }
 
@@ -46,19 +50,28 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
         User user = userList.get(position);
 
+        if (user != null && profileList != null) {
+            for (int j = 0; j < profileList.size(); j++) {
+                if (user.getId().equals(profileList.get(j).getId())) {
+                    address = profileList.get(j).getLocation();
+                    holder.address.setText(address);
+                    Glide.with(mContext)
+                            .load(profileList.get(j).getImg_url())
+                            .centerCrop()
+                            .into(holder.library_img);
+                }
+            }
+        }
+
+
         holder.username.setText(user.getName());
         holder.phone.setText(user.getPhone());
-        holder.btnCall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                adapterCallback.phoneCall(user.getPhone());
-            }
-        });
+
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adapterCallback.editData(user);
+                adapterCallback.editData(user, profileList.get(position));
             }
         });
 
@@ -70,12 +83,9 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         notifyDataSetChanged();
     }
 
-    public static interface AdapterCallback {
-
-        void phoneCall(String phone);
-
-        void editData(User user);
-
+    public void setProfileList(List<LibraryProfile> profileList) {
+        this.profileList = profileList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -83,17 +93,27 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         return userList.size();
     }
 
+    public static interface AdapterCallback {
+
+        void phoneCall(String phone);
+
+        void editData(User user, LibraryProfile profile);
+    }
+
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-        TextView username, email, phone;
+        TextView username, phone, address;
         ImageView btnCall, btnEdit;
+        ImageView library_img;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            username = itemView.findViewById(R.id.tv_driver_name);
+            username = itemView.findViewById(R.id.tv_library_name);
             phone = itemView.findViewById(R.id.tv_phone);
-            btnCall = itemView.findViewById(R.id.btnCall);
+            //   btnCall = itemView.findViewById(R.id.btnCall);
             btnEdit = itemView.findViewById(R.id.btnEdit);
+            address = itemView.findViewById(R.id.tv_address);
+            library_img = itemView.findViewById(R.id.library_img);
 
         }
     }
