@@ -1,6 +1,8 @@
 package com.goread.library.admin.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -8,37 +10,51 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
+import com.goread.library.admin.activities.Notification;
+import com.goread.library.admin.adapters.NotificationAdapter;
+
+import java.util.ArrayList;
 
 public class AllNotificationActivity extends AppCompatActivity {
-    ImageView back_btn;
-    ImageView add_btn;
-    RecyclerView allNotifications_recyclerView;
+    RecyclerView recyclerView;
+    ArrayList<Notification> list;
+    DatabaseReference databaseReference;
+    NotificationAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_notification);
-        defineViews();
+        recyclerView=findViewById(R.id.recycler_quotes);
+        databaseReference= FirebaseDatabase.getInstance().getReference("Notification");
 
-    }
-    private void defineViews() {
-        back_btn=findViewById(R.id.btn_back);
-        back_btn.setOnClickListener(new View.OnClickListener() {
+        list=new ArrayList<>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter=new NotificationAdapter(this,list);
+        recyclerView.setAdapter(adapter);
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
-                finish();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Notification notification = dataSnapshot.getValue(Notification.class);
+                    list.add(notification);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-        add_btn=findViewById(R.id.btn_add);
-        add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
-                finish();
-            }
-        });
-        allNotifications_recyclerView= allNotifications_recyclerView.findViewById(R.id.recycler_allNotifications);
+        }
+
 
     }
-}
+
+
