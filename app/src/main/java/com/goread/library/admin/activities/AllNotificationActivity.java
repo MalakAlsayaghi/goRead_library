@@ -26,13 +26,21 @@ public class AllNotificationActivity extends AppCompatActivity {
     ArrayList<Notification> list;
     DatabaseReference databaseReference;
     NotificationAdapter adapter;
+    ImageView btnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_notification);
         recyclerView=findViewById(R.id.recycler_quotes);
-        databaseReference= FirebaseDatabase.getInstance().getReference("Notification");
+        btnAdd=findViewById(R.id.btn_add);
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AddNotificationActivity.class));
+            }
+        });
+        databaseReference= FirebaseDatabase.getInstance().getReference("Notification");
         list=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter=new NotificationAdapter(this,list);

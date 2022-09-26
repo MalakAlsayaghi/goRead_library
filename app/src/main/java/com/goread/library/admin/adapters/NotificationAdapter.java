@@ -27,21 +27,24 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(context).inflate(R.layout.notification_item,parent,false);
+        View v = LayoutInflater.from(context).inflate(R.layout.notification_item, parent, false);
         return new MyViewHolder(v);
     }
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView NotificationTitle,NotificationBody;
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView NotificationTitle, NotificationBody;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            NotificationTitle=itemView.findViewById(R.id.title_tv_notification);
-            NotificationBody=itemView.findViewById(R.id.body_tv_notification);
-
+            NotificationTitle = itemView.findViewById(R.id.title_tv_notification);
+            NotificationBody = itemView.findViewById(R.id.body_tv_notification);
         }
     }
+
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Notification notification=list.get(position);
+        Notification notification = list.get(position);
+        System.out.println(notification.getNotificationBody());
         holder.NotificationTitle.setText(notification.getNotificationTitle());
         holder.NotificationBody.setText(notification.getNotificationBody());
 
