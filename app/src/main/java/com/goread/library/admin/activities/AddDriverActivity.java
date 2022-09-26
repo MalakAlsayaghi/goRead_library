@@ -3,9 +3,12 @@ package com.goread.library.admin.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +35,10 @@ import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
 import com.goread.library.models.User;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Random;
 import java.util.UUID;
 
 public class AddDriverActivity extends AppCompatActivity {
@@ -256,4 +262,5 @@ public class AddDriverActivity extends AppCompatActivity {
 
 
     }
+
 }

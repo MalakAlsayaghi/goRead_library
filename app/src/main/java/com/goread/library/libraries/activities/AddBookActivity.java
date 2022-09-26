@@ -129,6 +129,17 @@ public class AddBookActivity extends AppCompatActivity {
 
         drop_categoriesList.add("Drama");
         drop_categoriesList.add("Romantic");
+        drop_categoriesList.add("Philosophy & Psychology");
+        drop_categoriesList.add("General Knowledge");
+        drop_categoriesList.add("Religion");
+        drop_categoriesList.add("Social Science");
+        drop_categoriesList.add("Languages");
+        drop_categoriesList.add("Classic");
+        drop_categoriesList.add("Science");
+        drop_categoriesList.add("Technology");
+        drop_categoriesList.add("Literature");
+        drop_categoriesList.add("Art & Recreation");
+        drop_categoriesList.add("History & Geography");
         adapter_categories = new ArrayAdapter<String>(getApplicationContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, drop_categoriesList);
         drop_menu_categories.setAdapter(adapter_categories);
 
@@ -143,40 +154,10 @@ public class AddBookActivity extends AppCompatActivity {
         });
 
 
+
     }
 
-/*
-    public String getCategory() {
-        String category = null;
 
-        if (cb_GeneralKnowledge.isChecked()) {
-            category = "General Knowledge";
-        } else if (cb_Philosophy_Psychology.isChecked()) {
-            category = "Philosophy & Psychology";
-        } else if (cb_Religion.isChecked()) {
-            category = "Religion";
-        } else if (cb_SocialScience.isChecked()) {
-            category = "SocialScience";
-        } else if (cb_classic.isChecked()) {
-            category = "classic";
-        } else if (cb_Languages.isChecked()) {
-            category = "Languages";
-        } else if (cb_Science.isChecked()) {
-            category = "Science";
-        } else if (cb_Technology.isChecked()) {
-            category = "Technology";
-        } else if (cb_Art_Recreation.isChecked()) {
-            category = "Art & Recreation";
-        } else if (cb_Literature.isChecked()) {
-            category = "Literature";
-        } else if (cb_History_Geography.isChecked()) {
-            category = "History & Geography";
-        } else {
-            Toast.makeText(this, R.string.choose_category, Toast.LENGTH_SHORT).show();
-        }
-        return category;
-    }
-*/
 
     public boolean isValidate() {
         name = book_name_et.getText().toString();
@@ -241,6 +222,10 @@ public class AddBookActivity extends AppCompatActivity {
                                                     0.0, fileLink, "Drama", library_id, false);
 
                                             databaseReference.child(book_id).setValue(book);
+                                            book_name_et.setText("");
+                                            book_description_et.setText("");
+                                            book_price_et.setText("");
+                                            drop_menu_categories.setListSelection(0);
                                         } else {
 
 

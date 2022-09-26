@@ -1,11 +1,19 @@
 package com.goread.library.admin.activities;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +23,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,7 +43,11 @@ import com.goread.library.R;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Random;
 import java.util.UUID;
 
 public class AddLibraryActivity extends AppCompatActivity {
@@ -41,7 +55,7 @@ public class AddLibraryActivity extends AppCompatActivity {
     Button add_btn;
     EditText et_library_name, et_library_address, et_library_phone, et_library_email;
     ImageButton edit_pic;
-    private final int PICK_IMAGE_REQUEST = 22;
+    private final int PICK_IMAGE_REQUEST = 22, PICK_FILE_REQUEST = 40;
     // instance for firebase storage and StorageReference
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -52,6 +66,7 @@ public class AddLibraryActivity extends AppCompatActivity {
     String name, email, phone, location, password = "123456", fileLink;
     private Uri filePath;
     FirebaseAuth firebaseAuth;
+    Bitmap myBitmap;
 
 
     @Override
@@ -59,6 +74,25 @@ public class AddLibraryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_library);
         defineViews();
+
+        if (ContextCompat.checkSelfPermission(AddLibraryActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(AddLibraryActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PICK_FILE_REQUEST);
+
+            // MY_PERMISSIONS_REQUEST_CALL_PHONE is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        } else {
+            //You already have permission
+            try {
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+        }
 
         edit_pic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +214,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                 resultCode,
                 data);
 
+
         // checking request code and result code
         // if request code is PICK_IMAGE_REQUEST and
         // resultCode is RESULT_OK
@@ -201,9 +236,32 @@ public class AddLibraryActivity extends AppCompatActivity {
                                 getContentResolver(),
                                 filePath);
                 libraryImg.setImageBitmap(bitmap);
+                myBitmap =bitmap;
+                //saveImage(bitmap,"MyQr");
             } catch (IOException e) {
                 // Log the exception
                 e.printStackTrace();
+            }
+        }
+
+        if (requestCode == PICK_FILE_REQUEST
+                && resultCode == RESULT_OK
+                && data != null
+                && data.getData() != null) {
+            try {
+                Bitmap bitmap = MediaStore
+                        .Images
+                        .Media
+                        .getBitmap(
+                                getContentResolver(),
+                                filePath);
+
+           //     saveImage(bitmap);
+
+                System.out.println("I saved it");
+
+            } catch (Exception e) {
+
             }
         }
     }
@@ -265,5 +323,39 @@ public class AddLibraryActivity extends AppCompatActivity {
         edit_pic = findViewById(R.id.edit_pic);
 
 
+    }
+
+    private void saveImage(Bitmap bitmap, @NonNull String name) throws IOException {
+        boolean saved;
+        OutputStream fos;
+        String folderName = "Hello";
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ContentResolver resolver = getApplicationContext().getContentResolver();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name);
+            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
+            contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/" + folderName);
+            Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+            fos = resolver.openOutputStream(imageUri);
+        } else {
+            String imagesDir = Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_DCIM).toString() + File.separator + folderName;
+
+            File file = new File(imagesDir);
+
+            if (!file.exists()) {
+                file.mkdir();
+            }
+
+            File image = new File(imagesDir, name + ".png");
+            fos = new FileOutputStream(image);
+
+        }
+
+        saved = bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        Log.i("Saving", "saveImage: True");
+        fos.flush();
+        fos.close();
     }
 }

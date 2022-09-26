@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     TextView register, forget;
     DatabaseReference reference;
+    ProgressBar progressBar;
 
 
     @Override
@@ -56,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signingIn(String email, String password) {
+        showProgress(true);
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -80,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
 
                             } else {
+                                showProgress(false);
                                 Toast.makeText(LoginActivity.this, "Not A library", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -92,11 +96,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     if (!user.isEmailVerified()) {
-                        //  user.sendEmailVerification();
+                        user.sendEmailVerification();
 
                         //Toast.makeText(LoginActivity.this, "Verification sent..", Toast.LENGTH_LONG).show();
 
                     }
+                }
+                else {
+                    showProgress(false);
                 }
 
 
@@ -105,6 +112,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                showProgress(false);
             }
         });
 
@@ -133,7 +141,16 @@ public class LoginActivity extends AppCompatActivity {
         et_password = findViewById(R.id.et_password);
         //register = findViewById(R.id.tv_signUp);
         forget = findViewById(R.id.tv_forget);
+        progressBar = findViewById(R.id.progressBar);
+    }
 
-
+    private void showProgress(boolean status) {
+        if (status) {
+            progressBar.setVisibility(View.VISIBLE);
+            loginBtn.setVisibility(View.INVISIBLE);
+        } else {
+            progressBar.setVisibility(View.INVISIBLE);
+            loginBtn.setVisibility(View.VISIBLE);
+        }
     }
 }

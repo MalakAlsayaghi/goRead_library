@@ -120,6 +120,13 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:outlineAmbientShadowColor="@color/brown"
+                android:visibility="invisible"/>
 
 
         </FrameLayout>
