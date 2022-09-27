@@ -29,14 +29,10 @@ public class SplashActivity extends AppCompatActivity {
 
                 if (mAuth.getCurrentUser() != null) {
                     startActivity(new Intent(SplashActivity.this, LibraryMainActivity.class));
-                    finish();
                 } else {
                     startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                    finish();
                 }
-                ;
-
-
+                finish();
             }
         }, 3000);
     }
