@@ -1,19 +1,29 @@
 package com.goread.library.libraries.activities;
 
+import android.Manifest;
+import android.content.ContentResolver;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -36,6 +46,10 @@ import com.goread.library.auth.LoginActivity;
 import com.goread.library.models.Order;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +63,8 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
     DatabaseReference databaseReference;
     int myTotalOrders = 0, othersTotalOrders = 0;
     View bsheet;
+    Bitmap bitmap;
+    private final int PICK_IMAGE_REQUEST = 22, PICK_FILE_REQUEST = 40;
 
 
     @Override
@@ -58,6 +74,27 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
         defineViews();
         // initCharts();
         drawChart();
+
+
+        if (ContextCompat.checkSelfPermission(LibraryMainActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(LibraryMainActivity.this,
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    PICK_FILE_REQUEST);
+
+            // MY_PERMISSIONS_REQUEST_CALL_PHONE is an
+            // app-defined int constant. The callback method gets the
+            // result of the request.
+        } else {
+            //You already have permission
+            try {
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+        }
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -198,21 +235,35 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void generateQR() {
+        ImageView btnDownload;
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LibraryMainActivity.this, R.style.BottomSheetDialog);
         View bottomSheetView = LayoutInflater.from(LibraryMainActivity.this)
                 .inflate(R.layout.my_qr_dialog,
-                     null);
+                        null);
 
+        btnDownload = bottomSheetView.findViewById(R.id.imgDownload);
         bottomSheetDialog.setContentView(bottomSheetView);
         bottomSheetDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
 
+        btnDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    saveImage(bitmap, "QR");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(LibraryMainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         try {
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-            Bitmap bitmap = barcodeEncoder.encodeBitmap(firebaseAuth.getCurrentUser().getUid(), BarcodeFormat.QR_CODE, 400, 400);
+            bitmap = barcodeEncoder.encodeBitmap(firebaseAuth.getCurrentUser().getUid(), BarcodeFormat.QR_CODE, 400, 400);
             ImageView imageViewQrCode = bottomSheetView.findViewById(R.id.qrPlaceHolder);
             imageViewQrCode.setImageBitmap(bitmap);
             imageViewQrCode.setBackgroundColor(Color.BLUE);
-            System.out.println("Generated"+ firebaseAuth.getCurrentUser().getUid());
+            System.out.println("Generated" + firebaseAuth.getCurrentUser().getUid());
             bottomSheetDialog.show();
 
         } catch (Exception e) {
@@ -222,6 +273,41 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    private void saveImage(Bitmap bitmap, @NonNull String name) throws IOException {
+        boolean saved;
+        OutputStream fos;
+        String folderName = "QRCodes";
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            ContentResolver resolver = getApplicationContext().getContentResolver();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name);
+            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
+            contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/" + folderName);
+            Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+            fos = resolver.openOutputStream(imageUri);
+        } else {
+            String imagesDir = Environment.getExternalStoragePublicDirectory(
+                    Environment.DIRECTORY_DCIM).toString() + File.separator + folderName;
+
+            File file = new File(imagesDir);
+
+            if (!file.exists()) {
+                file.mkdir();
+            }
+
+            File image = new File(imagesDir, name + ".png");
+            fos = new FileOutputStream(image);
+            System.out.println("Moha Path"+image.getAbsolutePath());
+            System.out.println("Moha Path"+image.getCanonicalPath());
+
+        }
+
+        saved = bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        Log.i("Saving", "saveImage: True");
+        fos.flush();
+        fos.close();
+    }
 
     private void defineViews() {
         cvBooks = findViewById(R.id.card_upload_book);

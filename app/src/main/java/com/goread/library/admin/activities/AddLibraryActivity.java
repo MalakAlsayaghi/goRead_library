@@ -75,24 +75,7 @@ public class AddLibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_library);
         defineViews();
 
-        if (ContextCompat.checkSelfPermission(AddLibraryActivity.this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(AddLibraryActivity.this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    PICK_FILE_REQUEST);
-
-            // MY_PERMISSIONS_REQUEST_CALL_PHONE is an
-            // app-defined int constant. The callback method gets the
-            // result of the request.
-        } else {
-            //You already have permission
-            try {
-            } catch (SecurityException e) {
-                e.printStackTrace();
-            }
-        }
 
         edit_pic.setOnClickListener(new View.OnClickListener() {
             @Override
