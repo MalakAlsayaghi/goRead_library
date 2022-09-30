@@ -1,10 +1,16 @@
 package com.goread.library.libraries.activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +21,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,10 +29,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.zxing.BarcodeFormat;
 import com.goread.library.R;
 import com.goread.library.activities.ChatsActivity;
 import com.goread.library.auth.LoginActivity;
 import com.goread.library.models.Order;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,12 +42,13 @@ import java.util.List;
 public class LibraryMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     MaterialCardView cvNewOrders, cvBooks, cvQuotes, cvChat;
-    ImageButton btnLogout;
+    ImageButton btnLogout, btnGenerate;
     FirebaseAuth firebaseAuth;
     ArrayList<PieEntry> pieEntries;
     PieChart pieChart;
     DatabaseReference databaseReference;
     int myTotalOrders = 0, othersTotalOrders = 0;
+    View bsheet;
 
 
     @Override
@@ -47,14 +56,21 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library_main);
         defineViews();
-       // initCharts();
-drawChart();
+        // initCharts();
+        drawChart();
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 firebaseAuth.signOut();
                 startActivity(new Intent(LibraryMainActivity.this, LoginActivity.class));
                 finish();
+            }
+        });
+
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateQR();
             }
         });
 
@@ -68,7 +84,7 @@ drawChart();
         pieEntries = new ArrayList<>();
         List<Order> orderList = new ArrayList<>();
 
-        final int[] MY_COLORS = { Color.rgb(223, 153, 102),Color.rgb(82, 54, 32)};
+        final int[] MY_COLORS = {Color.rgb(223, 153, 102), Color.rgb(82, 54, 32)};
 
         ArrayList<Integer> colors = new ArrayList<Integer>();
 
@@ -114,8 +130,6 @@ drawChart();
                 data.setValueTextColor(Color.WHITE);
 
 
-
-
             }
 
             @Override
@@ -125,8 +139,8 @@ drawChart();
         });
 
 
-
     }
+
     private void initCharts() {
         pieEntries = new ArrayList<>();
         List<Order> orderList = new ArrayList<>();
@@ -183,6 +197,31 @@ drawChart();
 
     }
 
+    private void generateQR() {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LibraryMainActivity.this, R.style.BottomSheetDialog);
+        View bottomSheetView = LayoutInflater.from(LibraryMainActivity.this)
+                .inflate(R.layout.my_qr_dialog,
+                     null);
+
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+
+        try {
+            BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+            Bitmap bitmap = barcodeEncoder.encodeBitmap(firebaseAuth.getCurrentUser().getUid(), BarcodeFormat.QR_CODE, 400, 400);
+            ImageView imageViewQrCode = bottomSheetView.findViewById(R.id.qrPlaceHolder);
+            imageViewQrCode.setImageBitmap(bitmap);
+            imageViewQrCode.setBackgroundColor(Color.BLUE);
+            System.out.println("Generated"+ firebaseAuth.getCurrentUser().getUid());
+            bottomSheetDialog.show();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
 
     private void defineViews() {
         cvBooks = findViewById(R.id.card_upload_book);
@@ -190,6 +229,7 @@ drawChart();
         cvQuotes = findViewById(R.id.card_upload_quote);
         cvChat = findViewById(R.id.card_chat);
         btnLogout = findViewById(R.id.btnLLogOut);
+        btnGenerate = findViewById(R.id.btnGenerate);
         pieChart = findViewById(R.id.pieChart);
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();

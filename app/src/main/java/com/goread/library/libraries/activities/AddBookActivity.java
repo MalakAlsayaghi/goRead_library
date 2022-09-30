@@ -154,9 +154,7 @@ public class AddBookActivity extends AppCompatActivity {
         });
 
 
-
     }
-
 
 
     public boolean isValidate() {
@@ -219,7 +217,7 @@ public class AddBookActivity extends AppCompatActivity {
 
                                         if (book_id != null) {
                                             Book book = new Book(book_id, name, Integer.parseInt(price), desc,
-                                                    0.0, fileLink, "Drama", library_id, false);
+                                                    0.0, fileLink, category, library_id, false);
 
                                             databaseReference.child(book_id).setValue(book);
                                             book_name_et.setText("");
@@ -232,10 +230,9 @@ public class AddBookActivity extends AppCompatActivity {
                                             //next work with URL
                                             Toast.makeText(getApplicationContext(), fileLink, Toast.LENGTH_LONG).show();
 
-
                                             String key = databaseReference.push().getKey();
                                             Book book = new Book(key, name, Integer.parseInt(price), desc,
-                                                    0.0, fileLink, "Drama", library_id, false);
+                                                    0.0, fileLink, category, library_id, false);
 
                                             databaseReference.child(key).setValue(book);
 
