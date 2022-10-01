@@ -1,4 +1,4 @@
-package com.goread.library.adapters;
+package com.goread.library.libraries.adapters;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
 

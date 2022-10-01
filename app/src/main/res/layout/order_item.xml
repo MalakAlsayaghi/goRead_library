@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:gravity="center"
-                    android:text="@string/book"
+                    android:text="Library"
                     android:textAlignment="center"
                     android:textColor="@color/brown"
                     android:textSize="16dp"
@@ -80,7 +80,7 @@
                     app:layout_constraintBottom_toBottomOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_book"
+                    android:id="@+id/tv_library"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -213,7 +213,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_driver_name_name"
+                    android:id="@+id/tv_driver_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -227,13 +227,13 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/edit_item"
+                android:id="@+id/btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="34dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="150dp"
                 android:background="@color/white"
-                android:src="@drawable/ic_baseline_edit_24_maincolor"
+                android:src="@drawable/ic_baseline_delete_forever_24"
                 />
 
 

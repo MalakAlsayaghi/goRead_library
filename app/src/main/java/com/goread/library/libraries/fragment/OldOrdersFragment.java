@@ -18,7 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
-import com.goread.library.adapters.MyOrdersAdapter;
+import com.goread.library.libraries.adapters.MyOrdersAdapter;
 import com.goread.library.models.Library;
 import com.goread.library.models.Order;
 import com.goread.library.models.User;
