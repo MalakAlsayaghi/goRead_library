@@ -284,7 +284,6 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
-
                     android:id="@+id/card_notifications"
                     android:layout_width="160dp"
                     android:layout_height="160dp"

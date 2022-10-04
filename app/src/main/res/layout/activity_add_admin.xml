@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -12,14 +11,14 @@
         android:orientation="vertical"
 
         android:padding="10dp">
+
         <LinearLayout
             android:id="@+id/nav_orders"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="10dp"
-            >
+            android:padding="10dp">
 
             <ImageView
                 android:id="@+id/btn_back"
@@ -123,38 +122,6 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_userName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/username"
-                android:imeOptions="actionNext"
-                android:inputType="text"
-                android:singleLine="true"
-
-
-                />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:boxCornerRadiusBottomEnd="7dp"
-            app:boxCornerRadiusBottomStart="7dp"
-            app:boxCornerRadiusTopEnd="7dp"
-            app:boxCornerRadiusTopStart="7dp"
-            app:errorEnabled="true"
-
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,6 +135,7 @@
 
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -189,10 +157,7 @@
                 android:hint="@string/email"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
-                android:singleLine="true"
-
-
-                />
+                android:singleLine="true" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -211,6 +176,7 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
 
 
     </LinearLayout>

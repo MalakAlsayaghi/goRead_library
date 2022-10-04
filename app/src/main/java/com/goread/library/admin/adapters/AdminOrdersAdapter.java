@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -142,7 +143,7 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView tvLibrary, tvDriver, tvNote, tvOrderPrice, tvDate;
-        Button btnDelete;
+        ImageButton btnDelete;
 
 
         public ImageViewHolder(@NonNull View itemView) {
