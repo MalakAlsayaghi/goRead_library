@@ -22,10 +22,10 @@
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/book_img"
+
             android:layout_width="100dp"
             android:layout_height="80dp"
             android:layout_margin="5dp"
-            android:scaleType="centerCrop"
             android:src="@drawable/ic_driver"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -63,19 +63,20 @@
 
         <ImageButton
             android:id="@+id/btnEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
             android:background="@color/white"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_baseline_edit_24_maincolor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnCall"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="29dp"
+            android:layout_height="38dp"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
             android:background="@color/white"
