@@ -34,7 +34,6 @@ public class AddAdminActivity extends AppCompatActivity {
 
     private void defineViews() {
         back_btn = findViewById(R.id.btn_back);
-
         add_btn = findViewById(R.id.btn_addd);
         Fname_et = findViewById(R.id.et_Fname);
         Lname_et = findViewById(R.id.et_Lname);
