@@ -1,19 +1,16 @@
 package com.goread.library.admin.activities;
 
+import static com.goread.library.utils.Constants.PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION;
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +23,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,14 +46,10 @@ import com.goread.library.R;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Random;
 import java.util.UUID;
 
-public class AddLibraryActivity extends AppCompatActivity {
+public class AddLibraryActivity extends AppCompatActivity implements OnMapReadyCallback {
     ImageView back_btn;
     Button add_btn;
     EditText et_library_name, et_library_address, et_library_phone, et_library_email;
@@ -63,18 +62,26 @@ public class AddLibraryActivity extends AppCompatActivity {
     ImageView add_img, libraryImg;
     Button btnUpload;
     FirebaseUser firebaseUser;
-    String name, email, phone, location, password = "123456", fileLink;
+    String name, email, phone, location, password = "123456", fileLink, locationId;
     private Uri filePath;
     FirebaseAuth firebaseAuth;
     Bitmap myBitmap;
-
+    private MapView mMapView;
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    boolean mLocationPermissionGranted = false;
+    MarkerOptions markerOptions;
+    LatLng selectedPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_library);
         defineViews();
-
+        mMapView = (MapView) findViewById(R.id.map);
+        mMapView.onCreate(savedInstanceState);
+        // cardView = findViewById(R.id.test);
+        mMapView.getMapAsync(this);
+        getLocationPermission();
 
 
         edit_pic.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +132,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                                                 String id = firebaseAuth.getCurrentUser().getUid();
                                                 User user = new User(id, name, phone, email, "Library", "token");
                                                 LibraryProfile profile = new LibraryProfile(id, name, fileLink, phone, location, true, 0.0);
-
+                                                uploadLocation(id);
                                                 databaseReference.child("Library Profile").child(id).setValue(profile);
                                                 databaseReference.child("Users").child("Library").child(id).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                     @Override
@@ -219,7 +226,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                                 getContentResolver(),
                                 filePath);
                 libraryImg.setImageBitmap(bitmap);
-                myBitmap =bitmap;
+                myBitmap = bitmap;
                 //saveImage(bitmap,"MyQr");
             } catch (IOException e) {
                 // Log the exception
@@ -239,7 +246,7 @@ public class AddLibraryActivity extends AppCompatActivity {
                                 getContentResolver(),
                                 filePath);
 
-           //     saveImage(bitmap);
+                //     saveImage(bitmap);
 
                 System.out.println("I saved it");
 
@@ -287,6 +294,7 @@ public class AddLibraryActivity extends AppCompatActivity {
         et_library_email = findViewById(R.id.et_library_email);
         et_library_phone = findViewById(R.id.et_library_phone);
 
+
         libraryImg = findViewById(R.id.library_img);
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -303,42 +311,127 @@ public class AddLibraryActivity extends AppCompatActivity {
         });
 
 
+
+
+
         edit_pic = findViewById(R.id.edit_pic);
 
 
     }
 
-    private void saveImage(Bitmap bitmap, @NonNull String name) throws IOException {
-        boolean saved;
-        OutputStream fos;
-        String folderName = "Hello";
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ContentResolver resolver = getApplicationContext().getContentResolver();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, name);
-            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
-            contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/" + folderName);
-            Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
-            fos = resolver.openOutputStream(imageUri);
-        } else {
-            String imagesDir = Environment.getExternalStoragePublicDirectory(
-                    Environment.DIRECTORY_DCIM).toString() + File.separator + folderName;
-
-            File file = new File(imagesDir);
-
-            if (!file.exists()) {
-                file.mkdir();
-            }
-
-            File image = new File(imagesDir, name + ".png");
-            fos = new FileOutputStream(image);
-
-        }
-
-        saved = bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-        Log.i("Saving", "saveImage: True");
-        fos.flush();
-        fos.close();
+    private void uploadLocation(String libraryId) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Locations").child("Libraries");
+        databaseReference.child(libraryId).child("latitude").setValue(selectedPlace.latitude);
+        databaseReference.child(libraryId).child("longitude").setValue(selectedPlace.longitude);
     }
+
+
+    private void getLocationPermission() {
+        /*
+         * Request location permission, so that we can get the location of the
+         * device. The result of the permission request is handled by a callback,
+         * onRequestPermissionsResult.
+         */
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            mLocationPermissionGranted = true;
+
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    MY_PERMISSIONS_REQUEST_LOCATION);
+        }
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMapView.onResume();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap map) {
+        double latitude = 15.288740;
+        double longitude = 44.2026459;
+
+
+        map.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                if (markerOptions != null) {
+                    map.clear();
+                }
+                markerOptions = new MarkerOptions().position(latLng).title("");
+                selectedPlace = latLng;
+                System.out.println(selectedPlace);
+                map.addMarker(markerOptions);
+
+
+            }
+        });
+
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 17));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            System.out.println("Location not enabled");
+            return;
+        }
+        map.setMyLocationEnabled(true);
+
+
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String permissions[],
+                                           @NonNull int[] grantResults) {
+        mLocationPermissionGranted = false;
+        switch (requestCode) {
+            case PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mLocationPermissionGranted = true;
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        mMapView.onPause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        mMapView.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mMapView.onLowMemory();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mMapView.onSaveInstanceState(outState);
+    }
+
+
 }

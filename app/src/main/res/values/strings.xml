@@ -9,6 +9,8 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="password">Password</string>
+
+    <string name="google_map_api_key">AIzaSyAgx2ka4csNPgHpJ3OxqAmD3H4T_gp8QaE</string>
     <string name="email">Email</string>
     <string name="add">Add</string>
     <string name="add_book">Add Book</string>
