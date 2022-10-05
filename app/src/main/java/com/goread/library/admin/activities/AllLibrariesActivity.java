@@ -1,5 +1,7 @@
 package com.goread.library.admin.activities;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +40,7 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
     RecyclerView allLibraries_recyclerView;
     List<User> userList;
     List<LibraryProfile> profileList;
+
     LibraryAdapter libraryAdapter;
     DatabaseReference databaseReference,databaseReference2;
     LibraryProfile profile;
@@ -53,6 +57,31 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
         defineViews();
         getProfiles();
         getUsers();
+
+        SearchManager searchManager =
+                (SearchManager) getApplicationContext().getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView =
+                (SearchView) findViewById(R.id.search_bar);
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setQueryHint("search");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                libraryAdapter.filter(query);
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (libraryAdapter != null)
+                    libraryAdapter.filter(newText);
+                return true;
+            }
+        });
+
+
 
     }
 

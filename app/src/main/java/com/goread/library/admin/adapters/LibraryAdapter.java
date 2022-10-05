@@ -20,7 +20,9 @@ import com.goread.library.admin.activities.ShowLibraryActivity;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageViewHolder> {
     String book_id, library_id;
@@ -29,6 +31,8 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
     List<User> userList;
     List<LibraryProfile> profileList;
     DatabaseReference databaseReference;
+    List<User> tempLibraryList;
+
     int limit = 0;
     String address;
     private AdapterCallback adapterCallback;
@@ -95,6 +99,8 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
 
     public void setUserList(List<User> userList) {
         this.userList = userList;
+        tempLibraryList = new ArrayList();
+        tempLibraryList.addAll(this.userList);
         notifyDataSetChanged();
     }
 
@@ -102,6 +108,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         this.profileList = profileList;
         notifyDataSetChanged();
     }
+
     public void saveObjectToSharedPreference(Object object) {
         SharedPreferences mPrefs = mContext.getSharedPreferences("Library", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -110,6 +117,35 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         prefsEditor.putString("Key", json);
         prefsEditor.commit();
 
+    }
+
+    public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        charText = charText.replace("أ", "ا");
+        charText = charText.replace("إ", "ا");
+        charText = charText.replace("آ", "ا");
+        charText = charText.replace("ى", "ي");
+        charText = charText.replace("ئ", "ي");
+        charText = charText.replace("ؤ", "و");
+        charText = charText.replace("ة", "ه");
+
+
+        userList.clear();
+
+        if (charText.length() == 0) {
+            userList.addAll(tempLibraryList);
+
+        } else {
+            for (User obj : tempLibraryList) {
+                if (obj.getName().contains(charText)
+                        || obj.getPhone().contains(charText)) {
+
+                    userList.add(obj);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override
