@@ -1,6 +1,8 @@
 package com.goread.library.models;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     String id, name,email, phone, user_type, token;
 
     public User(String id, String name, String phone,String email, String user_type, String token) {

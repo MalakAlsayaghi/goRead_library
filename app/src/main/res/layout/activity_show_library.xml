@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,11 +12,11 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        >
 
         <ImageView
             android:id="@+id/btn_back"
-
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_baseline_arrow_back_24" />
@@ -27,38 +28,26 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/libraries_list"
+            android:text="Library Details"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/btn_add"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_baseline_add_24_maincolor" />
-
-
     </LinearLayout>
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer_view_library"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include
-            layout="@layout/shimmer_library_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_allLibraries"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:visibility="invisible"
-        tools:listitem="@layout/library_item" />
+        app:tabIconTint="@color/mainColor"
+        />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
 
 </LinearLayout>

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +43,8 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
     User library;
     String name, phone, address;
     AlertDialog dialog;
+    ShimmerFrameLayout shimmerFrameLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +113,10 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
                         libraryAdapter.setUserList(userList);
                         allLibraries_recyclerView.setAdapter(libraryAdapter);
 
-
                         libraryAdapter.notifyDataSetChanged();
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        allLibraries_recyclerView.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -130,6 +135,9 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
     private void defineViews() {
         back_btn = findViewById(R.id.btn_back);
         databaseReference = FirebaseDatabase.getInstance().getReference();
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_library);
+        shimmerFrameLayout.startShimmer();
+
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

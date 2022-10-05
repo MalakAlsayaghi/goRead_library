@@ -37,7 +37,6 @@ public class AddAdminActivity extends AppCompatActivity {
         add_btn = findViewById(R.id.btn_addd);
         Fname_et = findViewById(R.id.et_Fname);
         Lname_et = findViewById(R.id.et_Lname);
-        userName_et = findViewById(R.id.et_userName);
         password_et = findViewById(R.id.et_password);
         email_et = findViewById(R.id.et_email);
         back_btn.setOnClickListener(new View.OnClickListener() {

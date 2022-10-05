@@ -1,6 +1,8 @@
 package com.goread.library.admin.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.DatabaseReference;
+import com.google.gson.Gson;
 import com.goread.library.R;
+import com.goread.library.admin.activities.ShowLibraryActivity;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
@@ -67,6 +71,17 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         holder.username.setText(user.getName());
         holder.phone.setText(user.getPhone());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                User user = userList.get(position);
+                saveObjectToSharedPreference(user);
+                Intent intent = new Intent(mContext, ShowLibraryActivity.class);
+                intent.putExtra("library", user);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.startActivity(intent);
+            }
+        });
 
         holder.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +101,15 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
     public void setProfileList(List<LibraryProfile> profileList) {
         this.profileList = profileList;
         notifyDataSetChanged();
+    }
+    public void saveObjectToSharedPreference(Object object) {
+        SharedPreferences mPrefs = mContext.getSharedPreferences("Library", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(object);
+        prefsEditor.putString("Key", json);
+        prefsEditor.commit();
+
     }
 
     @Override

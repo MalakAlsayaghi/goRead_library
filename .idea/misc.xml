@@ -7,28 +7,66 @@
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/background_contenet_bottom.xml" value="0.1855" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/background_content_top.xml" value="0.1855" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/background_reciver_message.xml" value="0.1855" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/bg_review.xml" value="0.1195" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_back.xml" value="0.1855" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1855" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_baseline_arrow_circle_down_24.xml" value="0.1855" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_quotes.xml" value="0.1855" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/drawable/ic_send_24.xml" value="0.1855" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_admin.xml" value="0.264" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_book.xml" value="0.264" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_driver.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_library.xml" value="0.264" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_notification.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_add_quote.xml" value="0.25" />
-        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_admin_main.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_admin_main.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_admin_main2.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_admins.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_books.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_libraries.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_notification.xml" value="0.10092592592592593" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_orders.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_quotes.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_all_users.xml" value="0.1037037037037037" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_chats.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_chatting.xml" value="0.25" />
-        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_library_main.xml" value="0.2" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_library_main.xml" value="0.264" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_library_orders.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_library_profile.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_my_earning.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_my_quotes.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_show_library.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_show_my_books.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/admin_item.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/book_item.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/dialog_add_admin.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/dialog_add_quote.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/dialog_edit_driver.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/dialog_edit_library.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/driver_item.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_blank.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_home_library.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_library_books.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_library_qoutes.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_new_orders.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/fragment_old_orders.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/item_container_reciver_message.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/item_container_sent_message.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/library_dialog.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/library_item.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/my_qr_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/nav_header_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/notification_item.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/order_item.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/order_item_library.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/qr_dialog.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/quote_item.xml" value="0.25" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/shimmer_library_item.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/user_item.xml" value="0.2" />
+        <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/layout/users_item.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library-master/app/src/main/res/menu/item_menu.xml" value="0.25" />
         <entry key="..\:/Users/Mohammed/AndroidStudioProjects/goRead_library/app/src/main/res/layout/activity_splash.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/bg_dialog.xml" value="0.21614583333333334" />
@@ -45,7 +83,6 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/ic_baseline_person_outline_24.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/ic_baseline_wallet_24.xml" value="0.14166666666666666" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/ic_motor_icon.xml" value="0.14166666666666666" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable-v24/ic_number_icon.xml" value="0.1925" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/bg_button.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/bg_login.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/custom_input.xml" value="0.21614583333333334" />
@@ -54,7 +91,6 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.1537037037037037" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_block_24.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_calendar_month_24.xml" value="0.1705" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_call_24.xml" value="0.1925" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_chat_bubble_24_white.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.20052083333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_delete_forever_24.xml" value="0.20052083333333334" />
@@ -67,7 +103,6 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_login_24_white.xml" value="0.159" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_menu_book_24.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.20052083333333334" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_note_24.xml" value="0.1915" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_notifications_outline.xml" value="0.1705" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/ic_baseline_qr_code_24.xml" value="0.1925925925925926" />
@@ -84,24 +119,22 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/rounded_corner.xml" value="0.129" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/drawable/shape_stauts_completed.xml" value="0.1537037037037037" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_admin.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_book.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_driver.xml" value="0.25" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_book.xml" value="0.1" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_driver.xml" value="0.1" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_library.xml" value="0.1" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_notification.xml" value="0.33" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_notification.xml" value="0.16033755274261605" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_quote.xml" value="0.13013698630136986" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_add_quoteee.xml" value="0.14444444444444443" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_admin_main.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_admin.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_admins.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_books.xml" value="0.33" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_admins.xml" value="0.1" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_books.xml" value="0.22" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_drivers.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_libraries.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_notification.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_orders.xml" value="0.25" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_orders.xml" value="0.15" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_quotes.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_users.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_chats.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_chatting.xml" value="0.184375" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_all_users.xml" value="0.28370786516853935" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_create_quote.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_customer_item.xml" value="0.5" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_customer_list.xml" value="0.184375" />
@@ -110,15 +143,14 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_home_item.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_item.xml" value="0.24818577648766327" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_list.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_main.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_orders.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_profile.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_main.xml" value="0.14" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_orders.xml" value="0.12" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_library_profile.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_login.xml" value="0.1557377049180328" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_main_library.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_my_earning.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_my_quotes.xml" value="0.2" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_on_bording.xml" value="0.25" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_my_earning.xml" value="0.12418300653594772" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_on_bording.xml" value="0.14785992217898833" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_order_item.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_order_item2.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_order_item_lib.xml" value="0.2" />
@@ -128,7 +160,6 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_profile_admin.xml" value="0.18446601941747573" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_quote_item.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_quotes.xml" value="0.2" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_show_my_books.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_signin.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/activity_splash.xml" value="0.17" />
@@ -142,39 +173,28 @@
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/content_main.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/credit_allowed_dialog.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/credit_rejected_dialog.xml" value="0.33" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/dialog_add_admin.xml" value="0.33" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/dialog_add_quote.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/dialog_edit_driver.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/dialog_edit_library.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/driver_item.xml" value="0.5" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/driver_item.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/earning_item.xml" value="0.67" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_book.xml" value="0.22" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_home_admin.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_home_library.xml" value="0.1557377049180328" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_new_orders.xml" value="0.184375" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_old_orders.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_qoutes.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragment_quotes.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/fragmenty_quotes.xml" value="0.2" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/item_container_reciver_message.xml" value="0.2" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/item_container_sent_message.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/library_item.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/my_qr_dialog.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/nav_header_main.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/no_wifi_dialog.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/notification_item.xml" value="0.3098159509202454" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/onboarding_item.xml" value="0.22" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/order_item.xml" value="0.5" />
+        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/order_item.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/order_item_library.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/past_order_item.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/qr_dialog.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/quote.xml" value="0.184375" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/quote_item.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/reset_password_dialog.xml" value="0.22" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/sign_out_dialog.xml" value="0.2" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/tr.xml" value="0.25" />
-        <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/user_item.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/users_item.xml" value="0.25" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/layout/wrong_data_dialog.xml" value="0.33" />
         <entry key="..\:/Users/koka/AndroidStudioProjects/goread-library-master/app/src/main/res/menu/item_menu.xml" value="0.25" />

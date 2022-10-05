@@ -38,13 +38,15 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allQuotes_recyclerView;
-    AlertDialog dialog;
-    String quote, bookName;
-    DatabaseReference databaseReference;
-    FirebaseUser firebaseUser;
-    String libraryId;
     QuotesAdapter quotesAdapter;
     List<Quote> quoteList;
+    DatabaseReference databaseReference;
+    String quote, bookName;
+    AlertDialog dialog;
+
+    FirebaseUser firebaseUser;
+    String libraryId;
+
 
 
     @Override
