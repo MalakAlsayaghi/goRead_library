@@ -138,7 +138,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
 
         } else {
             for (User obj : tempLibraryList) {
-                if (obj.getName().contains(charText)
+                if (obj.getName().toLowerCase().contains(charText)
                         || obj.getPhone().contains(charText)) {
 
                     userList.add(obj);

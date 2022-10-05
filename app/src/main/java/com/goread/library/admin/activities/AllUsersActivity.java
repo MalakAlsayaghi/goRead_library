@@ -1,6 +1,8 @@
 package com.goread.library.admin.activities;
 
 import android.Manifest;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,11 +13,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +40,8 @@ public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.
     UsersAdapter usersAdapter;
     List<User> userList;
     DatabaseReference databaseReference;
+    ShimmerFrameLayout shimmerFrameLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +50,38 @@ public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.
         defineViews();
         getUsers();
 
+        SearchManager searchManager =
+                (SearchManager) getApplicationContext().getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView =
+                (SearchView) findViewById(R.id.search_bar);
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setQueryHint("search");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                usersAdapter.filter(query);
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (usersAdapter != null)
+                    usersAdapter.filter(newText);
+                return true;
+            }
+        });
+
+
     }
 
     private void defineViews() {
         back_btn = findViewById(R.id.btn_back);
         allUsers_recyclerView = findViewById(R.id.recycler_allUsers);
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Customers");
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_library);
+        shimmerFrameLayout.startShimmer();
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +116,10 @@ public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.
 
                         usersAdapter.setUserList(userList);
                         allUsers_recyclerView.setAdapter(usersAdapter);
-
-
                         usersAdapter.notifyDataSetChanged();
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        allUsers_recyclerView.setVisibility(View.VISIBLE);
                     }
                 }
 

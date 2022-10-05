@@ -14,13 +14,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.goread.library.R;
 import com.goread.library.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHolder> {
     String book_id, library_id;
 
     Context mContext;
     List<User> userList;
+    List<User> tempUserList;
     DatabaseReference databaseReference;
     int limit = 0;
     private AdapterCallback adapterCallback;
@@ -48,7 +51,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
 
         holder.username.setText(user.getName());
         holder.email.setText(user.getEmail());
-        holder.email.setText(user.getEmail());
+        holder.phone.setText(user.getPhone());
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +64,40 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
 
     public void setUserList(List<User> userList) {
         this.userList = userList;
+        tempUserList = new ArrayList();
+        tempUserList.addAll(this.userList);
+        notifyDataSetChanged();
+    }
+
+    public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        charText = charText.replace("أ", "ا");
+        charText = charText.replace("إ", "ا");
+        charText = charText.replace("آ", "ا");
+        charText = charText.replace("ى", "ي");
+        charText = charText.replace("ئ", "ي");
+        charText = charText.replace("ؤ", "و");
+        charText = charText.replace("ة", "ه");
+
+
+        userList.clear();
+
+        if (charText.length() == 0) {
+            userList.addAll(tempUserList);
+
+        } else {
+            System.out.println("------------------");
+            System.out.println("You locks for: "+ charText);
+            for (User obj : tempUserList) {
+                if (obj.getName().toLowerCase().contains(charText)
+                        || obj.getPhone().contains(charText)) {
+                    System.out.println("Name is: "+obj.getName());
+
+                    userList.add(obj);
+                }
+            }
+        }
         notifyDataSetChanged();
     }
 
