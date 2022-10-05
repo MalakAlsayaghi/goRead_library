@@ -1,6 +1,8 @@
 package com.goread.library.admin.activities;
 
 import android.Manifest;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -15,11 +17,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -45,6 +49,7 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
     AlertDialog dialog;
     String name, phone;
     User driver;
+    ShimmerFrameLayout shimmerFrameLayout;
 
 
     @Override
@@ -53,6 +58,29 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
         setContentView(R.layout.activity_all_drivers);
         defineViews();
         getUsers();
+
+        SearchManager searchManager =
+                (SearchManager) getApplicationContext().getSystemService(Context.SEARCH_SERVICE);
+        final SearchView searchView =
+                (SearchView) findViewById(R.id.search_bar);
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(this.getComponentName()));
+        searchView.setQueryHint("search");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                driverAdapter.filter(query);
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (driverAdapter != null)
+                    driverAdapter.filter(newText);
+                return true;
+            }
+        });
 
     }
 
@@ -80,9 +108,10 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
 
                         driverAdapter.setUserList(userList);
                         allDrivers_recyclerView.setAdapter(driverAdapter);
-
-
                         driverAdapter.notifyDataSetChanged();
+                        shimmerFrameLayout.stopShimmer();
+                        shimmerFrameLayout.setVisibility(View.GONE);
+                        allDrivers_recyclerView.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -101,6 +130,8 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
         back_btn = findViewById(R.id.btn_back);
         allDrivers_recyclerView = findViewById(R.id.recycler_allDrivers);
         add_btn = findViewById(R.id.btn_add);
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_library);
+        shimmerFrameLayout.startShimmer();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Drivers");
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
