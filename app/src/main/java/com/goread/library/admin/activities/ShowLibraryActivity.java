@@ -11,9 +11,16 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.fragments.LibraryBooksFragment;
 import com.goread.library.admin.fragments.LibraryQuotesFragment;
+import com.goread.library.models.User;
+import com.suke.widget.SwitchButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +30,9 @@ public class ShowLibraryActivity extends AppCompatActivity {
     TabLayout tabLayout;
     LibraryBooksFragment libraryBooksFragment;
     LibraryQuotesFragment libraryQuotesFragment;
+    SwitchButton switchButton;
+    User library;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +40,59 @@ public class ShowLibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_library);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
+        switchButton = findViewById(R.id.switchButton);
+        databaseReference = FirebaseDatabase.getInstance().getReference("Banned");
+        library = (User) getIntent().getSerializableExtra("library");
 
         libraryBooksFragment = new LibraryBooksFragment();
         libraryQuotesFragment = new LibraryQuotesFragment();
         tabLayout.setupWithViewPager(viewPager);
         initTabLayout();
+        getBanned();
+    }
+
+    private void getBanned() {
+        databaseReference.child(library.getId()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    Boolean isDisabled = snapshot.getValue(Boolean.class);
+                    if (isDisabled) {
+                        switchButton.setChecked(false);
+                    } else {
+                        switchButton.setChecked(true);
+                    }
+                } else {
+                    switchButton.setChecked(true);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if (isChecked) {
+                    changeStatus(false);
+
+
+                } else {
+
+                    changeStatus(true);
+
+                }
+
+
+            }
+        });
+    }
+
+    private void changeStatus(boolean b) {
+        databaseReference.child(library.getId()).setValue(b);
     }
 
     public void initTabLayout() {

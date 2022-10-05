@@ -305,7 +305,6 @@ public class AddLibraryActivity extends AppCompatActivity implements OnMapReadyC
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllAdminsActivity.class));
                 finish();
             }
         });
