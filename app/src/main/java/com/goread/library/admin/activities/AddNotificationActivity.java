@@ -1,19 +1,16 @@
 package com.goread.library.admin.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.firebase.database.FirebaseDatabase;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.goread.library.R;
 
 public class AddNotificationActivity extends AppCompatActivity {
@@ -25,7 +22,7 @@ public class AddNotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_notification);
+        setContentView(R.layout.dialog_add_notification);
         dbnotification = FirebaseDatabase.getInstance().getReference("Notification");
         title = (EditText) findViewById(R.id.titleNotification);
         body = (EditText) findViewById(R.id.bodyNotification);

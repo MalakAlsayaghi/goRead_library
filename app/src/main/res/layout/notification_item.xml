@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="8dp"
-    android:layout_gravity="center_horizontal"
     app:strokeColor="@color/mainColor"
     app:strokeWidth="2dp">
 
@@ -47,12 +47,12 @@
             android:id="@+id/body_tv_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_margin="10dp"
             android:text="The Body"
             android:textColor="@color/brown"
             android:textSize="16dp"
 
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@id/title_tv_notification" />
 
