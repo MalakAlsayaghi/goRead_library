@@ -11,9 +11,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_libraryoutline"
+        android:icon="@drawable/ic_lib_with_admin_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_libraryoutline"
+        android:roundIcon="@drawable/ic_lib_with_admin_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
