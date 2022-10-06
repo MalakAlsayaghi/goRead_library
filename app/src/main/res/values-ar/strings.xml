@@ -135,4 +135,7 @@
     <string name="quotes_list">قائمة الأقتباسات</string>
     <string name="hello">مرحبا</string>
     <string name="_000">000</string>
+    <string name="new_order">New Orders</string>
+    <string name="old_order">Old  Orders</string>
+    <string name="search">search</string>
 </resources>

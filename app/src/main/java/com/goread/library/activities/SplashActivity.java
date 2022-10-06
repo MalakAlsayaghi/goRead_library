@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.goread.library.R;
 import com.goread.library.auth.LoginActivity;
 import com.goread.library.base.BaseActivity;
+import com.goread.library.base.LanguageManager;
 import com.goread.library.libraries.activities.LibraryMainActivity;
 
 public class SplashActivity extends BaseActivity {
@@ -20,12 +21,15 @@ public class SplashActivity extends BaseActivity {
     FirebaseAuth mAuth;
     Animation anim;
     ImageView imageView;
+    LanguageManager languageManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-
+        languageManager = new LanguageManager(this);
+        languageManager.updateResources("ar");
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

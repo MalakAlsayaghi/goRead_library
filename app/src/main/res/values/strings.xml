@@ -138,4 +138,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hello">Hello Husa</string>
     <string name="_000">000</string>
+    <string name="new_order">New Orders</string>
+    <string name="old_order">Old  Orders</string>
+    <string name="search">search</string>
 </resources>
