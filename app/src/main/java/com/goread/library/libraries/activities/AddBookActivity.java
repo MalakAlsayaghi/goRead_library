@@ -140,6 +140,8 @@ public class AddBookActivity extends AppCompatActivity {
         drop_categoriesList.add("Literature");
         drop_categoriesList.add("Art & Recreation");
         drop_categoriesList.add("History & Geography");
+        drop_categoriesList.add("Action");
+
         adapter_categories = new ArrayAdapter<String>(getApplicationContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, drop_categoriesList);
         drop_menu_categories.setAdapter(adapter_categories);
 

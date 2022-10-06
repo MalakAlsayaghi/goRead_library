@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
+import com.goread.library.admin.activities.AllBooksActivity;
 import com.goread.library.libraries.adapters.MyBookAdapter;
 import com.goread.library.models.Book;
 
@@ -37,6 +38,7 @@ public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.
     FirebaseUser firebaseUser;
     String libraryId;
     ImageView btnAdd;
+    ImageView back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,14 @@ public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.
         btnAdd = findViewById(R.id.btn_add);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         libraryId = firebaseUser.getUid();
+        back_btn = findViewById(R.id.btn_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
+                finish();
+            }
+        });
     }
 
     private void getBooks() {

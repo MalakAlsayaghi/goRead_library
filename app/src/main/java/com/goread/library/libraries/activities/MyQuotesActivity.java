@@ -165,7 +165,6 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                 finish();
             }
         });

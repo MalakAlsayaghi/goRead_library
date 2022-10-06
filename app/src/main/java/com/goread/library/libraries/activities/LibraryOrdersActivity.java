@@ -1,6 +1,8 @@
 package com.goread.library.libraries.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.goread.library.R;
+import com.goread.library.admin.activities.AdminMainActivity;
 import com.goread.library.libraries.fragment.NewOrdersFragment;
 import com.goread.library.libraries.fragment.OldOrdersFragment;
 
@@ -36,7 +39,13 @@ public class LibraryOrdersActivity extends AppCompatActivity {
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
-
+        back_btn = findViewById(R.id.btn_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         newOrdersFragment = new NewOrdersFragment();
         oldOrdersFragment = new OldOrdersFragment();
        tabLayout.setupWithViewPager(viewPager);

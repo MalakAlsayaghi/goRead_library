@@ -30,7 +30,6 @@ public class AllBooksActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), LibraryHomeFragment.class));
                 finish();
             }
         });
