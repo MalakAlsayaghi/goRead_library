@@ -9,8 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.goread.library.R;
 import com.goread.library.models.Order;
 
@@ -31,6 +29,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
 
 
     String libraryName, locationName, imgUrl;
+    private AdapterCallback adapterCallback;
+
 
     public OrdersAdapter(Context context) {
         this.mContext = context;
@@ -39,7 +39,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
     public void setOrderList(List<Order> cart) {
         this.myOrderList = cart;
     }
-
+    public void setAdapterCallback(AdapterCallback adapterCallback) {
+        this.adapterCallback = adapterCallback;
+    }
 
     @NonNull
     @Override
@@ -66,12 +68,21 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
             e.printStackTrace();
         }
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Order cartCur = myOrderList.get(position);
+
+                adapterCallback.getOrderId(cartCur.getOrderId(),cartCur.getUserId());
+            }
+        });
+
 
     }
 
 
     public static interface AdapterCallback {
-        void getOrderId(String orderId);
+        void getOrderId(String orderId, String userId);
 
     }
 

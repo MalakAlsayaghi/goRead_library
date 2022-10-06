@@ -6,7 +6,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -24,8 +23,10 @@ import com.goread.library.models.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.ImageViewHolder> {
 
@@ -34,6 +35,8 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
     List<Order> myOrderList;
     List<Library> libraryList;
     List<User> driverList;
+    List<Order> tempOrderList;
+
     private AdapterCallback adapterCallback;
     Date now = new Date();
     DatabaseReference databaseReference;
@@ -53,6 +56,9 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
 
     public void setOrderList(List<Order> cart) {
         this.myOrderList = cart;
+        tempOrderList = new ArrayList();
+        tempOrderList.addAll(this.myOrderList);
+        notifyDataSetChanged();
     }
 
     public void setAdapterCallback(AdapterCallback adapterCallback) {
@@ -87,6 +93,7 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
         holder.tvDriver.setText(driverName);
         holder.tvLibrary.setText(libraryName);
         holder.tvNote.setText(cartCur.getDescription());
+        holder.tvNo.setText(String.valueOf(cartCur.getOrderNumber()));
         holder.tvOrderPrice.setText(cartCur.getTotalPrice() + " RY");
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -117,17 +124,55 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
             @Override
             public void onClick(View view) {
                 Order cartCur = myOrderList.get(position);
-                databaseReference.child("Orders").child(cartCur.getUserId()).child(cartCur.getOrderId()).removeValue();
+                adapterCallback.deleteByOrderId(cartCur.getOrderId(), cartCur.getUserId());
                 notifyDataSetChanged();
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Order cartCur = myOrderList.get(position);
+
+                adapterCallback.getOrderId(cartCur.getOrderId(), cartCur.getUserId());
             }
         });
 
 
     }
 
+    public void filter(String charText) {
+
+        charText = charText.toLowerCase(Locale.getDefault());
+        charText = charText.replace("أ", "ا");
+        charText = charText.replace("إ", "ا");
+        charText = charText.replace("آ", "ا");
+        charText = charText.replace("ى", "ي");
+        charText = charText.replace("ئ", "ي");
+        charText = charText.replace("ؤ", "و");
+        charText = charText.replace("ة", "ه");
+
+
+        myOrderList.clear();
+
+        if (charText.length() == 0) {
+            myOrderList.addAll(tempOrderList);
+
+        } else {
+            for (Order obj : tempOrderList) {
+                if (obj.getOrderDate().toLowerCase().contains(charText)
+                        || String.valueOf(obj.getOrderNumber()).contains(charText)) {
+                    myOrderList.add(obj);
+                }
+            }
+        }
+        notifyDataSetChanged();
+    }
 
     public static interface AdapterCallback {
-        void getOrderId(String orderId);
+        void getOrderId(String orderId, String userId);
+
+        void deleteByOrderId(String orderId, String userId);
 
     }
 
@@ -142,13 +187,14 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-        TextView tvLibrary, tvDriver, tvNote, tvOrderPrice, tvDate;
+        TextView tvLibrary, tvDriver, tvNo, tvNote, tvOrderPrice, tvDate;
         ImageButton btnDelete;
 
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNote = itemView.findViewById(R.id.tv_note);
+            tvNo = itemView.findViewById(R.id.tv_order_id);
             tvOrderPrice = itemView.findViewById(R.id.tv_price);
             tvLibrary = itemView.findViewById(R.id.tv_library);
             tvDate = itemView.findViewById(R.id.order_date);
