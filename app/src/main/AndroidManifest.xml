@@ -42,9 +42,6 @@
             android:name=".libraries.activities.MyQuotesActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.activities.AllBooksActivity"
-            android:exported="false" />
-        <activity
             android:name=".admin.activities.AdminMainActivity"
             android:exported="true">
 

@@ -32,7 +32,6 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
-import com.goread.library.admin.activities.AllBooksActivity;
 import com.goread.library.models.Book;
 
 import java.io.IOException;
@@ -121,7 +120,7 @@ public class AddBookActivity extends AppCompatActivity {
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
+                startActivity(new Intent(getApplicationContext(), MyBooksActivity.class));
                 finish();
             }
         });

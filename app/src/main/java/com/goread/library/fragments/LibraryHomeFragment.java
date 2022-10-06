@@ -15,8 +15,8 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.goread.library.R;
-import com.goread.library.admin.activities.AllBooksActivity;
 import com.goread.library.admin.activities.AllLibrariesActivity;
+import com.goread.library.libraries.activities.MyBooksActivity;
 import com.goread.library.libraries.activities.MyQuotesActivity;
 import com.goread.library.adapters.BookAdapter;
 import com.goread.library.models.Book;
@@ -126,7 +126,7 @@ public class LibraryHomeFragment extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.card_upload_book:
-                startActivity(new Intent(getContext(), AllBooksActivity.class));
+                startActivity(new Intent(getContext(), MyBooksActivity.class));
                 break;
 
             case R.id.card_upload_quote:

@@ -21,7 +21,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
-import com.goread.library.admin.activities.AllBooksActivity;
 import com.goread.library.libraries.adapters.MyBookAdapter;
 import com.goread.library.models.Book;
 
@@ -67,7 +66,7 @@ public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AllBooksActivity.class));
+                startActivity(new Intent(getApplicationContext(), LibraryMainActivity.class));
                 finish();
             }
         });

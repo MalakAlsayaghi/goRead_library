@@ -219,8 +219,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_baseline_format_quote_24" />
 
@@ -228,7 +228,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|center"
-                        android:text="@string/upload_quotes"
+                        android:text="@string/quotes"
                         android:textAlignment="center"
                         android:textColor="@color/mainColor"
                         android:textSize="18sp"
