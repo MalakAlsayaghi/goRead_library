@@ -220,9 +220,9 @@ public class AddBookActivity extends AppCompatActivity {
                                                     0.0, fileLink, category, library_id, false);
 
                                             databaseReference.child(book_id).setValue(book);
-                                            book_name_et.setText("");
-                                            book_description_et.setText("");
-                                            book_price_et.setText("");
+                                            book_name_et.setText(" ");
+                                            book_description_et.setText(" ");
+                                            book_price_et.setText(" ");
                                             drop_menu_categories.setListSelection(0);
                                         } else {
 
@@ -235,6 +235,10 @@ public class AddBookActivity extends AppCompatActivity {
                                                     0.0, fileLink, category, library_id, false);
 
                                             databaseReference.child(key).setValue(book);
+                                            book_name_et.setText(" ");
+                                            book_description_et.setText(" ");
+                                            book_price_et.setText(" ");
+                                            drop_menu_categories.setListSelection(0);
 
                                         }
                                     }

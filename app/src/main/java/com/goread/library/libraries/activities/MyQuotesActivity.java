@@ -48,7 +48,6 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
     String libraryId;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -136,6 +135,9 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
+                                et_quote.setText("");
+                                et_quote_bookName.setText("");
+
                                 Toast.makeText(MyQuotesActivity.this, "Quote Added", Toast.LENGTH_SHORT).show();
                                 dialog.cancel();
                             }

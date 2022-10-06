@@ -29,7 +29,7 @@
             android:padding="10dp"
             android:text="@string/sign_in"
             android:textColor="@color/black"
-            android:textSize="45sp"        />
+            android:textSize="45sp" />
         //android:textStyle="bold"
 
 
@@ -90,6 +90,7 @@
                 android:paddingBottom="-10dp" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <TextView
             android:id="@+id/tv_forget"
             android:layout_width="wrap_content"
@@ -101,35 +102,63 @@
             android:textSize="14dp"
             android:textStyle="bold" />
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:weightSum="10
+">
 
-
-            <Button
-                android:id="@+id/btn_signIn"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/bg_button"
+                android:layout_weight="8">
+
+                <Button
+                    android:id="@+id/btn_signIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_button"
+                    android:padding="5dp"
+                    android:text="@string/sign_in"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:outlineAmbientShadowColor="@color/brown"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/btn_fingerprint"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="40dp"
+                android:background="#0000"
                 android:padding="5dp"
-                android:text="@string/sign_in"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:outlineAmbientShadowColor="@color/brown"
-                android:visibility="invisible"/>
+                android:src="@drawable/ic_fingerprint_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        </FrameLayout>
+        </LinearLayout>
 
 
     </LinearLayout>

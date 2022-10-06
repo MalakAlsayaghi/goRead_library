@@ -19,6 +19,7 @@ public class SplashActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     Animation anim;
     ImageView imageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +32,9 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if (mAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(SplashActivity.this, LibraryMainActivity.class));
-                } else {
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                }
-                finish();
             }
         }, 2000);
-        imageView =findViewById(R.id.imageView); // Declare an imageView to show the animation.
+        imageView = findViewById(R.id.imageView); // Declare an imageView to show the animation.
         ////////////////////
         anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in); // Create the animation.
         anim.setAnimationListener(new Animation.AnimationListener() {
@@ -49,11 +44,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (mAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(SplashActivity.this, LibraryMainActivity.class));
-                } else {
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-                }
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
                 finish();
 
             }

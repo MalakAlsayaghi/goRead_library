@@ -150,14 +150,12 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
                 yvalues.add(new PieEntry(myTotalOrders, "Mine", 0));
                 yvalues.add(new PieEntry(othersTotalOrders, "Others", 1));
 
-                PieDataSet dataSet = new PieDataSet(yvalues, "Election Result");
+                PieDataSet dataSet = new PieDataSet(yvalues, "Total Orders");
                 PieData data = new PieData(dataSet);
 
                 data.setValueFormatter(new PercentFormatter());
                 pieChart.setData(data);
-                Description description = new Description();
-                description.setText("Pie Chart");
-                pieChart.setDescription(description);
+
                 pieChart.setDrawHoleEnabled(true);
                 pieChart.setTransparentCircleRadius(58f);
                 pieChart.setHoleRadius(58f);
@@ -298,8 +296,8 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
 
             File image = new File(imagesDir, name + ".png");
             fos = new FileOutputStream(image);
-            System.out.println("Moha Path"+image.getAbsolutePath());
-            System.out.println("Moha Path"+image.getCanonicalPath());
+            System.out.println("Moha Path" + image.getAbsolutePath());
+            System.out.println("Moha Path" + image.getCanonicalPath());
 
         }
 
