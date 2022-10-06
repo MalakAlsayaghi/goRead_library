@@ -17,13 +17,14 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.goread.library.R;
 import com.goread.library.admin.activities.AdminMainActivity;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.fragment.NewOrdersFragment;
 import com.goread.library.libraries.fragment.OldOrdersFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryOrdersActivity extends AppCompatActivity {
+public class LibraryOrdersActivity extends BaseActivity {
     ImageView back_btn;
     RecyclerView allLibrariesOrders_recyclerView;
     ViewPager viewPager;
@@ -35,7 +36,6 @@ public class LibraryOrdersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_orders);
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
@@ -52,6 +52,11 @@ public class LibraryOrdersActivity extends AppCompatActivity {
        initTabLayout();
 
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_library_orders;
     }
 
 

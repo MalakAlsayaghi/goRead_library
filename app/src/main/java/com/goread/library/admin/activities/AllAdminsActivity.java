@@ -29,12 +29,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.AdminAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllAdminsActivity extends AppCompatActivity implements AdminAdapter.AdapterCallback {
+public class AllAdminsActivity extends BaseActivity implements AdminAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allAdmins_recyclerView;
@@ -50,7 +51,6 @@ public class AllAdminsActivity extends AppCompatActivity implements AdminAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_admins);
         defineViews();
         getUsers();
 
@@ -77,6 +77,11 @@ public class AllAdminsActivity extends AppCompatActivity implements AdminAdapter
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_admins;
     }
 
     private void getUsers() {

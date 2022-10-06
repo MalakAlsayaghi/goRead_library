@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.adapters.MyBookAdapter;
 import com.goread.library.models.Book;
 
@@ -29,7 +30,7 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.AdapterCallback {
+public class MyBooksActivity extends BaseActivity implements MyBookAdapter.AdapterCallback {
     RecyclerView recycler_allBooks;
     List<Book> bookList;
     MyBookAdapter bookAdapter;
@@ -42,7 +43,6 @@ public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_my_books);
         defineViews();
         getBooks();
 
@@ -55,6 +55,11 @@ public class MyBooksActivity extends AppCompatActivity implements MyBookAdapter.
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_show_my_books;
     }
 
     private void defineViews() {

@@ -21,13 +21,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.fragments.LibraryBooksFragment;
 import com.goread.library.admin.fragments.LibraryQuotesFragment;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.User;
 import com.suke.widget.SwitchButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowLibraryActivity extends AppCompatActivity {
+public class ShowLibraryActivity extends BaseActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     LibraryBooksFragment libraryBooksFragment;
@@ -41,7 +42,6 @@ public class ShowLibraryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_library);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
         switchButton = findViewById(R.id.switchButton);
@@ -60,6 +60,11 @@ public class ShowLibraryActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         initTabLayout();
         getBanned();
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_show_library;
     }
 
     private void getBanned() {

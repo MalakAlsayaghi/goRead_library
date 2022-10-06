@@ -34,12 +34,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.DriverAdapter;
 import com.goread.library.admin.adapters.UsersAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllDriversActivity extends AppCompatActivity implements UsersAdapter.AdapterCallback, DriverAdapter.AdapterCallback {
+public class AllDriversActivity extends BaseActivity implements UsersAdapter.AdapterCallback, DriverAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allDrivers_recyclerView;
@@ -55,7 +56,6 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_drivers);
         defineViews();
         getUsers();
 
@@ -82,6 +82,11 @@ public class AllDriversActivity extends AppCompatActivity implements UsersAdapte
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_drivers;
     }
 
     private void getUsers() {

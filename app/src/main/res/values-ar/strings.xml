@@ -2,7 +2,7 @@
 <resources>
     <string name="sign_in">تسجيل دخول</string>
     <string name="enter_email"> أدخل البريد الإلكتروني </string>
-    <string name="choose_category">أختر الفئة Category...!</string>
+    <string name="choose_category">أختر الفئة</string>
     <string name="add_admins">إضافة مشرف</string>
     <string name="first_name"> الإسم الأول</string>
     <string name="last_name">اللقب</string>
@@ -123,16 +123,16 @@
     <string name="earnings">الأرباح</string>
     <string name="sign_out">تسجيل خروج</string>
     <string name="edit">تعديل</string>
-    <string name="always_keep_your_data_up_to_date">Always keep your data up to date.</string>
-    <string name="reset">Reset</string>
-    <string name="please_enter_your_email_address_or_phone_number">Please enter your email address or phone number</string>
-    <string name="reset_your_password">Reset your password</string>
-    <string name="do_you_want_to_sign_out">Do you want to sign out</string>
-    <string name="yes">yes</string>
-    <string name="invalid_data">Invalid Data</string>
-    <string name="you_inserted_wrong_or_invalidinformation_please_try_again">You inserted wrong or invalidinformation please try again</string>
-    <string name="try_again">Try again</string>
-    <string name="quotes_list">Quotes list</string>
+    <string name="always_keep_your_data_up_to_date">احرص دائمًا على تحديث بياناتك</string>
+    <string name="reset">إعادة ضبط</string>
+    <string name="please_enter_your_email_address_or_phone_number">الرجاء إدخال عنوان البريد الإلكتروني الخاص بك أو رقم الهاتف</string>
+    <string name="reset_your_password">أعد ضبط كلمه السر</string>
+    <string name="do_you_want_to_sign_out">هل تريد الخروج؟</string>
+    <string name="yes">نعم</string>
+    <string name="invalid_data">بيانات غير صالحة</string>
+    <string name="you_inserted_wrong_or_invalidinformation_please_try_again">لقد أدخلت معلومات خاطئة أو غير صالحة يرجى المحاولة مرة أخرى</string>
+    <string name="try_again">حاول مجدداً</string>
+    <string name="quotes_list">قائمة الأقتباسات</string>
     <string name="hello">مرحبا</string>
     <string name="_000">000</string>
 </resources>

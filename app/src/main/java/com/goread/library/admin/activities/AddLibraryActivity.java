@@ -43,13 +43,14 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
 import java.io.IOException;
 import java.util.UUID;
 
-public class AddLibraryActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class AddLibraryActivity extends BaseActivity implements OnMapReadyCallback {
     ImageView back_btn;
     Button add_btn;
     EditText et_library_name, et_library_address, et_library_phone, et_library_email;
@@ -75,7 +76,6 @@ public class AddLibraryActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_library);
         defineViews();
         mMapView = (MapView) findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
@@ -98,6 +98,11 @@ public class AddLibraryActivity extends AppCompatActivity implements OnMapReadyC
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_add_library;
     }
 
 

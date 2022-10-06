@@ -12,9 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.goread.library.R;
 import com.goread.library.auth.LoginActivity;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.activities.LibraryMainActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     FirebaseAuth mAuth;
     Animation anim;
@@ -23,7 +24,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -55,6 +55,11 @@ public class SplashActivity extends AppCompatActivity {
         });
         imageView.startAnimation(anim);
         /////////////////////
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_splash;
     }
 
     @Override

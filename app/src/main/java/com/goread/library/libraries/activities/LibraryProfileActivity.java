@@ -9,19 +9,25 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.fragments.LibraryHomeFragment;
 
-public class LibraryProfileActivity extends AppCompatActivity {
+public class LibraryProfileActivity extends BaseActivity {
     ImageView back_btn;
     ImageButton edit_pic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_profile);
         defineViews();
 
     }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_library_profile;
+    }
+
     private void defineViews() {
         back_btn=findViewById(R.id.btn_back);
         back_btn.setOnClickListener(new View.OnClickListener() {

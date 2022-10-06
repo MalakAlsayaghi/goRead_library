@@ -24,10 +24,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.NotificationAdapter;
+import com.goread.library.base.BaseActivity;
 
 import java.util.ArrayList;
 
-public class AllNotificationActivity extends AppCompatActivity {
+public class AllNotificationActivity extends BaseActivity {
     RecyclerView recyclerView;
     List<Notification> list;
     DatabaseReference databaseReference;
@@ -38,7 +39,6 @@ public class AllNotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_notification);
         recyclerView = findViewById(R.id.recycler_quotes);
         btnAdd = findViewById(R.id.btn_add);
 
@@ -78,6 +78,11 @@ public class AllNotificationActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_notification;
     }
 
 

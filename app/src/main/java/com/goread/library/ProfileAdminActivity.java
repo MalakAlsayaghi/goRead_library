@@ -9,18 +9,24 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.goread.library.admin.activities.AllLibrariesActivity;
+import com.goread.library.base.BaseActivity;
 
-public class ProfileAdminActivity extends AppCompatActivity {
+public class ProfileAdminActivity extends BaseActivity {
     ImageView back_btn;
 
     ImageButton edit_pic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_admin);
         defineViews();
 
     }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_profile_admin;
+    }
+
     private void defineViews() {
 
         edit_pic=findViewById(R.id.edit_pic);

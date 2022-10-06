@@ -16,13 +16,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.adapters.ChatsAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.Chat;
 import com.goread.library.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatsActivity extends AppCompatActivity {
+public class ChatsActivity extends BaseActivity {
     RecyclerView recycler_chats;
     List<Chat> chatsList;
     ChatsAdapter chatsAdapter;
@@ -35,7 +36,6 @@ public class ChatsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chats);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         if (getIntent().getStringExtra("senderId") == null) {
             senderId = firebaseUser.getUid();
@@ -45,6 +45,11 @@ public class ChatsActivity extends AppCompatActivity {
         getChats();
 
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_chats;
     }
 
     private void getChats() {

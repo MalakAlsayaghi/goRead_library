@@ -1,0 +1,50 @@
+package com.goread.library.base;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+
+import androidx.core.view.ViewCompat;
+
+import java.util.Locale;
+
+public class LanguageManager {
+    private Context ct;
+    SharedPreferences sharedPreferences;
+    Activity activity;
+
+    public LanguageManager(Context ct) {
+        this.ct = ct;
+        sharedPreferences = ct.getSharedPreferences("LANG", Context.MODE_PRIVATE);
+    }
+
+
+    public void updateResources(String code) {
+        Locale locale = new Locale(code);
+        Locale.setDefault(locale);
+        Resources res = ct.getResources();
+        Configuration conf = res.getConfiguration();
+        conf.locale = locale;
+        res.updateConfiguration(conf, res.getDisplayMetrics());
+        setLocale(code);
+    }
+
+    public String getLang() {
+        return sharedPreferences.getString("lang", "en");
+
+
+    }
+
+    public void setLocale(String code) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("lang", code);
+        editor.commit();
+        System.out.println("new lang saved");
+
+    }
+
+
+}

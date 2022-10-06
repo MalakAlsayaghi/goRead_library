@@ -43,6 +43,7 @@ import com.google.zxing.BarcodeFormat;
 import com.goread.library.R;
 import com.goread.library.activities.ChatsActivity;
 import com.goread.library.auth.LoginActivity;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.Order;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
@@ -53,7 +54,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryMainActivity extends AppCompatActivity implements View.OnClickListener {
+public class LibraryMainActivity extends BaseActivity implements View.OnClickListener {
 
     MaterialCardView cvNewOrders, cvBooks, cvQuotes, cvChat;
     ImageButton btnLogout, btnGenerate;
@@ -70,7 +71,6 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_main);
         defineViews();
         // initCharts();
         drawChart();
@@ -112,6 +112,11 @@ public class LibraryMainActivity extends AppCompatActivity implements View.OnCli
         });
 
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_library_main;
     }
 
 

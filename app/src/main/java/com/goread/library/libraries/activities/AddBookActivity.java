@@ -32,6 +32,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.Book;
 
 import java.io.IOException;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 
-public class AddBookActivity extends AppCompatActivity {
+public class AddBookActivity extends BaseActivity {
 
     private final int PICK_IMAGE_REQUEST = 22;
     // instance for firebase storage and StorageReference
@@ -63,7 +64,6 @@ public class AddBookActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_book);
         defineViews();
         type = getIntent().getStringExtra("type");
 
@@ -97,6 +97,11 @@ public class AddBookActivity extends AppCompatActivity {
                 upload();
             }
         });
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_add_book;
     }
 
     public void defineViews() {

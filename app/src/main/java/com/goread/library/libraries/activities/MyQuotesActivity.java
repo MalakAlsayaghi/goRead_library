@@ -26,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.activities.AdminMainActivity;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.adapters.QuotesAdapter;
 import com.goread.library.models.Quote;
 
@@ -34,7 +35,7 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter.AdapterCallback {
+public class MyQuotesActivity extends BaseActivity implements QuotesAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allQuotes_recyclerView;
@@ -51,7 +52,6 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_quotes);
         defineViews();
         initDialog();
         add_btn.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +65,11 @@ public class MyQuotesActivity extends AppCompatActivity implements QuotesAdapter
             }
         });
         getQuotes();
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_my_quotes;
     }
 
     private void getQuotes() {

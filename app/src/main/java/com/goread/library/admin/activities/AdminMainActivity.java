@@ -8,8 +8,9 @@ import android.view.View;
 
 import com.google.android.material.card.MaterialCardView;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 
-public class AdminMainActivity extends AppCompatActivity implements View.OnClickListener {
+public class AdminMainActivity extends BaseActivity implements View.OnClickListener {
     MaterialCardView cvLibraries;
     MaterialCardView cvDrivers;
     MaterialCardView cvEarnings;
@@ -23,8 +24,12 @@ public class AdminMainActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_main);
         defineViews();
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_admin_main;
     }
 
     private void defineViews() {

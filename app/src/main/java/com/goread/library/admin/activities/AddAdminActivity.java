@@ -20,9 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.User;
 
-public class AddAdminActivity extends AppCompatActivity {
+public class AddAdminActivity extends BaseActivity  {
     ImageView back_btn;
     Button add_btn;
     EditText et_admin_name, et_admin_phone, et_admin_email;
@@ -37,7 +38,6 @@ public class AddAdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_admin);
         defineViews();
 
 
@@ -48,6 +48,11 @@ public class AddAdminActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_add_admin;
     }
 
     private void upload() {

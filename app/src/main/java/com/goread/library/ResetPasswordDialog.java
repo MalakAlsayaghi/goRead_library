@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ResetPasswordDialog extends AppCompatActivity {
+import com.goread.library.base.BaseActivity;
+
+public class ResetPasswordDialog extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reset_password_dialog);
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.reset_password_dialog;
     }
 }

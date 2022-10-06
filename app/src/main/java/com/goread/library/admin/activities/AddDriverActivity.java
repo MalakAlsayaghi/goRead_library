@@ -33,6 +33,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.User;
 
 import java.io.File;
@@ -41,7 +42,7 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.UUID;
 
-public class AddDriverActivity extends AppCompatActivity {
+public class AddDriverActivity extends BaseActivity {
     ImageView back_btn;
     Button add_btn;
     EditText et_driver_name, et_driver_phone, et_driver_email;
@@ -62,7 +63,6 @@ public class AddDriverActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_driver);
         defineViews();
 
         edit_pic.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +79,11 @@ public class AddDriverActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_add_driver;
     }
 
 

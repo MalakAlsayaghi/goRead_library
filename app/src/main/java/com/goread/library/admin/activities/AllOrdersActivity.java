@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.AdminOrdersAdapter;
 import com.goread.library.admin.adapters.PreviewOrderAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.MyCart;
 import com.goread.library.models.Order;
 import com.goread.library.models.User;
@@ -37,7 +38,7 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-public class AllOrdersActivity extends AppCompatActivity implements AdminOrdersAdapter.AdapterCallback {
+public class AllOrdersActivity extends BaseActivity implements AdminOrdersAdapter.AdapterCallback {
     ImageView back_btn;
     RecyclerView orders_recyclerView;
     AdminOrdersAdapter adminOrdersAdapter;
@@ -53,7 +54,6 @@ public class AllOrdersActivity extends AppCompatActivity implements AdminOrdersA
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_orders);
         defineViews();
         getData();
 
@@ -80,6 +80,11 @@ public class AllOrdersActivity extends AppCompatActivity implements AdminOrdersA
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_orders;
     }
 
     private void getData() {

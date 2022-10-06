@@ -24,9 +24,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.activities.LibraryMainActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
     String email, password;
     Button loginBtn;
     EditText et_email, et_password;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+
         defineViews();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +55,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_login;
 
     }
 

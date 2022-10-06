@@ -18,13 +18,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.OrdersAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.Order;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MyEarningActivity extends AppCompatActivity {
+public class MyEarningActivity extends BaseActivity {
     ImageView back_btn;
     RecyclerView orders_recyclerView;
     TextView tv_total_order, tv_total_revenues;
@@ -37,10 +38,14 @@ public class MyEarningActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_earning);
         defineViews();
         getData();
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_my_earning;
     }
 
     private void defineViews() {

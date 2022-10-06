@@ -12,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.goread.library.R;
+import com.goread.library.base.BaseActivity;
 
-public class AddNotificationActivity extends AppCompatActivity {
+public class AddNotificationActivity extends BaseActivity {
     EditText title;
     EditText body;
     Button buttonaAddNotification;
@@ -22,7 +23,6 @@ public class AddNotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_add_notification);
         dbnotification = FirebaseDatabase.getInstance().getReference("Notification");
         title = (EditText) findViewById(R.id.titleNotification);
         body = (EditText) findViewById(R.id.bodyNotification);
@@ -34,6 +34,11 @@ public class AddNotificationActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.dialog_add_notification;
     }
 
     private void addNotification() {

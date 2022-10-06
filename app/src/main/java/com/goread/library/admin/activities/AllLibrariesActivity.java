@@ -28,13 +28,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.LibraryAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.models.LibraryProfile;
 import com.goread.library.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllLibrariesActivity extends AppCompatActivity implements LibraryAdapter.AdapterCallback {
+public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allLibraries_recyclerView;
@@ -53,7 +54,6 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_libraries);
         defineViews();
         getProfiles();
         getUsers();
@@ -83,6 +83,11 @@ public class AllLibrariesActivity extends AppCompatActivity implements LibraryAd
 
 
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_libraries;
     }
 
     private void getProfiles() {

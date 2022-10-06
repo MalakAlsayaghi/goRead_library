@@ -27,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
 import com.goread.library.admin.adapters.UsersAdapter;
+import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.adapters.QuotesAdapter;
 import com.goread.library.models.Quote;
 import com.goread.library.models.User;
@@ -34,7 +35,7 @@ import com.goread.library.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.AdapterCallback {
+public class AllUsersActivity extends BaseActivity implements UsersAdapter.AdapterCallback {
     ImageView back_btn;
     RecyclerView allUsers_recyclerView;
     UsersAdapter usersAdapter;
@@ -46,7 +47,6 @@ public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_users);
         defineViews();
         getUsers();
 
@@ -74,6 +74,11 @@ public class AllUsersActivity extends AppCompatActivity implements UsersAdapter.
         });
 
 
+    }
+
+    @Override
+    public int defineLayout() {
+        return R.layout.activity_all_users;
     }
 
     private void defineViews() {
