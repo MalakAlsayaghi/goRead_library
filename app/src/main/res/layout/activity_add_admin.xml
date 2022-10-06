@@ -41,71 +41,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:boxCornerRadiusBottomEnd="7dp"
-                app:boxCornerRadiusBottomStart="7dp"
-                app:boxCornerRadiusTopEnd="7dp"
-                app:boxCornerRadiusTopStart="7dp"
-                app:errorEnabled="true"
-                app:startIconDrawable="@drawable/ic_baseline_person_outline_maincolor24"
-
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_Fname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/first_name"
-                    android:imeOptions="actionNext"
-                    android:singleLine="true"
-
-
-                    />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                app:boxCornerRadiusBottomEnd="7dp"
-                app:boxCornerRadiusBottomStart="7dp"
-                app:boxCornerRadiusTopEnd="7dp"
-                app:boxCornerRadiusTopStart="7dp"
-                app:errorEnabled="true"
-                app:startIconDrawable="@drawable/ic_baseline_person_outline_maincolor24"
-
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_Lname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/last_name"
-                    android:imeOptions="actionNext"
-                    android:singleLine="true"
-
-
-                    />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -122,16 +57,13 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/et_password"
+                android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
+                android:hint="@string/admin_name"
                 android:imeOptions="actionNext"
-                android:inputType="textPassword"
-                android:singleLine="true"
-
-
-                />
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -156,7 +88,33 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
                 android:imeOptions="actionNext"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:boxCornerRadiusBottomEnd="7dp"
+            app:boxCornerRadiusBottomStart="7dp"
+            app:boxCornerRadiusTopEnd="7dp"
+            app:boxCornerRadiusTopStart="7dp"
+            app:errorEnabled="true"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone"
+                android:imeOptions="actionNext"
+                android:inputType="number"
                 android:singleLine="true" />
 
 
@@ -165,7 +123,7 @@
 
         <com.google.android.material.button.MaterialButton
 
-            android:id="@+id/btn_addd"
+            android:id="@+id/btn_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -176,7 +134,6 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
 
 
     </LinearLayout>

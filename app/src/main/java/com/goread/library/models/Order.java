@@ -1,13 +1,17 @@
 package com.goread.library.models;
 
+import com.goread.library.models.MyCart;
+
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Order implements Serializable {
     String orderId, userId, libraryId, deliveryId, locationId, img_url, description, orderDate, paymentMethod;
     int totalPrice, deliveryPrice;
-    boolean isAccepted, isRejected,isLibraryAccepted;
+    boolean isAccepted, isRejected, isLibraryAccepted;
     ArrayList<MyCart> items;
+    int orderNumber;
 
     public Order(String orderId, String userId, String libraryId, String deliveryId, String locationId,
                  String img_url, String description, String orderDate, String paymentMethod, int totalPrice,
@@ -27,6 +31,19 @@ public class Order implements Serializable {
         this.isRejected = isRejected;
         this.isLibraryAccepted = isLibraryAccepted;
         this.items = items;
+        Random rand = new Random();
+
+// Obtain a number between [0 - 49].
+        int n = rand.nextInt(100000);
+        this.orderNumber = n;
+    }
+
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
     }
 
     public boolean isRejected() {

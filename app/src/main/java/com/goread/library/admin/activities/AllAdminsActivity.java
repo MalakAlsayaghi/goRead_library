@@ -1,17 +1,17 @@
 package com.goread.library.admin.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.goread.library.R;
 
 public class AllAdminsActivity extends AppCompatActivity {
-ImageView back_btn;
+    ImageView back_btn;
     ImageView add_btn;
     RecyclerView allAdmins_recyclerView;
 
@@ -24,24 +24,23 @@ ImageView back_btn;
     }
 
     private void defineViews() {
-        back_btn=findViewById(R.id.btn_back);
+        back_btn = findViewById(R.id.btn_back);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AdminMainActivity.class));
+                startActivity(new Intent(getApplicationContext(), AdminMainActivity.class));
                 finish();
             }
         });
 
-        add_btn=findViewById(R.id.btn_add);
+        add_btn = findViewById(R.id.btn_add);
         add_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),AddAdminActivity.class));
-                finish();
+                startActivity(new Intent(getApplicationContext(), AddAdminActivity.class));
             }
         });
-        allAdmins_recyclerView= allAdmins_recyclerView.findViewById(R.id.recycler_allAdmins);
+        allAdmins_recyclerView = findViewById(R.id.recycler_allAdmins);
 
     }
 }

@@ -33,13 +33,13 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class OldOrdersFragment extends Fragment {
-    RecyclerView orders_recyclerView;
     View view;
+    RecyclerView orders_recyclerView;
     MyOrdersAdapter myOrdersAdapter;
-    List<Library> libraryList;
-    List<User> userList;
     List<Order> orderList;
     DatabaseReference databaseReference;
+    List<Library> libraryList;
+    List<User> userList;
     String libraryId;
     FirebaseAuth firebaseAuth;
 
@@ -100,8 +100,8 @@ public class OldOrdersFragment extends Fragment {
         orders_recyclerView = view.findViewById(R.id.recycler_oldOrders);
         //  barChart = view.findViewById(R.id.barChart);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        libraryList = new ArrayList<>();
         orderList = new ArrayList<>();
+        libraryList = new ArrayList<>();
         userList = new ArrayList<>();
         firebaseAuth = FirebaseAuth.getInstance();
         libraryId = firebaseAuth.getCurrentUser().getUid();

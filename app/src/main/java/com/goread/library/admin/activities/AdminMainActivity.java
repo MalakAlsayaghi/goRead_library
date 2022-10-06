@@ -1,18 +1,13 @@
 package com.goread.library.admin.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.card.MaterialCardView;
 import com.goread.library.R;
-import com.goread.library.libraries.activities.MyEarningActivity;
 
 public class AdminMainActivity extends AppCompatActivity implements View.OnClickListener {
     MaterialCardView cvLibraries;
