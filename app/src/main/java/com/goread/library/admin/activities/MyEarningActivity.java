@@ -94,6 +94,7 @@ public class MyEarningActivity extends AppCompatActivity {
 
                     Collections.reverse(orderList);
                     ordersAdapter.setOrderList(orderList);
+                    ordersAdapter.setDisable(true);
                     orders_recyclerView.setAdapter(ordersAdapter);
 
 

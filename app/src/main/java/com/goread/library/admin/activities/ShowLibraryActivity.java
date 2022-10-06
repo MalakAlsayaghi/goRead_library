@@ -1,6 +1,8 @@
 package com.goread.library.admin.activities;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +35,8 @@ public class ShowLibraryActivity extends AppCompatActivity {
     SwitchButton switchButton;
     User library;
     DatabaseReference databaseReference;
+    ImageView back_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,13 @@ public class ShowLibraryActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
         switchButton = findViewById(R.id.switchButton);
+        back_btn = findViewById(R.id.btn_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         databaseReference = FirebaseDatabase.getInstance().getReference("Banned");
         library = (User) getIntent().getSerializableExtra("library");
 

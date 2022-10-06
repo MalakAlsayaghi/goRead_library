@@ -22,6 +22,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
 
     Context mContext;
     List<Order> myOrderList;
+    boolean isDisabled = false;
 
     private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("d/MM/yyyy");
 
@@ -39,6 +40,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
     public void setOrderList(List<Order> cart) {
         this.myOrderList = cart;
     }
+
     public void setAdapterCallback(AdapterCallback adapterCallback) {
         this.adapterCallback = adapterCallback;
     }
@@ -68,15 +70,21 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
             e.printStackTrace();
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Order cartCur = myOrderList.get(position);
+        if(!isDisabled) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Order cartCur = myOrderList.get(position);
 
-                adapterCallback.getOrderId(cartCur.getOrderId(),cartCur.getUserId());
-            }
-        });
+                    adapterCallback.getOrderId(cartCur.getOrderId(), cartCur.getUserId());
+                }
+            });
+        }
 
+    }
+
+    public void setDisable(boolean b) {
+        this.isDisabled = b;
 
     }
 

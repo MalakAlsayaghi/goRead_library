@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,10 +29,10 @@ import java.util.ArrayList;
 
 public class AllNotificationActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    ArrayList<Notification> list;
+    List<Notification> list;
     DatabaseReference databaseReference;
     NotificationAdapter adapter;
-    ImageView btnAdd;
+    ImageView btnAdd ,back_btn;
     AlertDialog dialog;
 
     @Override
@@ -46,6 +48,14 @@ public class AllNotificationActivity extends AppCompatActivity {
                 initDialog();
             }
         });
+        back_btn = findViewById(R.id.btn_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Notifications");
         list = new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,12 +64,14 @@ public class AllNotificationActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Notification notification = dataSnapshot.getValue(Notification.class);
                     list.add(notification);
                 }
                 adapter.notifyDataSetChanged();
-            }
+            }}
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
