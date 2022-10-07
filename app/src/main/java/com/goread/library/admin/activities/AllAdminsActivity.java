@@ -60,7 +60,7 @@ public class AllAdminsActivity extends BaseActivity implements AdminAdapter.Adap
                 (SearchView) findViewById(R.id.search_bar);
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(this.getComponentName()));
-        searchView.setQueryHint("search");
+        searchView.setQueryHint(getString(R.string.search));
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

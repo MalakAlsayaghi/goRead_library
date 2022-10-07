@@ -141,4 +141,10 @@
     <string name="new_order">New Orders</string>
     <string name="old_order">Old  Orders</string>
     <string name="search">search</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="Can_not_recover_this_item">Can\'t  recover this item!</string>
+    <string name="yes_delete_it">Yes,delete it!</string>
+    <string name="our_product_has_been_deleted">Your Product has been deleted!</string>
+    <string name="status_changed">Status Changed</string>
+    <string name="malak">Malak:</string>
 </resources>

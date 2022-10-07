@@ -130,7 +130,7 @@ public class LibraryBooksFragment extends Fragment implements MyBookAdapter.Adap
                             Book book = postSnapshot.getValue(Book.class);
 
                             bookList.add(book);
-                            System.out.println("Moha :" + book.getName());
+                            System.out.println(getString(R.string.malak) + book.getName());
                         }
 
                         bookAdapter.setBookList(bookList);
@@ -154,7 +154,7 @@ public class LibraryBooksFragment extends Fragment implements MyBookAdapter.Adap
 
     @Override
     public void changeStatus(String libraryId, String bookId, Boolean status) {
-        Toast.makeText(getContext(), "Status Changed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), getString(R.string.status_changed), Toast.LENGTH_LONG).show();
         databaseReference.child(bookId).child("disabled").setValue(status);
 
 
@@ -163,9 +163,9 @@ public class LibraryBooksFragment extends Fragment implements MyBookAdapter.Adap
     @Override
     public void deleteBook(String bookId) {
         new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("Are you sure?")
-                .setContentText("Can't  recover this item!")
-                .setConfirmText("Yes,delete it!")
+                .setTitleText(getString(R.string.are_you_sure))
+                .setContentText(getString(R.string.Can_not_recover_this_item))
+                .setConfirmText(getString(R.string.yes_delete_it))
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sDialog) {
@@ -174,9 +174,9 @@ public class LibraryBooksFragment extends Fragment implements MyBookAdapter.Adap
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            sDialog.setTitleText("Deleted!")
-                                                    .setContentText("Your Product has been deleted!")
-                                                    .setConfirmText("OK")
+                                            sDialog.setTitleText(getString(R.string.delete))
+                                                    .setContentText(getString(R.string.our_product_has_been_deleted))
+                                                    .setConfirmText(getString(R.string.ok))
                                                     .setConfirmClickListener(null)
                                                     .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                         }
