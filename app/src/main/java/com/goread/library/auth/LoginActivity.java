@@ -91,45 +91,59 @@ public class LoginActivity extends BaseActivity {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     String id = user.getUid();
 
-                    reference.child(id).addValueEventListener(new ValueEventListener() {
+                    reference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
-                                String type;
-                                User user1 = snapshot.getValue(User.class);
-                                type = snapshot.child("user_type").getValue(String.class);
-                                Toast.makeText(LoginActivity.this, type, Toast.LENGTH_SHORT).show();
-                                if (user1.isBlocked()) {
-                                    showProgress(false);
-                                    showErrorDialog("You're Blocked By Admin");
-                                    return;
-                                }
+                                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                                    for (DataSnapshot postSnapshot2 : postSnapshot.getChildren()) {
+                                        User user1 = postSnapshot2.getValue(User.class);
 
-                                if (user1.isNew()) {
-                                    showErrorDialog("You are new you have to change password");
-                                    showProgress(false);
-                                    return;
-                                }
+                                        if (user1.getId().equals(id)) {
+                                            String type;
+                                            //   type = snapshot.child("user_type").getValue(String.class);
+                                            type = user1.getUser_type();
+                                            Toast.makeText(LoginActivity.this, type, Toast.LENGTH_SHORT).show();
+                                            if (user1.isBlocked()) {
+                                                showProgress(false);
+                                                showErrorDialog("You're Blocked By Admin");
+                                                return;
+                                            }
+
+                                            if (user1.isNew()) {
+                                                showErrorDialog("You are new you have to change password");
+                                                showProgress(false);
+                                                return;
+                                            }
 
 
-                                if (type.equals("Library")) {
-                                    Intent intent = new Intent(LoginActivity.this, LibraryMainActivity.class);
-                                    saveObjectToSharedPreference(user1);
-                                    startActivity(intent);
-                                    finish();
-                                }
+                                            if (type.equals("Library")) {
+                                                saveLoginData(email, password);
+                                                Intent intent = new Intent(LoginActivity.this, LibraryMainActivity.class);
+                                                saveObjectToSharedPreference(user1);
+                                                startActivity(intent);
+                                                finish();
+                                            }
 
-                                if (type.equals("Admin")) {
-                                    Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
-                                    saveObjectToSharedPreference(user1);
-                                    startActivity(intent);
-                                    finish();
+                                            if (type.equals("Admin")) {
+
+                                                saveLoginData(email, password);
+                                                Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+                                                saveObjectToSharedPreference(user1);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+
+                                        }
+
+
+                                    }
                                 }
 
 
                             } else {
                                 showProgress(false);
-                                showErrorDialog("Invalid Information");
+                                showErrorDialog("Couldn't find data in the database");
                             }
                         }
 
@@ -184,7 +198,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void defineViews() {
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child("Library");
+        reference = FirebaseDatabase.getInstance().getReference().child("Users");
         auth = FirebaseAuth.getInstance();
 
         loginBtn = findViewById(R.id.btn_signIn);
@@ -331,10 +345,9 @@ public class LoginActivity extends BaseActivity {
         btn_finger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
 
-                Boolean isEnabled = sharedPreferences.getBoolean("enabled", false);
+                Boolean isEnabled = true;
                 if (isEnabled) {
                     biometricPrompt.authenticate(promptInfo);
                     switch (biometricManager.canAuthenticate()) {
