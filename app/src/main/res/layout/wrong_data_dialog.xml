@@ -37,42 +37,30 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="@string/you_inserted_wrong_or_invalidinformation_please_try_again"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
 
-        <LinearLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:background="@drawable/bg_button"
+            android:text="@string/ok"
+            android:textAllCaps="false"
+            android:textColor="@color/mainColor"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/white"
-                android:text="@string/try_again"
-                android:textAllCaps="false"
-                android:textColor="@color/mainColor"
-                android:textStyle="bold" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="@color/white"
-                android:text="@string/cancel"
-                android:textAllCaps="false"
-                android:textColor="@color/mainColor"
-                android:textStyle="bold" />
-        </LinearLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

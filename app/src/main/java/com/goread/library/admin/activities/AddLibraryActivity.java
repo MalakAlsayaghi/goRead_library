@@ -135,6 +135,7 @@ public class AddLibraryActivity extends BaseActivity  {
                                                     public void onComplete(@NonNull Task<Void> task) {
                                                         if (task.isSuccessful()) {
                                                             Toast.makeText(AddLibraryActivity.this, "Added Successfully", Toast.LENGTH_SHORT).show();
+                                                            finish();
                                                         }
                                                     }
                                                 });

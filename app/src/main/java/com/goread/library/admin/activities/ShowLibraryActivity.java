@@ -52,7 +52,7 @@ public class ShowLibraryActivity extends BaseActivity {
                 finish();
             }
         });
-        databaseReference = FirebaseDatabase.getInstance().getReference("Banned");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users").child("Library");
         library = (User) getIntent().getSerializableExtra("library");
 
         libraryBooksFragment = new LibraryBooksFragment();
@@ -72,7 +72,8 @@ public class ShowLibraryActivity extends BaseActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    Boolean isDisabled = snapshot.getValue(Boolean.class);
+                    User user = snapshot.getValue(User.class);
+                    Boolean isDisabled = user.isBlocked();
                     if (isDisabled) {
                         switchButton.setChecked(false);
                     } else {
@@ -108,7 +109,7 @@ public class ShowLibraryActivity extends BaseActivity {
     }
 
     private void changeStatus(boolean b) {
-        databaseReference.child(library.getId()).setValue(b);
+        databaseReference.child(library.getId()).child("blocked").setValue(b);
     }
 
     public void initTabLayout() {
