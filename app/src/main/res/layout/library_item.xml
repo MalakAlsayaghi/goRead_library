@@ -10,6 +10,7 @@
     app:strokeColor="@color/mainColor"
     app:strokeWidth="9dp">
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,17 +29,17 @@
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_margin="3dp"
-                android:scaleType="centerCrop"
                 android:padding="5dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_libraryoutline"
                 app:riv_corner_radius="14dp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="240dp"
-            android:layout_marginTop="3dp"
-            android:layout_gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="3dp"
             android:orientation="vertical"
             android:weightSum="2">
 
@@ -56,14 +57,13 @@
                 app:layout_constraintTop_toBottomOf="parent" />
 
 
-
             <TextView
                 android:id="@+id/tv_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/address"
                 android:layout_marginBottom="10dp"
+                android:text="@string/address"
                 android:textColor="@color/mainColor"
                 android:textSize="13sp"
                 android:textStyle="bold"
@@ -78,8 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@string/phone_number"
                 android:layout_marginBottom="10dp"
+                android:text="@string/phone_number"
                 android:textColor="@color/mainColor"
                 android:textSize="13sp"
                 android:textStyle="bold"
@@ -90,7 +90,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/rating_bar" />
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -101,21 +101,24 @@
                     android:id="@+id/btnEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="34dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
-                    android:layout_marginStart="200dp"
-                    android:background="null"
+                    android:layout_marginEnd="10dp"
+                    android:background="@null"
                     android:src="@drawable/ic_baseline_edit_24_maincolor" />
 
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="23dp"
+                    android:layout_height="34dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/btnEdit"
+                    android:background="@null"
+                    android:src="@drawable/ic_baseline_delete_forever_24" />
 
-            </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/btnDelete"
-                android:layout_width="23dp"
-                android:layout_height="34dp"
-                android:layout_gravity="center"
-                android:background="null"
-                android:src="@drawable/ic_baseline_delete_forever_24" />
+            </RelativeLayout>
 
         </LinearLayout>
     </LinearLayout>

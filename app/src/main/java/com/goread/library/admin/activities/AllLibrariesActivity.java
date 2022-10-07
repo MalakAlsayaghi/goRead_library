@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +34,8 @@ import com.goread.library.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
@@ -43,7 +44,7 @@ public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter
     List<LibraryProfile> profileList;
 
     LibraryAdapter libraryAdapter;
-    DatabaseReference databaseReference,databaseReference2;
+    DatabaseReference databaseReference, databaseReference2;
     LibraryProfile profile;
     User library;
     String name, phone, address;
@@ -80,7 +81,6 @@ public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter
                 return true;
             }
         });
-
 
 
     }
@@ -197,15 +197,48 @@ public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter
 
     @Override
     public void editData(User user, LibraryProfile profile) {
-        library =user;
-        this.profile =profile;
+        library = user;
+        this.profile = profile;
         initDialog();
+    }
+
+    @Override
+    public void delete(String libraryId) {
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("Can't  recover this item!")
+                .setConfirmText("Yes,delete it!")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        databaseReference.child("Books").child(libraryId).removeValue();
+                        databaseReference.child("Library Profile").child(libraryId).removeValue();
+                        databaseReference.child("Users").child("Library").child(libraryId).removeValue()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            sDialog.setTitleText("Deleted!")
+                                                    .setContentText("Your Product has been deleted!")
+                                                    .setConfirmText("OK")
+                                                    .setConfirmClickListener(null)
+                                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                                        }
+                                    }
+                                });
+
+
+                    }
+                }).show();
+
+
     }
 
     public void initDialog() {
         Button btn_edit;
         EditText et_name, et_phone, et_address;
-         databaseReference2 = FirebaseDatabase.getInstance().getReference();
+        databaseReference2 = FirebaseDatabase.getInstance().getReference();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogTheme);
         LayoutInflater inflater = getLayoutInflater();

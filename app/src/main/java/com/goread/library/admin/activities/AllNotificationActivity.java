@@ -9,11 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,13 +24,14 @@ import com.goread.library.admin.adapters.NotificationAdapter;
 import com.goread.library.base.BaseActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AllNotificationActivity extends BaseActivity {
     RecyclerView recyclerView;
     List<Notification> list;
     DatabaseReference databaseReference;
     NotificationAdapter adapter;
-    ImageView btnAdd ,back_btn;
+    ImageView btnAdd, back_btn;
     AlertDialog dialog;
 
     @Override
@@ -64,14 +62,15 @@ public class AllNotificationActivity extends BaseActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
+                if (snapshot.exists()) {
                     list.clear();
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Notification notification = dataSnapshot.getValue(Notification.class);
-                    list.add(notification);
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        Notification notification = dataSnapshot.getValue(Notification.class);
+                        list.add(notification);
+                    }
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
-            }}
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

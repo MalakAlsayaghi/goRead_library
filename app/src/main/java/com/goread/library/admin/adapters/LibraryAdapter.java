@@ -94,6 +94,13 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
             }
         });
 
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapterCallback.delete(profileList.get(position).getId());
+            }
+        });
+
 
     }
 
@@ -158,11 +165,12 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
         void phoneCall(String phone);
 
         void editData(User user, LibraryProfile profile);
+        void delete(String libraryId);
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView username, phone, address;
-        ImageView btnCall, btnEdit;
+        ImageView btnCall, btnEdit,btnDelete;
         ImageView library_img;
 
         public ImageViewHolder(@NonNull View itemView) {
@@ -172,6 +180,7 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageVie
             phone = itemView.findViewById(R.id.tv_phone);
             //   btnCall = itemView.findViewById(R.id.btnCall);
             btnEdit = itemView.findViewById(R.id.btnEdit);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
             address = itemView.findViewById(R.id.tv_address);
             library_img = itemView.findViewById(R.id.library_img);
 
