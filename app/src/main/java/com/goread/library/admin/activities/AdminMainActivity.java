@@ -1,14 +1,17 @@
 package com.goread.library.admin.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.gson.Gson;
 import com.goread.library.R;
 import com.goread.library.base.BaseActivity;
+import com.goread.library.models.User;
 
 public class AdminMainActivity extends BaseActivity implements View.OnClickListener {
     MaterialCardView cvLibraries;
@@ -19,11 +22,14 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
     MaterialCardView cvNotifications;
     MaterialCardView cvCommunity;
     MaterialCardView cvAdmins;
+    User admin;
+    TextView tvAdmin;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getAdmin();
         defineViews();
     }
 
@@ -34,6 +40,7 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
 
     private void defineViews() {
         cvLibraries = findViewById(R.id.card_libraries);
+        tvAdmin = findViewById(R.id.tvAdmin);
         cvLibraries.setOnClickListener(this);
 
         cvDrivers = findViewById(R.id.card_drivers);
@@ -102,4 +109,12 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
         }
 
     }
+
+    public void getAdmin() {
+        SharedPreferences mPrefs = getSharedPreferences("User", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json2 = mPrefs.getString("Key", "");
+        admin = gson.fromJson(json2, User.class);
+    }
+
 }

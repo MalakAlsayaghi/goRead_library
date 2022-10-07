@@ -18,6 +18,12 @@
         android:theme="@style/Theme.GoRead_library"
         tools:replace="android:icon">
         <activity
+            android:name=".activities.MapActivity"
+            android:exported="true" >
+
+
+        </activity>
+        <activity
             android:name=".admin.activities.ShowLibraryActivity"
             android:exported="false" />
         <activity
@@ -64,7 +70,7 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
             android:exported="true" />
@@ -76,13 +82,13 @@
             android:exported="true" />
         <activity
             android:name=".admin.activities.AllDriversActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".admin.activities.AddLibraryActivity"
             android:exported="true" />
         <activity
             android:name=".admin.activities.AllLibrariesActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".ProfileAdminActivity"
             android:exported="true" />
@@ -91,20 +97,16 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryOrdersActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".libraries.activities.AddBookActivity"
             android:exported="true" />
         <activity
             android:name=".auth.LoginActivity"
-            android:exported="true" >
-
-
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".activities.SplashActivity"
-            android:exported="true"> </activity>
+            android:exported="true"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

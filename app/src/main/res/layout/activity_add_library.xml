@@ -70,12 +70,6 @@
     </RelativeLayout>
 
 
-    <com.google.android.gms.maps.MapView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:clickable="true"
-        android:enabled="true" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -116,6 +110,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/locationInput"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,6 +118,8 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
+                    app:startIconDrawable="@drawable/ic_baseline_location_on_24"
+                    app:startIconTint="@color/mainColor"
                     android:backgroundTint="@color/mainColor"
                     app:boxStrokeColor="@color/mainColor">
 
@@ -136,16 +133,7 @@
                         android:textColor="@color/mainColor"
                         android:textColorHint="@color/mainColor" />
 
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="280dp"
-                        android:layout_marginTop="-45dp"
-                        android:layout_toRightOf="@+id/book_img"
-                        android:background="@drawable/circled_bg_white"
-                        android:clickable="true"
-                        android:padding="5dp"
-                        android:src="@drawable/ic_baseline_location_on_24" />
+
                 </com.google.android.material.textfield.TextInputLayout>
 
             </RelativeLayout>

@@ -1,6 +1,8 @@
 package com.goread.library.auth;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,9 +24,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.goread.library.R;
+import com.goread.library.admin.activities.AdminMainActivity;
 import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.activities.LibraryMainActivity;
+import com.goread.library.models.User;
 
 public class LoginActivity extends BaseActivity {
     String email, password;
@@ -79,8 +83,10 @@ public class LoginActivity extends BaseActivity {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
                                 String type;
+                                User user1 = snapshot.getValue(User.class);
                                 type = snapshot.child("user_type").getValue(String.class);
                                 Toast.makeText(LoginActivity.this, type, Toast.LENGTH_SHORT).show();
+                                saveObjectToSharedPreference(user1);
 
 
                                 if (type.equals("Library")) {
@@ -89,9 +95,16 @@ public class LoginActivity extends BaseActivity {
                                     finish();
                                 }
 
+                                if (type.equals("Admin")) {
+                                    Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+
                             } else {
                                 showProgress(false);
-                                Toast.makeText(LoginActivity.this, "Not A library", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Not Valid", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -108,8 +121,7 @@ public class LoginActivity extends BaseActivity {
                         //Toast.makeText(LoginActivity.this, "Verification sent..", Toast.LENGTH_LONG).show();
 
                     }
-                }
-                else {
+                } else {
                     showProgress(false);
                 }
 
@@ -159,5 +171,17 @@ public class LoginActivity extends BaseActivity {
             progressBar.setVisibility(View.INVISIBLE);
             loginBtn.setVisibility(View.VISIBLE);
         }
+    }
+
+
+    public void saveObjectToSharedPreference(Object object) {
+        SharedPreferences mPrefs = getSharedPreferences("User", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(object);
+        prefsEditor.putString("Key", json);
+        prefsEditor.commit();
+
+
     }
 }
