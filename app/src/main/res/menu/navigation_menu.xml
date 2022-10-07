@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/g21">
+
+        <item
+            android:id="@+id/nav_quotes"
+            android:icon="@drawable/ic_baseline_format_quote_24"
+            android:title="@string/quotes" />
+
+        <item
+            android:id="@+id/nav_orders"
+            android:icon="@drawable/ic_motor_icon"
+            android:title="@string/orders" />
+
+        <item
+            android:id="@+id/nav_wallet"
+            android:icon="@drawable/ic_baseline_wallet_24"
+            android:title="@string/earnings" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_baseline_account_circle_24"
+            android:title="@string/price" />
+
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/g2"
+        >
+        <item
+            android:id="@+id/nav_out"
+            android:icon="@drawable/ic_baseline_login_24"
+            android:title="@string/sign_out" />
+    </group>
+</menu>
