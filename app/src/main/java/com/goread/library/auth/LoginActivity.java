@@ -8,12 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.biometric.BiometricManager;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +38,8 @@ import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.activities.LibraryMainActivity;
 import com.goread.library.models.User;
 
+import java.util.concurrent.Executor;
+
 public class LoginActivity extends BaseActivity {
     String email, password;
     Button loginBtn;
@@ -43,6 +49,8 @@ public class LoginActivity extends BaseActivity {
     DatabaseReference reference;
     ProgressBar progressBar;
     AlertDialog dialog, dialog2;
+    BiometricManager biometricManager;
+    ImageButton btn_finger;
 
 
     @Override
@@ -50,12 +58,13 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         defineViews();
+        fingerPrint();
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = et_email.getText().toString();
-                password = et_password.getText().toString();
+                email = et_email.getText().toString().trim();
+                password = et_password.getText().toString().trim();
 
                 if (isValidate()) {
                     signingIn(email, password);
@@ -147,7 +156,14 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                showProgress(false);
+                System.out.println("Moha Error" + e.getMessage());
+                if (e.getMessage().equals("There is no user record corresponding to this identifier. The user may have been deleted.")) {
+                    showProgress(false);
+                    showErrorDialog(getString(R.string.you_inserted_wrong_or_invalidinformation_please_try_again));
+                } else {
+                    showProgress(false);
+                    showErrorDialog(e.getMessage());
+                }
             }
         });
 
@@ -174,6 +190,7 @@ public class LoginActivity extends BaseActivity {
         loginBtn = findViewById(R.id.btn_signIn);
         et_email = findViewById(R.id.et_email);
         et_password = findViewById(R.id.et_password);
+        btn_finger = findViewById(R.id.btn_fingerprint);
         //register = findViewById(R.id.tv_signUp);
         forget = findViewById(R.id.tv_forget);
         progressBar = findViewById(R.id.progressBar);
@@ -214,7 +231,7 @@ public class LoginActivity extends BaseActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogTheme);
         LayoutInflater inflater = getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_edit_driver, null);
+        View view = inflater.inflate(R.layout.reset_password_dialog, null);
         et_email = view.findViewById(R.id.et_email);
         btn_reset = view.findViewById(R.id.btn_reset);
         btn_cancel = view.findViewById(R.id.btn_cancel);
@@ -229,7 +246,7 @@ public class LoginActivity extends BaseActivity {
                                                          public void onComplete(@NonNull Task<Void> task) {
                                                              if (task.isSuccessful()) {
                                                                  Toast.makeText(LoginActivity.this, "Reset Email Sent", Toast.LENGTH_SHORT).show();
-                                                                 btn_reset.setVisibility(View.INVISIBLE);
+                                                                 btn_reset.setVisibility(View.GONE);
                                                                  tvMessage.setText("We Sent you an email for resetting password");
                                                              }
                                                          }
@@ -259,10 +276,9 @@ public class LoginActivity extends BaseActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogTheme);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.wrong_data_dialog, null);
-        btn_cancel = view.findViewById(R.id.btn_cancel);
+        btn_cancel = view.findViewById(R.id.btnCancel);
         tvMessage = view.findViewById(R.id.tvMessage);
         tvMessage.setText(text);
-
 
         btn_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,11 +287,100 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
-
         builder.setView(view);
         dialog2 = builder.create();
         dialog2.show();
 
     }
+
+    public void fingerPrint() {
+        biometricManager = BiometricManager.from(this);
+
+        // creating a variable for our Executor
+        Executor executor = ContextCompat.getMainExecutor(this);
+        // this will give us result of AUTHENTICATION
+        final BiometricPrompt biometricPrompt = new BiometricPrompt(LoginActivity.this, executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+            }
+
+
+            // THIS METHOD IS CALLED WHEN AUTHENTICATION IS SUCCESS
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                SharedPreferences mPrefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
+                String sharedEmail = mPrefs.getString("email", "test");
+                String sharedPassword = mPrefs.getString("password", "test");
+
+                signingIn(sharedEmail, sharedPassword);
+
+
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+            }
+        });
+        // creating a variable for our promptInfo
+        // BIOMETRIC DIALOG
+        final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("Ehya")
+                .setDescription("Use your fingerprint to login ").setNegativeButtonText("Cancel").build();
+        btn_finger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+
+
+                Boolean isEnabled = sharedPreferences.getBoolean("enabled", false);
+                if (isEnabled) {
+                    biometricPrompt.authenticate(promptInfo);
+                    switch (biometricManager.canAuthenticate()) {
+
+                        // this means we can use biometric sensor
+                        case BiometricManager.BIOMETRIC_SUCCESS:
+
+
+                            break;
+
+                        // this means that the device doesn't have fingerprint sensor
+                        case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+                            Toast.makeText(getApplicationContext(), "Your device doesn't has sesnor", Toast.LENGTH_LONG).show();
+
+                            break;
+
+                        // this means that biometric sensor is not available
+                        case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+
+                            Toast.makeText(getApplicationContext(), "Your device doesn't has sesnor", Toast.LENGTH_LONG).show();
+
+                            break;
+
+                        // this means that the device doesn't contain your fingerprint
+                        case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+
+                            Toast.makeText(getApplicationContext(), "Your device doesn't has sesnor", Toast.LENGTH_LONG).show();
+
+                            break;
+                    }
+
+                } else {
+                    Toast.makeText(LoginActivity.this, "Fingerprint is not enabled", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+
+    public void saveLoginData(String email, String password) {
+        SharedPreferences mPrefs = getSharedPreferences("Login", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString("email", email);
+        prefsEditor.putString("password", password);
+        prefsEditor.commit();
+    }
+
 
 }
