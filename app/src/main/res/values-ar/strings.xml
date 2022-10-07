@@ -94,12 +94,12 @@
     <string name="total_amount">المجموع الكلي:</string>
     <string name="_769876">٧٦٩٨٧٦</string>
     <string name="yr">ريال يمني</string>
-    <string name="my_dashboard">لوحتي </string>
+    <string name="my_dashboard">لوحة التحكم </string>
     <string name="libraries">المكاتب</string>
     <string name="drivers">السائقين</string>
     <string name="users">المستخدمين</string>
     <string name="notifications">الإشعارات</string>
-    <string name="community">المجموعة </string>
+    <string name="community">المجتمع </string>
     <string name="admins">المشرفين</string>
     <string name="number_of_sold_book">عدد الكتب التي تم شرائها </string>
     <string name="new_orders">الطلبات الجديدة</string>
@@ -135,13 +135,33 @@
     <string name="quotes_list">قائمة الأقتباسات</string>
     <string name="hello">مرحبا</string>
     <string name="_000">000</string>
-    <string name="new_order">New Orders</string>
-    <string name="old_order">Old  Orders</string>
-    <string name="search">search</string>
-    <string name="are_you_sure">Are you sure?</string>
-    <string name="Can_not_recover_this_item">Can\'t  recover this item!</string>
-    <string name="yes_delete_it">Yes,delete it!</string>
-    <string name="our_product_has_been_deleted">Your Product has been deleted!</string>
-    <string name="status_changed">Status Changed</string>
+    <string name="new_order">الطلبات الجديد</string>
+    <string name="old_order">الطلبات السابقة</string>
+    <string name="search">بحث</string>
+    <string name="are_you_sure">هل أنت متأكد؟</string>
+    <string name="Can_not_recover_this_item">لا يمكن استعادة هذا العنصر!</string>
+    <string name="yes_delete_it">نعم ، احذفها!
+</string>
+    <string name="our_product_has_been_deleted">تم حذف طلبك!
+</string>
+    <string name="status_changed">تحدث حالة الطلب</string>
     <string name="malak">Malak:</string>
+    <string name="library">المكتبه</string>
+    <string name="order_items">الطلب</string>
+    <string name="drame">دراما</string>
+    <string name="romanntic">رومنسي</string>
+    <string name="Classic">كلاسيكي</string>
+
+    <string name="Philosophy_and_Psychology">علم النفس والفلسفة</string>
+    <string name="General_Knowledge">معلومات عامة</string>
+    <string name="Religion">دينية</string>
+    <string name="Social_Science">علم إجتماعي</string>
+    <string name="Languages">لغات</string>
+    <string name="Science">علوم</string>
+    <string name="Technology">تكنولوجيا </string>
+    <string name="Literature">أدب</string>
+    <string name="Art_and_Recreation">فن وترفيه</string>
+    <string name="history_and_geography">تاريخ وجغرافيا></string>
+    <string name="Action">أكشن</string>
+    <string name="chat_list">الدردشات</string>
 </resources>

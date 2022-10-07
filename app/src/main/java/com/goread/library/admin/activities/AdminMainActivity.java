@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.card.MaterialCardView;
@@ -24,7 +25,7 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
     MaterialCardView cvAdmins;
     User admin;
     TextView tvAdmin;
-
+    ImageButton btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,9 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
 
         cvAdmins = findViewById(R.id.card_admin);
         cvAdmins.setOnClickListener(this);
+
+
+
     }
 
     @Override

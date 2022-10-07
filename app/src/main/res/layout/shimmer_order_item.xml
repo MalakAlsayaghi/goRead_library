@@ -83,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:gravity="center"
-                        android:text="Library:"
+                        android:text="@string/library"
                         android:textAlignment="center"
                         android:textColor="#eae8f2"
                         android:textSize="16dp"

@@ -131,20 +131,20 @@ public class AddBookActivity extends BaseActivity {
         });
 
 
-        drop_categoriesList.add("Drama");
-        drop_categoriesList.add("Romantic");
-        drop_categoriesList.add("Philosophy & Psychology");
-        drop_categoriesList.add("General Knowledge");
-        drop_categoriesList.add("Religion");
-        drop_categoriesList.add("Social Science");
-        drop_categoriesList.add("Languages");
-        drop_categoriesList.add("Classic");
-        drop_categoriesList.add("Science");
-        drop_categoriesList.add("Technology");
-        drop_categoriesList.add("Literature");
-        drop_categoriesList.add("Art & Recreation");
-        drop_categoriesList.add("History & Geography");
-        drop_categoriesList.add("Action");
+        drop_categoriesList.add(getString(R.string.drame));
+        drop_categoriesList.add(getString(R.string.romanntic));
+        drop_categoriesList.add(getString(R.string.Philosophy_and_Psychology));
+        drop_categoriesList.add(getString(R.string.General_Knowledge));
+        drop_categoriesList.add(getString(R.string.Religion));
+        drop_categoriesList.add(getString(R.string.Social_Science));
+        drop_categoriesList.add(getString(R.string.Languages));
+        drop_categoriesList.add(getString(R.string.Classic));
+        drop_categoriesList.add(getString(R.string.Science));
+        drop_categoriesList.add(getString(R.string.Technology));
+        drop_categoriesList.add(getString(R.string.Literature));
+        drop_categoriesList.add(getString(R.string.Art_and_Recreation));
+        drop_categoriesList.add(getString(R.string.history_and_geography));
+        drop_categoriesList.add(getString(R.string.Action));
 
         adapter_categories = new ArrayAdapter<String>(getApplicationContext(), com.airbnb.lottie.R.layout.support_simple_spinner_dropdown_item, drop_categoriesList);
         drop_menu_categories.setAdapter(adapter_categories);

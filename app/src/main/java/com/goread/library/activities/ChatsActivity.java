@@ -1,6 +1,8 @@
 package com.goread.library.activities;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +27,8 @@ import java.util.List;
 
 public class ChatsActivity extends BaseActivity {
     RecyclerView recycler_chats;
+    ImageView back_btn;
+
     List<Chat> chatsList;
     ChatsAdapter chatsAdapter;
     DatabaseReference databaseReference;
@@ -43,6 +47,14 @@ public class ChatsActivity extends BaseActivity {
             senderId = getIntent().getStringExtra("senderId");
         }
         getChats();
+
+        back_btn = findViewById(R.id.btn_back);
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
     }

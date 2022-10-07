@@ -52,6 +52,7 @@
             android:exported="true">
 
         </activity>
+
         <activity
             android:name=".ResetPasswordDialog"
             android:exported="false" />
@@ -66,7 +67,11 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
-            android:exported="true" />
+            android:exported="true" > <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
             android:exported="true" />
@@ -87,7 +92,7 @@
             android:exported="true" />
         <activity
             android:name=".ProfileAdminActivity"
-            android:exported="true" />
+            android:exported="true" ></activity>
         <activity
             android:name=".admin.activities.AddAdminActivity"
             android:exported="true" />
@@ -101,11 +106,7 @@
             android:name=".auth.LoginActivity"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.SplashActivity"

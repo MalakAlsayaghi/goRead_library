@@ -26,7 +26,6 @@ import java.util.Locale;
 
 public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.ImageViewHolder> {
     String book_id, library_id;
-
     Context mContext;
     List<User> userList;
     List<LibraryProfile> profileList;

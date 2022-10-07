@@ -144,7 +144,24 @@
     <string name="are_you_sure">Are you sure?</string>
     <string name="Can_not_recover_this_item">Can\'t  recover this item!</string>
     <string name="yes_delete_it">Yes,delete it!</string>
-    <string name="our_product_has_been_deleted">Your Product has been deleted!</string>
+    <string name="our_product_has_been_deleted">Your item has been deleted!</string>
     <string name="status_changed">Status Changed</string>
     <string name="malak">Malak:</string>
+    <string name="library">Library:</string>
+    <string name="order_items">Order Items</string>
+    <string name="drame">Drama</string>
+    <string name="romanntic">Romantic</string>
+    <string name="Philosophy_and_Psychology"><![CDATA[Philosophy & Psychology]]></string>
+    <string name="General_Knowledge">General Knowledge</string>
+    <string name="Religion">Religion</string>
+    <string name="Social_Science">Social Science</string>
+    <string name="Languages">Languages</string>
+    <string name="Classic">Classic</string>
+    <string name="Science">Science</string>
+    <string name="Technology">Technology</string>
+    <string name="Literature">Literature</string>
+    <string name="Art_and_Recreation"><![CDATA[Art & Recreation]]></string>
+    <string name="history_and_geography"><![CDATA[History & Geography]]></string>
+    <string name="Action">Action</string>
+    <string name="chat_list">chat list</string>
 </resources>
