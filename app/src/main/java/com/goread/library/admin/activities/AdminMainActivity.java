@@ -69,6 +69,8 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
         cvAdmins.setOnClickListener(this);
 
 
+        btnLogout = findViewById(R.id.btnLLogOut);
+
     }
 
     @Override
