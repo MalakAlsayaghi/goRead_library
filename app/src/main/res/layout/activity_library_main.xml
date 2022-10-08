@@ -94,6 +94,17 @@
                         app:layout_constraintBottom_toBottomOf="parent" />
                 </LinearLayout>
 
+                <TextView
+                    android:id="@+id/library_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+android:layout_gravity="center"                    android:text="@string/library_name"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
 
 

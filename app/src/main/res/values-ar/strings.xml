@@ -164,4 +164,11 @@
     <string name="history_and_geography">تاريخ وجغرافيا></string>
     <string name="Action">أكشن</string>
     <string name="chat_list">الدردشات</string>
+    <string name="your_item_has_benn_deleted">Your item has been deleted!</string>
+    <string name="Deleted">تم الحذف</string>
+    <string name="_4_mins_ago">قبل 4 دقائق</string>
+    <string name="accept">قبول</string>
+    <string name="decline">رفض</string>
+    <string name="new_order_lib">الجديدة</string>
+    <string name="old_order_lib">القديمة</string>
 </resources>

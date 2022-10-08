@@ -220,7 +220,7 @@ public class AllLibrariesActivity extends BaseActivity implements LibraryAdapter
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             sDialog.setTitleText("Deleted!")
-                                                    .setContentText("Your Product has been deleted!")
+                                                    .setContentText("Your item has been deleted!")
                                                     .setConfirmText("OK")
                                                     .setConfirmClickListener(null)
                                                     .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);

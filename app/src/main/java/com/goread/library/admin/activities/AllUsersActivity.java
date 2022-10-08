@@ -180,9 +180,9 @@ public class AllUsersActivity extends BaseActivity implements UsersAdapter.Adapt
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            sDialog.setTitleText("Deleted!")
-                                                    .setContentText("Your Product has been deleted!")
-                                                    .setConfirmText("OK")
+                                            sDialog.setTitleText(getString(R.string.Deleted))
+                                                    .setContentText(getString(R.string.your_item_has_benn_deleted))
+                                                    .setConfirmText(getString(R.string.ok))
                                                     .setConfirmClickListener(null)
                                                     .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
                                         }

@@ -164,4 +164,11 @@
     <string name="history_and_geography"><![CDATA[History & Geography]]></string>
     <string name="Action">Action</string>
     <string name="chat_list">chat list</string>
+    <string name="your_item_has_benn_deleted">Your item has been deleted!</string>
+    <string name="Deleted">Deleted!</string>
+    <string name="_4_mins_ago">4 Mins Ago</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+    <string name="new_order_lib">New Order</string>
+    <string name="old_order_lib">Old Order</string>
 </resources>

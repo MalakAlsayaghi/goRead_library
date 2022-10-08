@@ -63,8 +63,8 @@ public class LibraryOrdersActivity extends BaseActivity {
     public void initTabLayout() {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), 0);
 
-        viewPagerAdapter.addFragment(newOrdersFragment, getString(R.string.new_order));
-        viewPagerAdapter.addFragment(oldOrdersFragment, getString(R.string.old_order));
+        viewPagerAdapter.addFragment(newOrdersFragment, getString(R.string.new_order_lib));
+        viewPagerAdapter.addFragment(oldOrdersFragment, getString(R.string.old_order_lib));
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_new_order_icon);

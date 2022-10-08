@@ -34,7 +34,7 @@ public class ChattingActivity extends BaseActivity {
     RecyclerView chat_recyclerView;
     DatabaseReference databaseReference;
     EditText etMessage;
-    ImageView btnSend;
+    ImageView btnSend,imgeback;
     Calendar calForDate;
     TextView textName;
     FirebaseAuth firebaseAuth;
@@ -53,7 +53,13 @@ public class ChattingActivity extends BaseActivity {
         name = getIntent().getStringExtra("name");
         textName.setText(name);
 
-
+        imgeback = findViewById(R.id.imageBack);
+        imgeback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         Constants.USER_ID = userId;
 
         calForDate = Calendar.getInstance();
