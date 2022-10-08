@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -20,6 +21,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -39,12 +41,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.goread.library.R;
 import com.goread.library.activities.ChatsActivity;
 import com.goread.library.auth.LoginActivity;
 import com.goread.library.base.BaseActivity;
 import com.goread.library.models.Order;
+import com.goread.library.models.User;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import java.io.File;
@@ -66,6 +70,8 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
     View bsheet;
     Bitmap bitmap;
     private final int PICK_IMAGE_REQUEST = 22, PICK_FILE_REQUEST = 40;
+    User library;
+    TextView tvLibrary;
 
 
     @Override
@@ -74,6 +80,7 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
         defineViews();
 
         drawChart();
+
         // initCharts();
 
         if (ContextCompat.checkSelfPermission(LibraryMainActivity.this,
@@ -357,8 +364,11 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
         btnLogout = findViewById(R.id.btnLLogOut);
         btnGenerate = findViewById(R.id.btnGenerate);
         pieChart = findViewById(R.id.pieChart);
+        tvLibrary = findViewById(R.id.library_name);
+        getLibrary();
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
 
         cvBooks.setOnClickListener(this);
         cvNewOrders.setOnClickListener(this);
@@ -384,6 +394,16 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
             case R.id.card_chat:
                 startActivity(new Intent(LibraryMainActivity.this, ChatsActivity.class));
                 break;
+        }
+    }
+
+    public void getLibrary() {
+        SharedPreferences mPrefs = getSharedPreferences("User", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json2 = mPrefs.getString("Key", "");
+        library = gson.fromJson(json2, User.class);
+        if (library != null) {
+            tvLibrary.setText(library.getName());
         }
     }
 
