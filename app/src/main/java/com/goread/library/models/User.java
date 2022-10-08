@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     String id, name, email, phone, user_type, token;
-    boolean isBlocked,isNew;
+    boolean isBlocked, isNew;
 
     public User(String id, String name, String phone, String email, String user_type, String token) {
         this.id = id;
@@ -14,7 +14,13 @@ public class User implements Serializable {
         this.token = token;
         this.email = email;
         this.isBlocked = false;
-        this.isNew = true;
+
+        if (user_type.equals("Admin")) {
+            this.isNew = false;
+        } else {
+            this.isNew = true;
+
+        }
     }
 
     public boolean isNew() {

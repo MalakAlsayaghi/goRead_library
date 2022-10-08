@@ -49,7 +49,6 @@ public class AddAdminActivity extends BaseActivity  {
         });
 
     }
-
     @Override
     public int defineLayout() {
         return R.layout.activity_add_admin;
