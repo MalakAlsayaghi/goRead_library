@@ -120,11 +120,21 @@ public class MyOrdersAdapter extends RecyclerView.Adapter<MyOrdersAdapter.ImageV
             }
         });
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Order cartCur = myOrderList.get(position);
+
+                adapterCallback.getOrderId(cartCur.getOrderId(), cartCur.getUserId());
+            }
+        });
+
+
     }
 
 
     public static interface AdapterCallback {
-        void getOrderId(String orderId);
+        void getOrderId(String orderId, String userId);
 
     }
 

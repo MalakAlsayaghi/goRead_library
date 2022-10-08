@@ -78,7 +78,8 @@ public class AddBookActivity extends BaseActivity {
                     .load(book.getImg_url())
                     .centerCrop()
                     .into(add_img);
-            drop_menu_categories.setText(book.getCategory());
+          //  drop_menu_categories.setText(book.getCategory());
+            btnUpload.setText("Edit");
 
         }
 
@@ -223,6 +224,7 @@ public class AddBookActivity extends BaseActivity {
                                         if (book_id != null) {
                                             Book book = new Book(book_id, name, Integer.parseInt(price), desc,
                                                     0.0, fileLink, category, library_id, false);
+                                            System.out.println("The updated book is:"+name);
 
                                             databaseReference.child(book_id).setValue(book);
                                             book_name_et.setText(" ");

@@ -19,8 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.goread.library.libraries.activities.AddBookActivity;
 import com.goread.library.R;
+import com.goread.library.libraries.activities.AddBookActivity;
 import com.goread.library.models.Book;
 
 import java.util.List;
@@ -59,7 +59,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ImageViewHolde
                 .into(holder.pro_img);
 
         holder.name.setText(bookCur.getName());
-        holder.price.setText(String.valueOf(bookCur.getPrice()) + "RY");
+        holder.price.setText(String.valueOf(bookCur.getPrice()) + " " + mContext.getString(R.string.yr));
         holder.ratingBar.setRating((float) bookCur.getRating());
 //        holder.brand.setText(bookCur.getBrand());
 

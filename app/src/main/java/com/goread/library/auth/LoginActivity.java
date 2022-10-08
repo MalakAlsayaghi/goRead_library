@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.goread.library.R;
+import com.goread.library.activities.OnBordingActivity;
 import com.goread.library.admin.activities.AdminMainActivity;
 import com.goread.library.base.BaseActivity;
 import com.goread.library.libraries.activities.LibraryMainActivity;
@@ -48,9 +52,12 @@ public class LoginActivity extends BaseActivity {
     TextView register, forget;
     DatabaseReference reference;
     ProgressBar progressBar;
-    AlertDialog dialog, dialog2;
+    AlertDialog dialog, dialog2, dialog3;
     BiometricManager biometricManager;
     ImageButton btn_finger;
+    User loggedUser;
+    User user1;
+    boolean isChangingStatus = false;
 
 
     @Override
@@ -81,9 +88,9 @@ public class LoginActivity extends BaseActivity {
 
     }
 
-    public void signingIn(String email, String password) {
+    public void signingIn(String email1, String password) {
         showProgress(true);
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(email1, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
@@ -98,8 +105,11 @@ public class LoginActivity extends BaseActivity {
                                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                                     for (DataSnapshot postSnapshot2 : postSnapshot.getChildren()) {
                                         User user1 = postSnapshot2.getValue(User.class);
+                                        loggedUser = postSnapshot2.getValue(User.class);
 
                                         if (user1.getId().equals(id)) {
+                                            saveObjectToSharedPreference(user1);
+
                                             String type;
                                             //   type = snapshot.child("user_type").getValue(String.class);
                                             type = user1.getUser_type();
@@ -111,23 +121,22 @@ public class LoginActivity extends BaseActivity {
                                             }
 
                                             if (user1.isNew()) {
-                                                showErrorDialog("You are new you have to change password");
-                                                showProgress(false);
+                                                isChangingStatus=true;
+                                                newPasswordDialog(email1, password);
                                                 return;
-                                            }
-                                            setFingerprintEnabled();
-
-                                            if (type.equals("Library")) {
-                                                saveLoginData(email, password);
+                                            } else if (type.equals("Library")&&!isChangingStatus) {
+                                                saveLoginData(email1, password);
                                                 Intent intent = new Intent(LoginActivity.this, LibraryMainActivity.class);
                                                 saveObjectToSharedPreference(user1);
                                                 startActivity(intent);
                                                 finish();
                                             }
+                                            setFingerprintEnabled();
+
 
                                             if (type.equals("Admin")) {
 
-                                                saveLoginData(email, password);
+                                                saveLoginData(email1, password);
                                                 Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
                                                 saveObjectToSharedPreference(user1);
                                                 startActivity(intent);
@@ -280,6 +289,72 @@ public class LoginActivity extends BaseActivity {
         builder.setView(view);
         dialog = builder.create();
         dialog.show();
+
+    }
+
+    public void newPasswordDialog(String oldEmail, String oldPassword) {
+        Button btn_reset;
+        EditText etNewPassword;
+        ProgressBar progressBar;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.DialogTheme);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.new_password_dialog, null);
+        etNewPassword = view.findViewById(R.id.et_password);
+        progressBar = view.findViewById(R.id.progressBar);
+        btn_reset = view.findViewById(R.id.btn_reset);
+
+        btn_reset.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View view) {
+                                             btn_reset.setVisibility(View.GONE);
+                                             progressBar.setVisibility(View.VISIBLE);
+
+                                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+// Get auth credentials from the user for re-authentication. The example below shows
+// email and password credentials but there are multiple possible providers,
+// such as GoogleAuthProvider or FacebookAuthProvider.
+                                             AuthCredential credential = EmailAuthProvider
+                                                     .getCredential(oldEmail, oldPassword);
+
+// Prompt the user to re-provide their sign-in credentials
+                                             user.reauthenticate(credential)
+                                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                         @Override
+                                                         public void onComplete(@NonNull Task<Void> task) {
+                                                             if (task.isSuccessful()) {
+                                                                 user.updatePassword(etNewPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                     @Override
+                                                                     public void onComplete(@NonNull Task<Void> task) {
+                                                                         if (task.isSuccessful()) {
+                                                                             Log.d("TAG", "Password updated");
+                                                                             dialog3.cancel();
+                                                                             startActivity(new Intent(getApplicationContext(), OnBordingActivity.class));
+                                                                             finish();
+
+                                                                         } else {
+                                                                             btn_reset.setVisibility(View.VISIBLE);
+                                                                             progressBar.setVisibility(View.GONE);
+                                                                             Log.d("TAG", "Error password not updated");
+                                                                         }
+                                                                     }
+                                                                 });
+                                                             } else {
+                                                                 btn_reset.setVisibility(View.VISIBLE);
+                                                                 progressBar.setVisibility(View.GONE);
+                                                                 Log.d("TAG", "Error auth failed");
+                                                             }
+                                                         }
+                                                     });
+                                         }
+                                     }
+        );
+
+
+        builder.setView(view);
+        dialog3 = builder.create();
+        dialog3.show();
 
     }
 
