@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:text="Edit"
+            android:text="@string/edit"
             android:textColor="@color/mainColor"
             android:textSize="23sp"
             android:textStyle="bold"

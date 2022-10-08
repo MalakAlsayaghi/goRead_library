@@ -26,7 +26,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:padding="18dp"
-                android:text="My QR Code"
+                android:text="@string/my_qr_code"
                 android:textColor="@color/mainColor"
                 android:textSize="22sp"
                 android:textStyle="bold" />

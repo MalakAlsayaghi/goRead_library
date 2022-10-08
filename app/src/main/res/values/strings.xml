@@ -171,4 +171,12 @@
     <string name="decline">Decline</string>
     <string name="new_order_lib">New Order</string>
     <string name="old_order_lib">Old Order</string>
+    <string name="change_password">Change password</string>
+    <string name="you_must_change_password_after_your_first_login">You must change password after your first Login</string>
+    <string name="change">Change</string>
+    <string name="bad_internet_connection">Bad internet connection</string>
+    <string name="please_check_your_connection">Please check your connection</string>
+    <string name="my_qr_code">My QR Code</string>
+    <string name="add_notification">Add Notification</string>
+    <string name="edit_driver">Edit Driver</string>
 </resources>

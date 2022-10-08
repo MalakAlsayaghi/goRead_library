@@ -170,4 +170,12 @@
     <string name="decline">رفض</string>
     <string name="new_order_lib">الجديدة</string>
     <string name="old_order_lib">القديمة</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="you_must_change_password_after_your_first_login">يجب  تغيير كلمة المرور  بعد أول دخول</string>
+    <string name="change">تغيير</string>
+    <string name="bad_internet_connection">فشل الاتصال</string>
+    <string name="please_check_your_connection">الرجاء التحقق من الاتصال بالشبكة</string>
+    <string name="my_qr_code">My QR Code</string>
+    <string name="add_notification">أضف اشعار</string>
+    <string name="edit_driver">تعديل  السائق</string>
 </resources>

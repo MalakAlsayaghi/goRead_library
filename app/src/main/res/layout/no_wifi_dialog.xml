@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Bad internet connection"
+            android:text="@string/bad_internet_connection"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Please check your connection"
+            android:text="@string/please_check_your_connection"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
