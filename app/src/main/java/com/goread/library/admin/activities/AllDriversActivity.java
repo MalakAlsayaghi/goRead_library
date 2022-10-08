@@ -40,7 +40,7 @@ import com.goread.library.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllDriversActivity extends BaseActivity implements UsersAdapter.AdapterCallback, DriverAdapter.AdapterCallback {
+public class AllDriversActivity extends BaseActivity implements  DriverAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
     RecyclerView allDrivers_recyclerView;

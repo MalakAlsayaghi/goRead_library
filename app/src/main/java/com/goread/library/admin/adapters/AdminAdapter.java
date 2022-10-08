@@ -56,6 +56,13 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ImageViewHol
             }
         });
 
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapterCallback.delete(user.getId());
+            }
+        });
+
 
     }
 
@@ -70,6 +77,9 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ImageViewHol
 
 
         void editData(User user);
+
+        void delete(String id);
+
 
     }
 
@@ -110,7 +120,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ImageViewHol
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView username, email, phone;
-        ImageView btnCall, btnEdit;
+        ImageView btnCall, btnEdit, btnDelete;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,6 +128,8 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.ImageViewHol
             username = itemView.findViewById(R.id.tv_driver_name);
             phone = itemView.findViewById(R.id.tv_phone);
             btnEdit = itemView.findViewById(R.id.btnEdit);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
+
 
         }
     }

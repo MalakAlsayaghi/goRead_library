@@ -59,6 +59,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
             }
         });
 
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapterCallback.delete(user.getId());
+            }
+        });
+
 
     }
 
@@ -88,11 +95,11 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
 
         } else {
             System.out.println("------------------");
-            System.out.println("You locks for: "+ charText);
+            System.out.println("You locks for: " + charText);
             for (User obj : tempUserList) {
                 if (obj.getName().toLowerCase().contains(charText)
                         || obj.getPhone().contains(charText)) {
-                    System.out.println("Name is: "+obj.getName());
+                    System.out.println("Name is: " + obj.getName());
 
                     userList.add(obj);
                 }
@@ -105,6 +112,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
 
         void phoneCall(String phone);
 
+        void delete(String id);
+
     }
 
     @Override
@@ -114,7 +123,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         TextView username, email, phone;
-        ImageView btnCall;
+        ImageView btnCall, btnDelete;
 
         public ImageViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -123,6 +132,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ImageViewHol
             email = itemView.findViewById(R.id.tv_email);
             phone = itemView.findViewById(R.id.tv_phone);
             btnCall = itemView.findViewById(R.id.btnCall);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
 
         }
     }

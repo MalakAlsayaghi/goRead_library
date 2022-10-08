@@ -42,6 +42,9 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
     private void defineViews() {
         cvLibraries = findViewById(R.id.card_libraries);
         tvAdmin = findViewById(R.id.tvAdmin);
+        if (admin != null) {
+            tvAdmin.setText(admin.getName());
+        }
         cvLibraries.setOnClickListener(this);
 
         cvDrivers = findViewById(R.id.card_drivers);
@@ -64,7 +67,6 @@ public class AdminMainActivity extends BaseActivity implements View.OnClickListe
 
         cvAdmins = findViewById(R.id.card_admin);
         cvAdmins.setOnClickListener(this);
-
 
 
     }

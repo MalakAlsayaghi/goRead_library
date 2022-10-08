@@ -1,5 +1,7 @@
 package com.goread.library.admin.adapters;
 
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +25,10 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
     Context mContext;
     List<Order> myOrderList;
     boolean isDisabled = false;
+    Date now = new Date();
 
-    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("d/MM/yyyy");
+
+    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("dd MMM yyyy");
 
     long agoDate;
 
@@ -62,13 +66,28 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ImageViewH
         holder.tvBookNo.setText(String.valueOf(cartCur.getItems().size()));
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         Date past = null;
-
         try {
             past = format.parse(cartCur.getOrderDate());
-            holder.tvDate.setText(String.valueOf(past));
+            System.out.println("Your old date:" + past);
+            System.out.println("today is: " + now.getTime());
+            System.out.println("today is mins: " + MILLISECONDS.toMinutes(now.getTime() - past.getTime()));
+            agoDate = MILLISECONDS.toMinutes(now.getTime() - past.getTime());
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+
+        if (agoDate > 0 && agoDate < 59) {
+            holder.tvDate.setText(String.valueOf(agoDate) + "Mins Ago");
+        } else if (agoDate == 0) {
+            holder.tvDate.setText("Just Now");
+
+        } else {
+            holder.tvDate.setText(String.valueOf(dateFormatterNew.format(past)));
+
+        }
+
 
         if(!isDisabled) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {

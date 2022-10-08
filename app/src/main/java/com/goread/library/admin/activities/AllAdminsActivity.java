@@ -35,6 +35,8 @@ import com.goread.library.models.User;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class AllAdminsActivity extends BaseActivity implements AdminAdapter.AdapterCallback {
     ImageView back_btn;
     ImageView add_btn;
@@ -158,6 +160,36 @@ public class AllAdminsActivity extends BaseActivity implements AdminAdapter.Adap
     public void editData(User user) {
         Admin = user;
         initDialog();
+    }
+
+    @Override
+    public void delete(String id) {
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("Can't  recover this item!")
+                .setConfirmText("Yes,delete it!")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        databaseReference.child("Users").child("Admins").child(id).removeValue()
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            sDialog.setTitleText("Deleted!")
+                                                    .setContentText("Your Product has been deleted!")
+                                                    .setConfirmText("OK")
+                                                    .setConfirmClickListener(null)
+                                                    .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                                        }
+                                    }
+                                });
+
+
+                    }
+                }).show();
+
     }
 
 

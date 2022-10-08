@@ -115,6 +115,7 @@ public class LoginActivity extends BaseActivity {
                                                 showProgress(false);
                                                 return;
                                             }
+                                            setFingerprintEnabled();
 
 
                                             if (type.equals("Library")) {
@@ -345,9 +346,10 @@ public class LoginActivity extends BaseActivity {
         btn_finger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
 
 
-                Boolean isEnabled = true;
+                Boolean isEnabled = sharedPreferences.getBoolean("enabled", false);
                 if (isEnabled) {
                     biometricPrompt.authenticate(promptInfo);
                     switch (biometricManager.canAuthenticate()) {
@@ -380,7 +382,7 @@ public class LoginActivity extends BaseActivity {
                     }
 
                 } else {
-                    Toast.makeText(LoginActivity.this, "Fingerprint is not enabled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "No Saved user to login by fingerprint", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -393,6 +395,14 @@ public class LoginActivity extends BaseActivity {
         prefsEditor.putString("email", email);
         prefsEditor.putString("password", password);
         prefsEditor.commit();
+    }
+
+    public void setFingerprintEnabled() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putBoolean("enabled", true);
+        myEdit.commit();
+
     }
 
 

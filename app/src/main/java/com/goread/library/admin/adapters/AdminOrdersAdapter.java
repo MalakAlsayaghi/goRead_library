@@ -43,7 +43,7 @@ public class AdminOrdersAdapter extends RecyclerView.Adapter<AdminOrdersAdapter.
     FirebaseAuth firebaseAuth;
     private BottomSheetDialog bottomSheetDialog;
 
-    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("d/MM/yyyy");
+    private static final SimpleDateFormat dateFormatterNew = new SimpleDateFormat("dd MMM yyyy");
 
     long agoDate;
 

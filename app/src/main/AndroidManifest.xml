@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
 
     <application
@@ -21,7 +21,7 @@
         tools:replace="android:icon">
         <activity
             android:name=".activities.MapActivity"
-            android:exported="true" >
+            android:exported="true">
 
 
         </activity>
@@ -52,7 +52,11 @@
         <activity
             android:name=".admin.activities.AdminMainActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -69,11 +73,9 @@
             android:exported="true" />
         <activity
             android:name=".libraries.activities.LibraryMainActivity"
-            android:exported="true" > <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        </activity>
         <activity
             android:name=".libraries.activities.LibraryProfileActivity"
             android:exported="true" />
@@ -94,7 +96,7 @@
             android:exported="true" />
         <activity
             android:name=".ProfileAdminActivity"
-            android:exported="true" ></activity>
+            android:exported="true"></activity>
         <activity
             android:name=".admin.activities.AddAdminActivity"
             android:exported="true" />
