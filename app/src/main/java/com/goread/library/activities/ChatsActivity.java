@@ -3,6 +3,7 @@ package com.goread.library.activities;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +36,7 @@ public class ChatsActivity extends BaseActivity {
     private List<User> mUsers;
     String senderId;
     FirebaseUser firebaseUser;
+    LinearLayout linearLayout;
 
 
     @Override
@@ -49,6 +51,7 @@ public class ChatsActivity extends BaseActivity {
         getChats();
 
         back_btn = findViewById(R.id.btn_back);
+        linearLayout = findViewById(R.id.linearLayoutNo);
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,10 +76,11 @@ public class ChatsActivity extends BaseActivity {
         chatsList = new ArrayList<>();
 
         //TODO change Id
-        databaseReference = FirebaseDatabase.getInstance().getReference("ChatList").child("dwHPEklO03gbT50rAMWf3tBXPIy1");
+        databaseReference = FirebaseDatabase.getInstance().getReference("ChatList").child(senderId);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
                 chatsList.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Chat chatlist = snapshot.getValue(Chat.class);
@@ -85,6 +89,11 @@ public class ChatsActivity extends BaseActivity {
                 }
 
                 chatList();
+            }
+            else {
+                linearLayout.setVisibility(View.VISIBLE);
+                recycler_chats.setVisibility(View.GONE);
+                }
             }
 
             @Override

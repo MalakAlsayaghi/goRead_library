@@ -3,8 +3,10 @@ package com.goread.library.libraries.activities;
 import android.Manifest;
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -21,12 +23,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -72,9 +72,9 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         defineViews();
-        // initCharts();
-        drawChart();
 
+        drawChart();
+        // initCharts();
 
         if (ContextCompat.checkSelfPermission(LibraryMainActivity.this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -160,14 +160,16 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
 
                 data.setValueFormatter(new PercentFormatter());
                 pieChart.setData(data);
-
-                pieChart.setDrawHoleEnabled(true);
-                pieChart.setTransparentCircleRadius(58f);
-                pieChart.setHoleRadius(58f);
                 pieChart.animateXY(500, 500);
+                pieChart.getDescription().setEnabled(false);
+                pieChart.setDrawSlicesUnderHole(true);
                 dataSet.setColors(MY_COLORS);
                 data.setValueTextSize(13f);
                 data.setValueTextColor(Color.WHITE);
+                pieChart.getDescription().setEnabled(false);
+
+                dataSet.setDrawValues(true);
+                pieChart.setData(new PieData(dataSet));
 
 
             }
@@ -251,8 +253,11 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(LibraryMainActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+
                 try {
-                    saveImage(bitmap, "QR");
+                    saveImage(bitmap, "MyQR");
+                    bottomSheetDialog.cancel();
                 } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(LibraryMainActivity.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -276,6 +281,33 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
 
     }
 
+    public String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = {MediaStore.Images.Media.DATA};
+            cursor = context.getContentResolver().query(contentUri, proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
+    public void shareQr(Uri imageUri) {
+        String text = "This is Our Store QR Code \n Scan it in GoRead App and explore the books ";
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+
+        shareIntent.setType("image/*");
+        // Launch sharing dialog for image
+        startActivity(Intent.createChooser(shareIntent, "Share Image"));
+    }
+
     private void saveImage(Bitmap bitmap, @NonNull String name) throws IOException {
         boolean saved;
         OutputStream fos;
@@ -288,7 +320,11 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png");
             contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, "DCIM/" + folderName);
             Uri imageUri = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues);
+            shareQr(imageUri);
+            System.out.println("Moha: " + getRealPathFromURI(this, imageUri));
+
             fos = resolver.openOutputStream(imageUri);
+
         } else {
             String imagesDir = Environment.getExternalStoragePublicDirectory(
                     Environment.DIRECTORY_DCIM).toString() + File.separator + folderName;
@@ -303,6 +339,7 @@ public class LibraryMainActivity extends BaseActivity implements View.OnClickLis
             fos = new FileOutputStream(image);
             System.out.println("Moha Path" + image.getAbsolutePath());
             System.out.println("Moha Path" + image.getCanonicalPath());
+            Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show();
 
         }
 

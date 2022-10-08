@@ -1,6 +1,7 @@
 package com.goread.library.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.goread.library.R;
+import com.goread.library.activities.ChattingActivity;
 import com.goread.library.models.ChatMessage;
 import com.goread.library.models.User;
 
@@ -60,14 +62,16 @@ public class ChatsAdapter extends RecyclerView.Adapter<ChatsAdapter.ViewHolder> 
 
 
 
-      /*  holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, MessageActivity.class);
-                intent.putExtra("userid", user.getId());
+                Intent intent = new Intent(mContext, ChattingActivity.class);
+                intent.putExtra("anotherId", user.getId());
+                intent.putExtra("name", user.getName());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override

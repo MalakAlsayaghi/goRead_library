@@ -117,7 +117,6 @@ public class LoginActivity extends BaseActivity {
                                             }
                                             setFingerprintEnabled();
 
-
                                             if (type.equals("Library")) {
                                                 saveLoginData(email, password);
                                                 Intent intent = new Intent(LoginActivity.this, LibraryMainActivity.class);

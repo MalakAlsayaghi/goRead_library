@@ -155,7 +155,6 @@ public class AddBookActivity extends BaseActivity {
                 String selectedItem = (String) parent.getItemAtPosition(position);
                 category = selectedItem;
 
-                Toast.makeText(AddBookActivity.this, selectedItem, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -234,7 +233,6 @@ public class AddBookActivity extends BaseActivity {
 
 
                                             //next work with URL
-                                            Toast.makeText(getApplicationContext(), fileLink, Toast.LENGTH_LONG).show();
 
                                             String key = databaseReference.push().getKey();
                                             Book book = new Book(key, name, Integer.parseInt(price), desc,
