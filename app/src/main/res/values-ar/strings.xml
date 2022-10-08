@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sign_in">تسجيل دخول</string>
+    <string name="sign_in">تسجيل الدخول</string>
     <string name="enter_email"> أدخل البريد الإلكتروني </string>
-    <string name="choose_category">أختر الفئة</string>
+    <string name="choose_category">أختر القسم</string>
     <string name="add_admins">إضافة مشرف</string>
     <string name="first_name"> الإسم الأول</string>
     <string name="last_name">اللقب</string>
