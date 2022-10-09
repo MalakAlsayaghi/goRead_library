@@ -415,7 +415,7 @@ public class LoginActivity extends BaseActivity {
         });
         // creating a variable for our promptInfo
         // BIOMETRIC DIALOG
-        final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("Ehya")
+        final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder().setTitle("GoRead")
                 .setDescription("Use your fingerprint to login ").setNegativeButtonText("Cancel").build();
         btn_finger.setOnClickListener(new View.OnClickListener() {
             @Override
